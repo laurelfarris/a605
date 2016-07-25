@@ -1,12 +1,114 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+%\usepackage[left=2in, top=1in, right=1in, bottom=1in]{geometry}
 \usepackage[margin=1in]{geometry}
-\usepackage{enumerate}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.75ex}
+\usepackage{graphicx}
+\usepackage{lipsum}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+%\usepackage{mdwlist}
+%\usepackage{color}
+\usepackage{xcolor}
+\usepackage{ragged2e}
 
+\usepackage{marginnote}
+%\xdef\marginnotetextwidth{2in}
+
+\definecolor{bred}{rgb}{0.8, 0.0, 0.0}
+\definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{halayaube}{rgb}{0.4, 0.22, 0.33}
+
+% Sections
+
+\usepackage{titlesec}
+
+%\sectionfont{\fontsize{16}{18}\selectfont}
+%\subsectionfont{\fontsize{14}{16}\selectfont}
+%\subsubsectionfont{\fontsize{12}{14}\selectfont}
+
+%\usepackage{sectsty}
+%\titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
+\titleformat{\section}%
+    [hang]
+  {\fontsize{16}{18}\selectfont\bfseries\color{cadmiumgreen}} %\filcenter\bfseries\LARGE
+  {\Roman{section}.\;}        % label%    {\thesection} %{<label>}
+  {0pt}     % sep
+  {}        % before code
+\titleformat{\subsection}%
+  {\fontsize{14}{16}\selectfont\bfseries\color{darkcyan}} %\filcenter\bfseries\LARGE
+  {} % label%    {\thesection} %{<label>}
+  {0pt}     % sep
+  {}        % before code
+\titleformat{\subsubsection}%
+  {\fontsize{12}{14}\selectfont\bfseries\color{halayaube}} %\filcenter\bfseries\LARGE
+  {\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
+  {0pt}     % sep
+  {}        % before code
+
+%\titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
+%\titlespacing*{\section}{-0.5in}{0ex}{0ex}
+%\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
+
+% Section references
+%\renewcommand{\thesection}{}
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+%\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+
+%\setcounter{secnumdepth}{1}
+
+
+% Lists
+\setlist[itemize]{%
+    itemsep=-1ex}
+\setlist[enumerate]{%
+    itemsep=-1ex}
+\setlist[description]{%
+    itemsep=0ex,
+    align=right,}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+%\renewcommand{\labelitemi}{{\tiny$\bullet$}}
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
+\renewcommand{\descriptionlabel}[1]{%
+    \ttfamily\textcolor{cadet}{#1}
+}
+% Verbatim
+\usepackage{fancyvrb}  % framebox around verbatim text
+\makeatletter
+\renewcommand\verbatim@font{\normalfont\small\ttfamily}
+\makeatother
+
+\usepackage{listings}
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,% underlined bold black keywords % nothing happens
+    identifierstyle=,
+    commentstyle=\color{white},
+    stringstyle=\ttfamily,
+    showstringspaces=false % no special string spaces
+    }
+
+\usepackage{setspace} % spacing between toc items
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+%\setlength{\columnseprule}{0.5pt}
+
+\usepackage{hyperref}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
+\hypersetup{colorlinks=true,
+    urlcolor=darkpowderblue,
+    linkcolor=black % This may be what links the contents in the first place!
+}
+\urlstyle{same}
 
 \begin{document}
-\begin{enumerate}[I.]
+%\reversemarginpar
 
-\item Introduction
+\section{Introduction}
 \begin{itemize}
   \item Neutral gas, molecular gas, general viewpoint -6-
   \item Dust -8-
@@ -21,69 +123,102 @@
   \item Pressure sources -14-
 \end{itemize}
 
-\item Statistical physics in the ISM -16-
-\begin{itemize}
-    \item The ``Big Four''
-    \begin{enumerate}[1.]
-        \item Maxwell distribution -16-
-        \item Boltzmann distribution of energy levels in atoms and molecules
-        \item Saha equation for ionization equilibrium
-        \item Planck function for radiation
-    \end{enumerate}
-    \item Detailed Balancing -19-
-    \item Statistical equilibrium -22-
-\end{itemize}
-
-
-\item Radiative Transfer -24-
-\begin{enumerate}%[(A)]
-  \item radiative transfer equation -26-
-  \item Einstein Coefficients -28-
-  \item Line profile function -31-
-  \begin{enumerate}
-    \item Natural Line Width
-    \item Doppler and Collisional Broadening
-    \begin{enumerate}%[(a)]
-      \item Doppler -- thermal and bulk (turbulence)
-      \item Collisional (pressure)
-    \end{enumerate}
-  \end{enumerate}
-\end{enumerate}
-
-\item HI
+\section{Validity of the laws of statistical physics in ISM conditions}
+\marginpar{-16-}
+Four major laws of statistical physics:
 \begin{enumerate}
-  \item Atomic H in the ISM -33-
-  \item 21 cm line -34-
-  \item Single layer of gas -38-
-  \begin{enumerate}
-    \item $\tau_{\nu_o}  >>$ 1
-    \item $\tau_{\nu_o} <<$ 1
-  \end{enumerate}
-  \item Observing Brightness Temperature -40-
-  \item HI emission and absorption -41-
-  \begin{enumerate}
-    \item absorption of external background source (BGS)
-  \end{enumerate}
-  \item Conclusions -45-
-  \begin{enumerate}
-    \item 1
-    \item 2
-    \item 3
-    \item 4
-  \end{enumerate}
-  \item Relevant Results -47-
-  \begin{enumerate}
-    \item 1
-    \item 2
-    \item 3
-    \item 4
-    \item 5 Problem with Different Temperatures along LOS
-  \end{enumerate}
-  \item Special Cases -48-
-  \item Additional Points on HI -49-
+    \item \textbf{Maxwellian} velocity distribution
+    \item \textbf{Boltzmann distribution} of energy levels in atoms and molecules
+    \item \textbf{Saha equation} for ionization equilibrium
+    \item \textbf{Planck function} for radiation
 \end{enumerate}
+\marginpar{-19-}These four laws hold under thermodynamic equilibrium (TE)
+However, this is not often the case for the ISM\@.
+TE does not hold for two reasons:
+\begin{enumerate}
+    \item It requires \textbf{detailed balancing}
+    \item The strong dilution of the radiation field.
+\end{enumerate}
+\subsection{Detailed Balancing}
+Each process is as likely to occur as its inverse. For example, consider the
+3727 \AA{} emission from O$^{+}$. This is a forbidden transition (actually a
+doublet). The excitation of the electron level occurs through collisions with
+electrons, in most conditions in the ISM.
 
-\item Atomic Structure
+\ldots
+
+\subsection{Statistical equilibrium}
+\marginpar{-22-}In general, assume \textbf{statistical equilibrium}:
+\marginpar{-23-}$\cfrac{\mathrm{d}n_{i}}{\mathrm{d}t} = 0$
+
+\section{Radiative Transfer -24-}
+\section{Radiative transfer equation -26-}
+\section{Einstein coefficients -28-}
+
+\section{Line profile function, $\phi(\nu)$}
+\reversemarginpar
+\marginpar{-31- See RL chapter 10.6 and Draine 6.4}
+\subsection{Natural line width}
+
+\textcolor{bred}{Key point: A small Einstein coefficient $A$ results
+in a \emph{narrow} line.}
+
+The natural line width of most transitions is quite small, and broadening
+due to other effects is more important.
+\subsection{Doppler broadening}
+\begin{itemize}
+    \item Thermal velocities
+    \item Bulk motion (turbulence)
+\end{itemize}
+\subsection{Collisional broadening}
+$\sim$ Pressure broadening, which is not generally important in the ISM because
+the density is so low\ldots mostly occurs in stellar atmospheres.
+This still produces a Lorenzian profile, but with:
+$${
+    \phi(\nu) = \frac{4\Gamma^{2}}{16\pi^{2}(v-v_{o})^{2} + \Gamma^{2}}
+}$$
+
+\section{Atomic H in the ISM}
+\marginpar{-33-\\Draine Ch\\8, 29;\\Ch\\17.1, 17.3}
+Wherever HI dominates the ISM, all atoms are found in the \textbf{ground state}.
+
+ISM is too cool for collisions to happen often and cosmic rays are rare.
+Possible tracers of HI gas:
+\begin{enumerate}
+    \item 21 cm HI transition (=hyperfine transition) in emission or absorption.
+    \item Lyman absorption lines against hot background stars.
+\end{enumerate}
+Only the $^{2}$S level is populated. HI is hard to find in the ground state;
+fine structure $\rightarrow$ different angular momentum.
+\marginpar{See Draine Ch 4 (\& 5) on notation of energy levels and
+atomic structure.}
+
+\marginpar{-34-}
+\subsection{Excitation and radiative transport for the 21-cm line}
+Spin of proton and electron:
+\begin{itemize}
+    \item Parallel (upper energy)
+    \item Anti-parallel (lower energy)
+\end{itemize}
+(Spin is around particle's own axis, not to be confused with angular
+momentum). Motions specified by maxwellian velocity distribution, and
+collisions dominate the level populations (excite and de-excite).
+
+Energy difference (very small):
+\begin{align*}
+    h\nu &= 9.4\times10^{-18}\:\mathrm{erg}\\
+    \nu &= 1420.4\:\mathrm{MHz}\\
+    \lambda &= 21.11\:\mathrm{cm}
+\end{align*}
+
+Spontaneous emission probability is \emph{very} small:
+$${ A_{kj} = 2.86\times10^{-15}\:\mathrm{sec}^{-1}  }$$
+$${ \rightarrow \mathrm{lifetime} = 1.10\times10^{7}\:\mathrm{years} }$$
+More frequently, atoms will flip energy states by \emph{collisions}.
+
+\subsection{Simple case of a single layer of gas}
+
+\section{Atomic Structure}
 \begin{itemize}
   \item electron spin -I6-
   \item spin-orbit coupling -I8-
@@ -92,7 +227,7 @@
   \item x-ray emission, Zeeman effect -I20-
 \end{itemize}
 
-\item HII Regions -51-
+\section{HII Regions -51-}
 \begin{itemize}
     \item Stromgren Theory -52-
     \item HII Region spectra
@@ -122,18 +257,18 @@
     \end{itemize}
 \end{itemize}
 
-\item Spectra in the ISM -89-
+\section{Spectra in the ISM -89-}
 \begin{itemize}
-
-  \item Interstellar absorption lines in stellar and quasar spectra -89-
-  \item Theory of formation of (interstellar) absorption lines -90-
-      \begin{itemize}
-          \item Equivalent width (W) -90-
-      \end{itemize}
-  \item Growth curves in practice -94-
-  \item UV absorption lines from H and H$_2$ -96-
+    \item Interstellar absorption lines in stellar and quasar spectra -89-
+    \item Theory of formation of (interstellar) absorption lines -90-
+        \begin{itemize}
+            \item Equivalent width (W) -90-
+        \end{itemize}
+    \item Growth curves in practice -94-
+    \item UV absorption lines from H and H$_2$ -96-
 \end{itemize}
-\item Dust -104-
+
+\section{Dust -104-}
     \begin{itemize}
   \item Far infrared emission from dust -104-
   \begin{itemize}
@@ -152,13 +287,14 @@
   \end{itemize}
   \item Interstellar reddening -118-
     \end{itemize}
-  \item Molecular Hydrogen and CO -124-
+
+\section{Molecular Hydrogen and CO -124-}
       \begin{itemize}
   \item Molecular gas and CO as a tracer -128-
   \item Collisional Excitation and Ionization -142-
   \item Properties of hot ionized gas and spectrum -145-
   \end{itemize}
-  \item Heating and Cooling -151-
+\section{Heating and Cooling -151-}
     \begin{itemize}
       \item General
       \begin{itemize}
@@ -181,6 +317,5 @@
         \end{itemize}
       \end{itemize}
     \end{itemize}
-\end{enumerate}
 
 \end{document}
