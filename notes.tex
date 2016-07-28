@@ -1,9 +1,11 @@
 \documentclass[12pt]{article}
-%\usepackage[left=2in, top=1in, right=1in, bottom=1in]{geometry}
-\usepackage[margin=1in]{geometry}
+\usepackage[left=1in, top=1in, right=1in, bottom=0.5in]{geometry}
+\setlength{\marginparwidth}{0.5in}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.75ex}
+\pagenumbering{gobble}
 \usepackage{graphicx}
+\usepackage{tasks}
 \usepackage{lipsum}
 %\usepackage{enumerate}
 \usepackage{enumitem}
@@ -14,7 +16,8 @@
 \usepackage{ragged2e}
 
 \usepackage{marginnote}
-%\xdef\marginnotetextwidth{2in}
+%\renewcommand*{\raggedrightmarginnote}{\centering}
+\renewcommand*{\raggedleftmarginnote}{\centering}
 
 \definecolor{bred}{rgb}{0.8, 0.0, 0.0}
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
@@ -22,30 +25,27 @@
 \definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
 \definecolor{halayaube}{rgb}{0.4, 0.22, 0.33}
 
-% Sections
+\definecolor{gray1}{rgb}{0.43, 0.5, 0.5}
+\definecolor{gray2}{rgb}{0.33, 0.33, 0.33}
+\definecolor{gray3}{rgb}{0.41, 0.41, 0.41}
+\definecolor{gray4}{rgb}{0.23, 0.27, 0.29}
 
 \usepackage{titlesec}
-
-%\sectionfont{\fontsize{16}{18}\selectfont}
-%\subsectionfont{\fontsize{14}{16}\selectfont}
-%\subsubsectionfont{\fontsize{12}{14}\selectfont}
-
-%\usepackage{sectsty}
 %\titleformat{<command>}
 %   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
 \titleformat{\section}%
     [hang]
-  {\fontsize{16}{18}\selectfont\bfseries\color{cadmiumgreen}} %\filcenter\bfseries\LARGE
-  {\Roman{section}.\;}        % label%    {\thesection} %{<label>}
+  {\fontsize{15}{17}\selectfont\bfseries\color{gray2}} %\filcenter\bfseries\LARGE
+  {\hspace{-0.25in}\Roman{section}.\;}        % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
 \titleformat{\subsection}%
-  {\fontsize{14}{16}\selectfont\bfseries\color{darkcyan}} %\filcenter\bfseries\LARGE
+  {\fontsize{14}{16}\selectfont\bfseries\color{gray4}} %\filcenter\bfseries\LARGE
   {} % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
 \titleformat{\subsubsection}%
-  {\fontsize{12}{14}\selectfont\bfseries\color{halayaube}} %\filcenter\bfseries\LARGE
+  {\fontsize{13}{15}\selectfont\bfseries\color{black}} %\filcenter\bfseries\LARGE
   {\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
@@ -106,25 +106,147 @@
 \urlstyle{same}
 
 \begin{document}
-%\reversemarginpar
-
+\reversemarginpar
+\marginpar{-6-}
 \section{Introduction}
+Discuss general viewpoint: What can happen to an atom or molecule or dust
+grain sitting in the ISM?
 \begin{itemize}
-  \item Neutral gas, molecular gas, general viewpoint -6-
-  \item Dust -8-
-  \item Ionized Gas -9-
-      \begin{itemize}
-          \item photoionization
-          \item collisions
-          \item cosmic rays
-      \end{itemize}
-  \item Phases of interstellar gas -12-
-  \item Magnetic fields and cosmic rays -13-
-  \item Pressure sources -14-
+    \item Can it absorb a photon? Energy levels $\leftrightarrow$ $h\nu$
+        (Need cross-sections for dust grains)
+    \item Can it collide with other particles? $\rightarrow$ collisional
+        rates [s$^{-1}$ cm$^{-3}$]
+    \item Is there a magnetic field? Is the particle charged?
+    \item Are there cosmic rays? These can penetrate dense gas.
 \end{itemize}
+Three possible sources of ionization (and excitation):
+\begin{tasks}(3)
+\task photons
+\task collisions
+\task cosmic rays
+\end{tasks}
+Typical collisional energies: kinetic energy.
+Translate $mv^{2} \rightarrow kT \rightarrow h\nu \rightarrow eV$.
 
+\paragraph{Dust grains}\marginpar{-8-} also occur in the neutral medium, and
+probably also in the (warm) ionized medium. Dust grains play an important
+role in various processes:
+\begin{itemize}
+    \item extinction of starlight
+    \item emission of absorbed energy in FIR
+    \item formation of molecules often occurs on grain surfaces
+    \item absorption of ionizing UV radiation and Ly$\alpha$ photons
+        (reducing amount of ionizing radiation)
+    \item heating of HI gas by \emph{photoelectric} emission
+\end{itemize}
+Composition: carbon and silicates. Typical sizes: 0.01 - 0.1 $\mu$m
+(How do we know? $\rightarrow$ shape of extinction curve). Grains as small
+as $\sim$ 60 atoms across discovered; evidence from emission lines in NIR
+and excess emission at 5 - 40 $\mu$m over what is expected from dust in the ISM\@.
+The larger dust grains have temperatures between 10 and 40 K, while the small
+ones can be heated to higher temps due to the absorption of even a single
+photon (smaller heat capacity, as volume $\propto r^{3}$). A promising
+candidate for small dust grains: polycyclic aromatic hydrocarbons
+($\sim$ car soot!)
+
+In hot environments, dust grains may be destroyed by \textit{sputtering},
+where collisiosn of grains with other atoms, electrons, or molecules
+knock molecules off the grains. \marginpar{-9-}At low temperatures,
+molecules stick to dust grains, causing depletion of heavy elements
+along certain lines of sight (most dust in the plane).
+Dust contributes about 1\% of the mass of the ISM in the solar
+neighborhood, mostly in the form of large grains.
+
+\paragraph{Ionized gas}
+\begin{enumerate}[label=\alph*)]
+    \item Photoionization: especially effective near hot stars. Shock
+        ionization
+    \item Cosmic rays: can occur throughout most of the ISM, so can also
+        produce a small amount of ionization in denser gas (though
+        recombination happens quickly, so not much of gas is in an
+        ionized state at any given time).
+    \item Collisions\marginpar{-11-} Hot ($\sim 10^{7}$ K) expanding bubble
+        sweeps up shell of warm ($\sim 10^{4}$ K) ionized gas, which shows
+        a different optical spectrum than HII regions. The hot gas shows
+        up by:
+        \begin{itemize}
+            \item Free-free and line x-rays
+            \item absorption lines of highly ionized species toward
+                bright UV sources
+        \end{itemize}
+        Kirchoff's law: apparently can still see absorption lines when looking
+        through a gas that is hotter than the source behind it!
+\end{enumerate}
+
+\paragraph{Magnetic fields and cosmic rays}\marginpar{-13-}
+In the solar neighborhood, $\mathbf{B} \sim 2-5\times10^{6}$ Gauss.
+This follows from measurements of \textit{Faraday rotation}, giving
+$<n_{e}B_{||}>$ toward pulsars and radio sources. The random component of
+the $B$ field is probably as large as the uniform component. In clouds,
+the $B$ field can be much higher, $\sim 70 \mu$G (from Zeeman effect splitting
+measurements).
+
+The magnetic field is important for several reasons:
+\begin{enumerate}
+    \item It aligns elongated grains, giving rise to polarization
+        of starlight
+    \item Causes relativisitic electrons to emit synchrotron radiation,
+        and most likely plays a role in accelerating electrons to
+        relativistic velocities (``magnetic bottle'', Fermi acceleration).
+    \item Provides pressure support against gravitational collapse of matter
+        since it is frozen into the matter due to ionization heavy elements.
+        It also seems to play animportant role in solving the angular momentum
+        problem in star formation.\marginpar{Shu et al.}
+\end{enumerate}
+
+Total energy density of cosmic rays in solar neighborhood:
+$U_{R} \sim 1.3\times10^{-12}$ erg cm$^{-3}$.
+Why are cosmic rays important?\marginpar{-14-}
+\begin{itemize}
+    \item They produce $\gamma$-rays through collisions with atoms and
+        molecules. The observed $\gamma$-ray intensity from the ISM forms
+        an excellent independent measure of the total amount of matter
+        between stars. For example, calibrating the conversion factor of
+        CO line intensity to H$_{2}$ mass.
+    \item Provide pressure against gravitational collapse
+\end{itemize}
+Five pressures that play an important role in supporting the ISM against
+gravitational collapse:
+\begin{enumerate}
+    \item thermal $P=nkT$
+    \item magnetic $P=\cfrac{B^{2}}{8\pi}$
+    \item turbulent (bulk motion)*
+    \item cosmic ray
+    \item radiation
+\end{enumerate}
+* The cloud to cloud velocity dispersion due to turbulence on various
+scales increases line widths [over?] thermal widths. From the table
+on page -12-, you will note rough thermal pressure euqilibrium between
+the components. This is not a coincidence; in fact, some of this
+information was inferred by assuming pressure equilibrium. The
+argument is that if there were no equilibrium, the resulting
+perturbations would be wiped out on sound-crossing time scales, which
+are short compared to\marginpar{-15-} the time scales we wouuld
+consider the ISM to evolve over.
+
+However, the actual evidence for equilibrium in the thermal pressure
+is scarse, and there are claims that it is not true in the very local
+ISM\footnote{\href{http://www.nature.com/nature/journal/v375/n6528/abs/375212a0.html}
+{Bowyer et al. \textit{Nature} 1905}}.
+
+There seems to be a ``cosmic conspiracy'': the estimates for the
+thermal, magnetic, and cosmic ray pressure for the solar neighborhood
+give roughly equal numbers for all three. Thus it may be inappropriate
+to only consider the thermal pressure (the only one that can be
+measured with much certainty). Interestingly, the magnetic pressure
+number is also very similar to the energy density of the CMB\@.
+\footnote{Draine discusses possible reasons in section 1.3}
+\footnote{Supplemental info in Draine chapter 1.}
+
+Next\marginpar{-16-} section is sort of a shortened condensation of Draine's chapters
+2 and 3. We may come back to specific topics discussed there in more
+detail.
 \section{Validity of the laws of statistical physics in ISM conditions}
-\marginpar{-16-}
 Four major laws of statistical physics:
 \begin{enumerate}
     \item \textbf{Maxwellian} velocity distribution
@@ -132,31 +254,216 @@ Four major laws of statistical physics:
     \item \textbf{Saha equation} for ionization equilibrium
     \item \textbf{Planck function} for radiation
 \end{enumerate}
-\marginpar{-19-}These four laws hold under thermodynamic equilibrium (TE)
+
+\paragraph{Maxwellian} $T$ is defined by motion of particles.
+($\vec{\omega}$ = velocity = $\vec{v}$ in Draine).
+$f(\vec{\omega})\mathrm{d}\vec{\omega}$ = fractional number of
+particles whose velocity lies within the three-dimensional volume element
+$\mathrm{d}\vec{\omega} =
+\mathrm{d}\omega_{x}\mathrm{d}\omega_{y}\mathrm{d}\omega_{z}$,
+centered at velocity $\vec{\omega}$.
+
+In thermodynamic equilibrium, $f(\vec{\omega})$ is isotropic, so
+$\vec{\omega} \rightarrow \omega$.
+$${ f(\omega) =
+    \frac{\ell^{3/2}}{\pi^{3/2}}\exp(-\ell^{2}\omega^{2});\quad
+    \ell^{2} = \frac{m}{2kT} = \frac{3}{2<\omega^{2}>}
+}$$ $${
+    f(\omega) = \left(\frac{m}{2\pi kT}\right)^{3/2}
+    \exp\left(-\frac{m\omega^{2}}{2kT}\right)
+}$$
+For two groups of particles with different masses, we replace $\omega$
+by $u$, the relative velocity between the two groups, and $m$ by the
+reduced mass $m_{r} = \cfrac{m_{1}m_{2}}{m_{1}+m_{2}}$.
+For\marginpar{-17-} H atoms colliding with particles of mass $Am_{H}$,
+Spitzer derives:$${
+    <u> = \left[\frac{8kT}{\pi m_{r}}\right]^{1/2}
+    = 1.46\times10^{4}\sqrt{T}\left(1+\frac{1}{A}\right)^{1/2}\;
+    [\mathrm{cm\; s}^{-1}]
+}$$
+\ldots Speed vs.\ velocity
+
+The Maxwell velocity distribution is characterized by several speeds:
+\begin{itemize}[itemsep=1ex]
+    \item Most probable speed: $\omega_{o} = \sqrt{\cfrac{2kT}{m}}$
+    \item RMS speed: $<\omega^{2}>^{1/2} = \sqrt{\cfrac{3kT}{m}}$
+    \item RMS velocity in one direction:
+        $<\omega_{x}^{2}>^{1/2} = \sqrt{\cfrac{kT}{m}}$
+\end{itemize}
+\paragraph{Boltzmann distribution}
+gives the
+\marginpar{-18-}
+population of energy levels in an atom or molecule:$${
+    \frac{n_{u}}{n_{l}} =
+    \frac{g_{u}}{g_{l}}\exp\left[-\left(E_{u}-E_{l}\right)/kT\right]
+}$$
+where $n_{u,l}$ are the number densities, $g_{u,l}$ are the
+statistical weights, and $E_{u,l}$ are the energies of the levels.
+(Partition function: summing over all energy levels\ldots chemical
+term).
+
+\paragraph{Saha equation} describes ionization equilibrium:$${
+    \frac{n_{i+1}}{n_{i}} = \frac{g_{i+1}g_{e}}{g_{i}}
+    \left(\frac{2\pi m_{e}kT}{h^{2}}\right)^{3/2}
+    \exp\left(-I/kt\right)
+}$$
+where $I$ is the ionization potential for an ion in the ground state
+and initial ionization state $i$ (aka, the energy required to ionize
+from $i$ to $i+1$). $g_{e} = 2$ (two spin conditions). Electrons
+affect whether and how easily atoms can be ionized.
+
+\paragraph{Plank function} specifies the radiation field:
+\footnote{
+    $e^{x} \approx 1+x$ for $x<<1$\\
+    $e^{h\nu/kT}-1 \approx 1$ for $h\nu<<kT$\\
+    $e^{h\nu/kT}-1 \approx e^{h\nu/kT}$ for $h\nu>>kT$}
+\begin{align*}
+    B(\nu) &= \;\frac{2h\nu^{3}}{c^{2}}\frac{1}{\exp[h\nu/kT]-1}\\
+    &= \;\sim \frac{2\nu^{2}}{c^{2}}kT\quad \mathrm{for}\;h\nu<<kT\;
+    (\mathrm{Rayleigh-Jeans})\\
+    &= \;\sim \frac{2h\nu^{3}}{c^{2}}\exp[-h\nu/kT]\quad\mathrm{for}\;h\nu>>kT
+    (\mathrm{Wien})
+\end{align*}
+
+\section{Statistical equilibrium}
+\textcolor{bred}{The\marginpar{-19-} four laws discussed above hold under
+thermodynamic equilibrium (TE).}
 However, this is not often the case for the ISM\@.
-TE does not hold for two reasons:
-\begin{enumerate}
-    \item It requires \textbf{detailed balancing}
-    \item The strong dilution of the radiation field.
-\end{enumerate}
-\subsection{Detailed Balancing}
-Each process is as likely to occur as its inverse. For example, consider the
-3727 \AA{} emission from O$^{+}$. This is a forbidden transition (actually a
-doublet). The excitation of the electron level occurs through collisions with
-electrons, in most conditions in the ISM.
+Thermodynamic equilibrium requires \textbf{detailed balancing},
+i.e.\ each process is as likely to occur as its inverse.
+\underline{Example}: Consider the 3727 \AA{} emission from O$^{+}$. This is
+a forbidden transition (actually a doublet). The excitation of the electron
+level occurs through collisions with electrons, in most conditions in the
+ISM\@. If detailed balancing were to hold, de-excitation should also occur
+by collisions. However, as we will see, under the low density conditions
+found in the ISM, collisions are rare, and de-excitation is more likely to
+proceed through emission of a photon, in spite of the fact that we are
+dealing with a forbidden transition. Thus [OII] emission can be quite strong,
+and by converting collisional (kinetic) energy into radiation, we actually have
+created a cooling mechanism for the gas.
 
-\ldots
+Another reason why TE does not hold is the strong \textbf{dilution} of
+the radiation field: the concept of a dilute radiation field is quite familiar.
+For example, the sun's photosphere is $\sim$ 6000 K, and at the surface the
+flux leaving the sun is approximately that of a blackbody of this temperature.
+However, the Earth is not 6000 K because by the time the radiation reaches us,
+it is diluted. \textcolor{bred}{A diluted radiation field is one in which
+the energy density does not match the color temperature.}
 
-\subsection{Statistical equilibrium}
-\marginpar{-22-}In general, assume \textbf{statistical equilibrium}:
-\marginpar{-23-}$\cfrac{\mathrm{d}n_{i}}{\mathrm{d}t} = 0$
+For \marginpar{-20-}the solar neighborhood, the total energy density of the
+radiation field due to all stars in that volume is about 1 eV cm$^{-3}$
+(close to cosmic ray density, as mentioned before). When interpreted as an
+average temperature using the Stefan-Boltzmann law (energy density of a
+blackbody, u = aT$^{4}$), this energy density implies an equivalent temperature
+of $\sim$ 3 K. Yet the color temperature implied by the shape of the spectrum
+of this Interstellar Radiation Field (ISRF) is that of A and B stars
+(T $\sim$ 10$^{4}$ K). So there is a \textbf{dilution factor} $W$ given by:
+$${ W \approx (\frac{3}{10^{4}})^{4} \approx 0.25\times10^{-14}
+}$$
+We conclude that using the Plank law to describe intensities is not correct.
 
-\section{Radiative Transfer -24-}
+What about the other laws?
+
+\paragraph{1. Maxwell velocity distribution} Good news! It is generally
+valid. Detailed balancing is possible for the elastic collisions that are
+generally occurring. Because the maxwellian distribution is a good
+description of the motions of the particles, we can define a kinetic
+temperature which describes the physical condition of the gas. Often,
+for a plasma, the kinetic temperature is equal to the electron temperature:
+$T_{ions} = T_{e}$. $T_{ions} \neq T_{e}$ may occur behind shocks.
+
+\paragraph{2. Boltzmann distribution} is rarely correct.\marginpar{-21-}
+If excitation and de-excitation occurs by photons, we may still not have a
+Boltzmann distribution because the photon distribution is not given by the
+Plank function. Often we do not even have detailed balancing.
+However, as we will see, sometimes the distribution of excited levels
+is not too different from Boltzmann distribution. This happens when collisions
+dominate excitation and de-excitation, while radiation is relatively unimportant.
+
+To describe situations close to TE, Spitzer introduced the so-called
+b-factors (Draine calls them ``departure coefficients'').
+$${ b_{j} \equiv
+    \frac{n_{j}(\mathrm{true\; distribution}}{n_{j}(\mathrm{LTE\; distribution})}
+}$$
+Example: in an HII region, the hightest excited levels of HI have $b_{j} \sim 1$.
+Some radiation does escape (producing radio recombination lines) but collisions
+dominate the level populations. Since motions of particles \emph{are} described
+by a Maxwellian velocity distribution, whenever collisions dominate the level
+population they will closely follow a Boltzmann law.
+
+In \marginpar{-22-}general, a Maxwellian velocity distribution tends to set up
+a Boltzmann population for energy levels in the atoms/particles \emph{if}
+transitions resulting from emission and absorption of photons are relatively
+unimportant, and collisional (de-)excitation is dominant.
+In the case of the highly excited levels in H mentioned before,
+collisions with electrons are dominant.
+
+\paragraph{3. Saha equation} is generally not valid. There is no detailed
+balancing, and even though the ionization and recombination processes are
+each other's inverse, the ionization process is determined by the photon
+field in most cases, while the recombination process is determined by collisions
+between A$^{+}$ and e$^{-}$. The collision rate depends on \{$n_{e}, n_{A^{+}}$\}
+and $T_{e}$, but the ionization is dependent on $T_{radiation} (\neq T_{e})$.
+
+So in general, assume \textbf{statistical equilibrium}, where there is
+a balance between transitions one way and the other way, no matter
+what process caused each transition.
+
+In level $i$, we have $n_{i}$ atoms cm$^{-3}$, and
+$R_{ij}$ is the rate coefficient such that
+
+$n_{i}R_{ij}$ [s$^{-1}$] = \# transitions from level $i$ to level $j$\\
+$R_{ji}n_{j}$ [s$^{-1}$] = \# transitions from level $j$ to level $i$\\
+
+$${ \frac{\mathrm{d}n_{i}}{\mathrm{d}t} =
+    \sum_{j}\left(-R_{ij}n_{i} + R_{ji}n_{j}\right);\quad i=1,2,\ldots
+}$$
+In\marginpar{-23-} statistical equilibrium,
+$\cfrac{\mathrm{d}n_{i}}{\mathrm{d}t} = 0$. The rate factor $R_{ij}$
+includes \emph{all} possible processes that would take the atom or
+molecule from level $i$ to $j$. In the worst case, you would have to
+include many processes to calculate the $n_{i}$ values. This requires
+knowledge of a lot of physical input parameters, e.g.\ cross sections
+for particular processes, collisional rate coefficients
+\footnote{Drane section 2.1}, etc.
+
+In other cases, where only one or two processes matter, the situation
+can be very simple. We will encounter cases of each.
+
+Before going more into Ch 2 and 3 in Draine, we will first discuss
+some basic radiative transfer.\footnote{RL Ch 1, Draine Ch 6, 7}
+
+\section{Radiative Transfer}\marginpar{-24-}
+\begin{minipage}{0.45\textwidth}
+    \underline{Flux at surface of a sphere}:
+    \begin{list}{}
+    \item $F_{\nu} = \pi{B_{\nu}}$ for blackbody
+    \item $F_{\nu} = \pi{I_{\nu}}$ for isotropic emitting non-blackbody
+    \end{list}
+\end{minipage}
+\hfill\begin{minipage}{0.45\textwidth}
+    \underline{Flux at a distance $r$}:
+    \begin{list}{}
+    \item $F_{\nu}(r) = \pi{I_{\nu}}(\frac{R}{r})^{2}
+        = \frac{L_{\nu}}{4\pi{r^{2}}}   $\\
+        where $R$ = radius of body and $L_{\nu}$ = luminosity of body
+        [erg s$^{-1}$ Hz$^{-1}$]
+    \end{list}
+\end{minipage}
+
+\marginpar{-25-}
+\subsection{Energy density of radiation}
+$u_{\nu} = \frac{1}{c}\int{I_{\nu}\mathrm{d}\Omega}$ [erg cm$^{-3}$
+Hz$^{-1}$]
+\subsection{Radiation pressure} $P_{\nu} =
+\frac{1}{c}\int{I_{\nu}\cos^{2}\theta\mathrm{d}\Omega}$
+
+\subsection{Emission and absorption coefficients}
+
 \section{Radiative transfer equation -26-}
 \section{Einstein coefficients -28-}
 
 \section{Line profile function, $\phi(\nu)$}
-\reversemarginpar
 \marginpar{-31- See RL chapter 10.6 and Draine 6.4}
 \subsection{Natural line width}
 
@@ -180,7 +487,17 @@ $${
 
 \section{Atomic H in the ISM}
 \marginpar{-33-\\Draine Ch\\8, 29;\\Ch\\17.1, 17.3}
-Wherever HI dominates the ISM, all atoms are found in the \textbf{ground state}.
+Wherever HI dominates the ISM, all atoms are found in the \textbf{ground state}
+($^{2}$S)(n=1). The next excited level ($^{2}$P) is about 10 eV above the
+ground-level. This excitation is very rare and and quickly falls back to
+the ground level, so there is no significant population of this level.
+For example, consider potential excitation mechanism: collision of H-atom
+with cosmic ray particle (lots of energy, probability is once per
+10$^{17}$ seconds), ionizes the H-atom. Recombination results in some
+atoms winding up in $^{2}$P state. But $A$ coefficient for spontaneous
+emission from 2P $\rightarrow$ 2S is 10$^{8}$ s$^{-1}$. Hence, this excitation
+process results in ralative population of 2P level of
+$10^{-8}/10^{17} = 10^{-25}$!
 
 ISM is too cool for collisions to happen often and cosmic rays are rare.
 Possible tracers of HI gas:
@@ -215,6 +532,77 @@ Spontaneous emission probability is \emph{very} small:
 $${ A_{kj} = 2.86\times10^{-15}\:\mathrm{sec}^{-1}  }$$
 $${ \rightarrow \mathrm{lifetime} = 1.10\times10^{7}\:\mathrm{years} }$$
 More frequently, atoms will flip energy states by \emph{collisions}.
+These dominate transitions and cause energy levels to flip.\\
+{\centering H + H $\rightarrow$ H$_{2}^{*}$ $\rightarrow$ H + H}\\
+excited H$_{2}$ molecule (not stable). Chance for collisional excitation
+per second: $\gamma n(H)$ [s$^{-1}$].
+
+\begin{center}
+    \begin{tabular}{c c}
+        $\gamma [\times10^{-11}\;\mathrm{cm}^{3}\mathrm{s}^{-1}]$ & T [K]\\
+        0.23 & 10\\
+        3.0 & 30\\
+        9.5 & 100\\
+        16 & 300\\
+        25 & 1000
+    \end{tabular}
+\end{center}
+As long as $n(H^{o}) > 10^{-2}$ cm$^{-3}$, $\gamma n_{H} >> A$, so
+collisions determine excitation and de-excitation\ldots implies
+detailed balancing, so Boltzmann distribution is valid for level
+populations.
+$${ \frac{n_{1}}{n_{o}} = \frac{g_{1}}{g_{o}}\exp(-h\nu/kT_{k})
+    \approx \frac{g_{1}}{g_{o}}(1-\frac{h\nu}{kT_{k}}) \approx \frac{g_{1}}{g_{o}}
+}$$
+where $T_{k}$ = kinetic gas temperature.
+
+\underline{Derivation}:\marginpar{-35-}
+\ldots
+In general, in situations where stimulated emission and absorption can
+be neglected, we would obtain
+$${ \frac{b_{1}}{b_{o}} = \frac{1}{1 + \frac{A_{10}}{n_{H}\gamma_{10}}}
+    \approx 1
+}$$
+Note: Potential other excitation process of upper level for HI:
+HI + Ly$\alpha$ photon $\rightarrow$ n=2 level (2P). 2P level might cascade
+down to upper 2S hyperfine level.
+
+In principle, one might selectively populate the upper level with this
+so-called photon pumping.\marginpar{D 17.3}
+It turns out that, due to thermilization of the photons this anomalous
+population of the levels does not generally occur. (Ly$\alpha$ photons
+frequently scatter off A-atom again = LTE situation).
+
+Since\marginpar{-37-} the b's are effectively 1, our \textcolor{bred}{main result}
+is that$${
+}$$
+
+Are the HI levels always populated mainly by collisions? No, if n(H$^{o}$ drops
+low enough, and if the HI is warm it doesn't work as well.
+
+The warm HI in our Galaxy has $n_{H}\sim0.4$ cm $^{-3}$ and $T_{k} \approx$ 8000 K.
+But $T_{s}$ = spin temperature, of order $T_{k}$/5, if it weren't for
+excitation by Ly$\alpha$ photons.
+
+But it is true that the 3K background radiation field does \emph{not}
+significantly disturb the equilibrium set up by collisions, as we
+discussed above.
+
+If $n_{H}$ drops to very low values, collisional excitation is ineffective.
+But even in that case, $T_{s} \approx T_{k}$ because of the above mentioned
+Ly$\alpha$ excitation.
+
+In any case, in general we now obtain for the emission coefficient:
+$${
+}$$
+which is independent of T in most circumstances, and for the absorption
+coefficient:
+$${
+}$$
+
+
+
+
 
 \subsection{Simple case of a single layer of gas}
 
