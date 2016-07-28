@@ -16,6 +16,10 @@
 \usepackage{xcolor}
 \usepackage{ragged2e}
 
+\usepackage[symbol]{footmisc}
+\usepackage{perpage}
+\MakePerPage{footnote}
+
 \usepackage{marginnote}
 %\renewcommand*{\raggedrightmarginnote}{\centering}
 \renewcommand*{\raggedleftmarginnote}{\centering}
@@ -97,11 +101,11 @@
 \urlstyle{same}
 
 \begin{document}
-\tableofcontents
+\tableofcontents\newpage
+
 \reversemarginpar
-\marginpar{-6-}
 \section{Introduction}
-Discuss general viewpoint: What can happen to an atom or molecule or dust
+\mar{6}Discuss general viewpoint: What can happen to an atom or molecule or dust
 grain sitting in the ISM?
 \begin{itemize}
     \item Can it absorb a photon? Energy levels $\leftrightarrow$ $h\nu$
