@@ -5,11 +5,12 @@
 \setlength{\parskip}{0.75ex}
 \pagenumbering{gobble}
 \usepackage{graphicx}
-\usepackage{tasks}
+%\usepackage{tasks}
 \usepackage{lipsum}
 %\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{amssymb}
 %\usepackage{mdwlist}
 %\usepackage{color}
 \usepackage{xcolor}
@@ -18,39 +19,30 @@
 \usepackage{marginnote}
 %\renewcommand*{\raggedrightmarginnote}{\centering}
 \renewcommand*{\raggedleftmarginnote}{\centering}
+\newcommand{\mar}[1]{\hspace{0pt}\marginpar{-{#1}-}}
 
 \definecolor{bred}{rgb}{0.8, 0.0, 0.0}
-\definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
-\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
-\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
-\definecolor{halayaube}{rgb}{0.4, 0.22, 0.33}
-
-\definecolor{gray1}{rgb}{0.43, 0.5, 0.5}
-\definecolor{gray2}{rgb}{0.33, 0.33, 0.33}
-\definecolor{gray3}{rgb}{0.41, 0.41, 0.41}
-\definecolor{gray4}{rgb}{0.23, 0.27, 0.29}
 
 \usepackage{titlesec}
 %\titleformat{<command>}
 %   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
 \titleformat{\section}%
     [hang]
-  {\fontsize{15}{17}\selectfont\bfseries\color{gray2}} %\filcenter\bfseries\LARGE
+  {\filcenter\fontsize{15}{17}\selectfont\bfseries} %\filcenter\bfseries\LARGE
   {\hspace{-0.25in}\Roman{section}.\;}        % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
 \titleformat{\subsection}%
-  {\fontsize{14}{16}\selectfont\bfseries\color{gray4}} %\filcenter\bfseries\LARGE
-  {} % label%    {\thesection} %{<label>}
+  {\filcenter\fontsize{14}{16}\selectfont\bfseries} %\filcenter\bfseries\LARGE
+  {\arabic{subsection}.\;}
   {0pt}     % sep
   {}        % before code
 \titleformat{\subsubsection}%
-  {\fontsize{13}{15}\selectfont\bfseries\color{black}} %\filcenter\bfseries\LARGE
+  {\filcenter\fontsize{13}{15}\selectfont\bfseries\itshape} %\filcenter\bfseries\LARGE
   {\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
 
-%\titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
 %\titlespacing*{\section}{-0.5in}{0ex}{0ex}
 %\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
 
@@ -63,11 +55,10 @@
 
 
 % Lists
-\setlist[itemize]{%
+\setitemize{itemsep=-1ex}
+\setenumerate{%
     itemsep=-1ex}
-\setlist[enumerate]{%
-    itemsep=-1ex}
-\setlist[description]{%
+\setdescription{%
     itemsep=0ex,
     align=right,}
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
@@ -106,6 +97,7 @@
 \urlstyle{same}
 
 \begin{document}
+\tableofcontents
 \reversemarginpar
 \marginpar{-6-}
 \section{Introduction}
@@ -120,11 +112,16 @@ grain sitting in the ISM?
     \item Are there cosmic rays? These can penetrate dense gas.
 \end{itemize}
 Three possible sources of ionization (and excitation):
-\begin{tasks}(3)
-\task photons
-\task collisions
-\task cosmic rays
-\end{tasks}
+\begin{enumerate}
+    \item photons
+    \item collisions
+    \item cosmic rays
+\end{enumerate}
+%\begin{tasks}(3)
+%\task photons
+%\task collisions
+%\task cosmic rays
+%\end{tasks}
 Typical collisional energies: kinetic energy.
 Translate $mv^{2} \rightarrow kT \rightarrow h\nu \rightarrow eV$.
 
@@ -295,7 +292,8 @@ gives the
 \marginpar{-18-}
 population of energy levels in an atom or molecule:$${
     \frac{n_{u}}{n_{l}} =
-    \frac{g_{u}}{g_{l}}\exp\left[-\left(E_{u}-E_{l}\right)/kT\right]
+    \frac{g_{u}}{g_{l}}\exp\left[-\left(E_{u}-E_{l}\right)/kT\right] =
+    \frac{g_{u}}{g_{l}}\exp\left[-h\nu_{o}/kT\right]
 }$$
 where $n_{u,l}$ are the number densities, $g_{u,l}$ are the
 statistical weights, and $E_{u,l}$ are the energies of the levels.
@@ -312,7 +310,7 @@ and initial ionization state $i$ (aka, the energy required to ionize
 from $i$ to $i+1$). $g_{e} = 2$ (two spin conditions). Electrons
 affect whether and how easily atoms can be ionized.
 
-\paragraph{Plank function} specifies the radiation field:
+\paragraph{Planck function} specifies the radiation field:
 \footnote{
     $e^{x} \approx 1+x$ for $x<<1$\\
     $e^{h\nu/kT}-1 \approx 1$ for $h\nu<<kT$\\
@@ -360,7 +358,7 @@ of this Interstellar Radiation Field (ISRF) is that of A and B stars
 (T $\sim$ 10$^{4}$ K). So there is a \textbf{dilution factor} $W$ given by:
 $${ W \approx (\frac{3}{10^{4}})^{4} \approx 0.25\times10^{-14}
 }$$
-We conclude that using the Plank law to describe intensities is not correct.
+We conclude that using the Planck law to describe intensities is not correct.
 
 What about the other laws?
 
@@ -375,7 +373,7 @@ $T_{ions} = T_{e}$. $T_{ions} \neq T_{e}$ may occur behind shocks.
 \paragraph{2. Boltzmann distribution} is rarely correct.\marginpar{-21-}
 If excitation and de-excitation occurs by photons, we may still not have a
 Boltzmann distribution because the photon distribution is not given by the
-Plank function. Often we do not even have detailed balancing.
+Planck function. Often we do not even have detailed balancing.
 However, as we will see, sometimes the distribution of excited levels
 is not too different from Boltzmann distribution. This happens when collisions
 dominate excitation and de-excitation, while radiation is relatively unimportant.
@@ -459,34 +457,154 @@ Hz$^{-1}$]
 \frac{1}{c}\int{I_{\nu}\cos^{2}\theta\mathrm{d}\Omega}$
 
 \subsection{Emission and absorption coefficients}
+\subsubsection{Emission}
+\begin{itemize}
+    \item $j_{\nu}$ [erg cm$^{-3}$ sec$^{-1}$ $\Omega^{-1}$ Hz$^{-1}$]
+        spontaneous emission coefficient
+    \item $[j_{\nu}]$ = volume emission coefficient
+    \item $j'_{\nu} = \cfrac{j_{\nu}}{\rho}$ [erg g$^{-1}$ sec$^{-1}$ $\Omega^{-1}$ Hz$^{-1}$]
+        = mass emission coefficient
+    \item $j_{\nu} = \cfrac{\epsilon_{\nu}}{4\pi}$ (isotropic emitter);
+        $\epsilon_{\nu}$ = emissivity [erg cm$^{-3}$ s$^{-1}$ Hz$^{-1}$]
+\end{itemize}
+\subsubsection{Absorption}\marginpar{-26-}
+\begin{itemize}
+    \item $\kappa_{\nu}$ [cm$^{-1}$] volume absorption coefficient (includes
+        \emph{stimulated emission}, aka ``negative absorption'').
+    \item $\kappa'_{\nu} = \cfrac{\kappa_{\nu}}{\rho}$ [g$^{-1}$ cm$^{2}$]
+        = mass emission coefficient
+    \item microscopically: $\kappa_{\nu} = n\sigma_{\nu}$
+\end{itemize}
+Loss of intensity in a beam of light as it travels distance $ds$:$${
+    dI_{\nu} = -\kappa_{\nu}I_{\nu}ds
+}$$
+The absorption process refers to the sum of ``true absorption'' + stimulated emission,
+($\sim$ net emission). It
+removes a \emph{fraction} of the incoming radiation.
 
-\section{Radiative transfer equation -26-}
-\section{Einstein coefficients -28-}
+\paragraph{mean free path: $\ell_{\nu}$} $\tau_{\nu} = \kappa_{\nu}\cdot\ell_{\nu}$,
+so for condition $\tau=1$, $\ell_{\nu} = \cfrac{1}{\kappa_{\nu}} = \cfrac{1}{n\sigma_{\nu}}$
 
-\section{Line profile function, $\phi(\nu)$}
-\marginpar{-31- See RL chapter 10.6 and Draine 6.4}
-\subsection{Natural line width}
+\section{Radiative transfer equation}$${
+    \frac{dI_{\nu}}{ds} = -\kappa_{\nu}I_{\nu} + j_{\nu}
+}$$
+Define \underline{optical depth} (unitless): $${
+    \tau_{\nu} = \int{\kappa_{\nu}ds} }$$
+then $${
+    d\tau_{\nu} = \kappa_{\nu}ds }$$
+or $${
+    \cfrac{dI_{\nu}}{d\tau_{\nu}} =
+    -I_{\nu} + \cfrac{j_{\nu}}{\kappa_{\nu}}
+    \equiv S_{\nu}}$$
+where $S_{\nu}$ = \underline{source function} 
+\begin{itemize}
+    \item $\tau \gtrsim 1$ optically \emph{thick} emission
+    \item $\tau < 1$ optically \emph{thin} emission
+\end{itemize}
+
+\paragraph{Formal solution:}$${
+    I_{\nu}(\tau_{\nu}) = I_{\nu}(o)\mathrm{e}^{-\tau_{\nu}} +
+        \int_{0}^{\tau_{\nu}}\!{\mathrm{e}^{-(\tau_{\nu}-\tau'_{\nu})}
+        S(\tau'_{\nu})\mathrm{d}\tau'_{\nu}}
+}$$
+$\rightarrow$\marginpar{-27-}attenuated incoming beam + contribution from gas itself.
+
+\paragraph{Special cases}
+\begin{enumerate}
+    \item Source function is constant throughout source: $ I_{\nu}(\tau_{\nu}) =
+        I_{\nu}(o)\mathrm{e}^{\tau_{\nu}} + S_{\nu}(1-\mathrm{e}^{-\tau_{\nu}})$
+        \begin{itemize}[itemsep=1ex]
+            \item optically thick emission:
+                $I_{\nu}=S_{\nu}$
+            \item optically thin emission:
+                $I_{\nu}=I_{\nu}(o)(1-\tau_{\nu}) + \tau_{\nu}S_{\nu}$
+        \end{itemize}
+    \item Thermal radiation: $S_{\nu} = B_{\nu}(T) $ (The Planck function)
+        \begin{itemize}[itemsep=1ex]
+            \item optically thick emission:
+                $I_{\nu}=B_{\nu}$
+            \item optically thin emission:
+                $I_{\nu}=\tau_{\nu}B_{\nu}$
+        \end{itemize}
+\end{enumerate}
+
+For \emph{radio} emission: $I_{\nu}$ is replaced by the \underline{brightness temperature},
+$T_{b}$, defined as:$${
+    I_{\nu,\mathrm{obs}} \equiv B_{\nu}(T_b)
+}$$
+In the Rayleigh-Jeans limit for $B_{\nu}$ we get:$${
+    I_{\nu,\mathrm{obs}} = \frac{2\nu^{2}kT_{b}}{c^{2}}
+}$$ or $${
+    I_{b} = \frac{I_{\nu}c^{2}}{2\nu^{2}k}
+}$$
+Solution of the transfer equation in terms of $T_{b}$:$${
+    T_{b,\mathrm{obs}} = T_{b,o}\mathrm{e}^{-\tau_{\nu}} + T(1-\mathrm{e}^{-\tau_{\nu}})
+}$$
+
+where\marginpar{-28-}
+\begin{itemize}
+    \item $T$ is the thermal source temperature (\emph{physical} temperature of the layer)
+    \item $T_{b}$ is the brightness temperature of the incident radiation
+\end{itemize}
+\textcolor{bred}{$T_{b}$ is never greater than $T$!}
+
+\subsection{Einstein coefficients}\footnote{Draine, section 6.1}
+\emph{Transition probabilities per unit time}. Three possible processes:
+\begin{enumerate}
+    \item Spontaneous emission: Einstein $A$ coefficient
+    \item Absorption
+    \item Stimulated\marginpar{-29-} emission
+\end{enumerate}
+
+\subsubsection{Relations between the Einstein coefficients}
+Valid under all conditions since they only refer to \emph{atomic} principles
+(no collisions, just radiation).
+TE: rate of transitions out of state 1 = rate of transitions into state 1
+(per unit volume).
+
+In\marginpar{-30-} TE, apply the Boltzmann law.
+
+\subsubsection{Relations between Einstein coefficients and $\kappa_{\nu}$ and $j_{\nu}$}
+\paragraph{emission coefficient}
+\paragraph{absorption coefficient}
+
+The\marginpar{-31-} second term here for $\kappa_{\nu}$ corresponds to 
+\emph{stimulated emission}.
+
+
+\subsection{Line profile function, $\phi(\nu)$}
+\footnote{See RL chapter 10.6 and Draine 6.4}
+\subsubsection{Natural line width}
 
 \textcolor{bred}{Key point: A small Einstein coefficient $A$ results
 in a \emph{narrow} line.}
 
 The natural line width of most transitions is quite small, and broadening
 due to other effects is more important.
-\subsection{Doppler broadening}
+\subsubsection{Doppler broadening}
 \begin{itemize}
     \item Thermal velocities
     \item Bulk motion (turbulence)
 \end{itemize}
-\subsection{Collisional broadening}
+
+and\marginpar{-32-} the profile function is
+
+\subsubsection{Collisional broadening}
 $\sim$ Pressure broadening, which is not generally important in the ISM because
 the density is so low\ldots mostly occurs in stellar atmospheres.
 This still produces a Lorenzian profile, but with:
 $${
     \phi(\nu) = \frac{4\Gamma^{2}}{16\pi^{2}(v-v_{o})^{2} + \Gamma^{2}}
 }$$
+Can be written in terms of a \emph{Voigt function}:
+
+So\marginpar{-33-} the core of the profile is Gaussian due to Doppler broadening,
+while the wings are much stronger than expected in a Gaussian profile,
+due to the intrinsic line width.
+
 
 \section{Atomic H in the ISM}
-\marginpar{-33-\\Draine Ch\\8, 29;\\Ch\\17.1, 17.3}
+\footnote{Draine Ch 8, 29; Ch 17.1, 17.3}
 Wherever HI dominates the ISM, all atoms are found in the \textbf{ground state}
 ($^{2}$S)(n=1). The next excited level ($^{2}$P) is about 10 eV above the
 ground-level. This excitation is very rare and and quickly falls back to
@@ -507,11 +625,12 @@ Possible tracers of HI gas:
 \end{enumerate}
 Only the $^{2}$S level is populated. HI is hard to find in the ground state;
 fine structure $\rightarrow$ different angular momentum.
-\marginpar{See Draine Ch 4 (\& 5) on notation of energy levels and
+
+\footnote{See Draine Ch 4 (\& 5) on notation of energy levels and
 atomic structure.}
 
-\marginpar{-34-}
 \subsection{Excitation and radiative transport for the 21-cm line}
+\marginpar{-34-}
 Spin of proton and electron:
 \begin{itemize}
     \item Parallel (upper energy)
@@ -556,8 +675,14 @@ $${ \frac{n_{1}}{n_{o}} = \frac{g_{1}}{g_{o}}\exp(-h\nu/kT_{k})
 }$$
 where $T_{k}$ = kinetic gas temperature.
 
+
+
+
+
 \underline{Derivation}:\marginpar{-35-}
-\ldots
+
+Now\marginpar{-36-} assume that\ldots
+
 In general, in situations where stimulated emission and absorption can
 be neglected, we would obtain
 $${ \frac{b_{1}}{b_{o}} = \frac{1}{1 + \frac{A_{10}}{n_{H}\gamma_{10}}}
@@ -568,16 +693,17 @@ HI + Ly$\alpha$ photon $\rightarrow$ n=2 level (2P). 2P level might cascade
 down to upper 2S hyperfine level.
 
 In principle, one might selectively populate the upper level with this
-so-called photon pumping.\marginpar{D 17.3}
+so-called photon pumping\footnote{D 17.3}.
 It turns out that, due to thermilization of the photons this anomalous
 population of the levels does not generally occur. (Ly$\alpha$ photons
 frequently scatter off A-atom again = LTE situation).
 
-Since\marginpar{-37-} the b's are effectively 1, our \textcolor{bred}{main result}
+\mar{37}
+Since the b's are effectively 1, our \textcolor{bred}{main result}
 is that$${
 }$$
 
-Are the HI levels always populated mainly by collisions? No, if n(H$^{o}$ drops
+Are the HI levels always populated mainly by collisions? No, if n(H$^{o}$) drops
 low enough, and if the HI is warm it doesn't work as well.
 
 The warm HI in our Galaxy has $n_{H}\sim0.4$ cm $^{-3}$ and $T_{k} \approx$ 8000 K.
@@ -601,109 +727,136 @@ $${
 }$$
 
 
+\mar{38}
+Using the relation between Einstein coefficients:
 
+\subsection{Consider simple case of a single layer of gas}
 
+\mar{39}
+\paragraph{Consider two cases}
+\begin{enumerate}[label={(\roman*)}]
+    \item $\tau_{\nu_{o}}(L) >> 1$ Optically thick
+    \item $\tau_{\nu_{o}}(L) << 1$ Optically thin
+\end{enumerate}
+In general, the line profile of HI emission is entirely determined by the velocity
+of the atoms, so the assumption of a Gaussian profile is correct.
 
-\subsection{Simple case of a single layer of gas}
+\mar{40}
+\subsection{Observing brightness temperature}
 
-\section{Atomic Structure}
+\fcolorbox{black}{white}{
+    Aside: \textbf{How do we observe HI?}
+}
+
+\mar{41}
+\subsection{HI emission and absorption}
+Distinguish two cases:
+\begin{enumerate}
+    \item Absorption by an HI cloud of an extended background source, usually
+        a continuum source (e.g.\ AGN)
+    \item HI self-absorption (enough of it at same velocity)
+\end{enumerate}
+
+\mar{42}
 \begin{itemize}
-  \item electron spin -I6-
-  \item spin-orbit coupling -I8-
-  \item atoms with multiple electrons -I10-
-  \item transition rules
-  \item x-ray emission, Zeeman effect -I20-
+    \item $T_{b,\mathrm{off}} = T_{s}(1-\mathrm{e}^{-\tau_{\nu}})$
+        in the direction immediately next to the source
+    \item $T_{b,\mathrm{on}} = T_{bo}\mathrm{e}^{-\tau_{\nu}} +
+        T_{s}(1-\mathrm{e}^{-\tau_{\nu}})$
+        directly toward the source
 \end{itemize}
 
-\section{HII Regions -51-}
+\paragraph{Some practical points}
+\begin{enumerate}
+    \item Frequency \emph{band} in a number of channels, together spanning a
+        range in velocity
+    \item The assumption here is that the
+    \item A way to
+    \item Do we really have only \emph{one} HI cloud along the LOS, and is
+        its temperature uniform?
+\end{enumerate}
+
+\mar{43}
+We observe at each frequency
+
+\textcolor{bred}{$T_{b,\mathrm{off}} \leq T_{s} $}
+
+\paragraph{Discussion of some results}
+
+\mar{44}
+Plots
+
+\mar{45}Conclusions:
+\begin{enumerate}
+    \item The absorption profile $(1-\mathrm{e}^{-\tau_{\nu}})$ is always
+    sharper and simpler in structure than the emission line profile.
+    \item \mar{46}The variation in spin temperature, $T_{s}$, makes one
+    wonder whether there is really only one temperature in the cloud.
+    \item The range of $T_{s}$ one finds from absorption line studies is
+        50 K $\leq T_{s} \leq$ 1000 K. However, the upper value is only
+        a lower limit since we don't see absorption anymore for
+        $T_{s} >$ 1000 K.
+    \item One can compare 
+\end{enumerate}
+
+\mar{47}Some relevant results:
+\begin{enumerate}
+    \item HI is \emph{not} concentrated in a small number of giant clouds,
+        as H$_{2}$ is; estimates of filling factor range from 20-90\%?!
+    \item HI occurs roughly 50/50 in two important forms:
+        \begin{itemize}[itemsep=0.5mm]
+            \item CNM = cold neutral medium $\sim$ 80 K
+            \item WNM\footnote{Mebold, 1972} = warm neutral medium $\lesssim$ 8000 K
+        \end{itemize}
+    \item Clouds are filaments and/or sheets, rather than spheres
+    \item At low galactic latitudes, it is not possible to distinguish between
+        WNM and CNM because there is too much material along the line of sight.
+    \item Problem with different temperatures along the line of sight.
+        \mar{48}Then:
+\end{enumerate}
+
+Special cases:
+\begin{enumerate}
+    \item $\tau_{1}>>1$
+    \item $\tau_{1}<<1$
+    \item $\tau_{1}<<1, \tau_{2}<<1$
+\end{enumerate}
+
+\mar{49}Some additional points on HI\footnote{Kulkami \& Heiles}
 \begin{itemize}
-    \item Stromgren Theory -52-
-    \item HII Region spectra
-    \begin{itemize}
-        \item Continuum Radiation -63-
-        \begin{itemize}
-            \item 2-photon
-            \item free-free
-            \item free-bound
-            \item dust
-        \end{itemize}
-        \item Line Radiation -69-
-        \begin{itemize}
-            \item Recombination lines -69-
-            \begin{itemize}
-                \item radio -71-
-                \item optical and IR -72-
-            \end{itemize}
-            \item Collisionally excited lines -79-
-        \end{itemize}
-    \end{itemize}
-\item Types of HII Regions -85-
-    \begin{itemize}
-        \item ``Blister model'' -- cavity inside GMC
-        \item ``Champagne model'' -- half cavity at edge of GMC
-        \item Compact -- only visible at radio and FIR wavelengths
-    \end{itemize}
+    \item HI measurements toward Galactic continuum sources provide
+        (some) information on the distance to these sources,
+        using the velocity of the HI absorption feature to derive
+        a kinematical distance. The usual problem of distance
+        ambiguity may still be a problem here as well, although the
+        total HI column [density?] that is derived from the
+        absorption measurements helps a little in distinguishing
+        near and far distances.
+    \item \textbf{Temperature of WNM}\ldots two methods:
+        \begin{enumerate}
+            \item HI absorption
+            \item UV absorption lines
+        \end{enumerate}
+        So far: data in agreement with 5000 K $\lesssim T \lesssim$ 8000 K,
+        but needs more confirmation.
+    \item \textbf{Temperature of CNM}\ldots from absorption spectra.
+        \mar{50}The absorption lines are \emph{narrow}.
 \end{itemize}
 
-\section{Spectra in the ISM -89-}
-\begin{itemize}
-    \item Interstellar absorption lines in stellar and quasar spectra -89-
-    \item Theory of formation of (interstellar) absorption lines -90-
-        \begin{itemize}
-            \item Equivalent width (W) -90-
-        \end{itemize}
-    \item Growth curves in practice -94-
-    \item UV absorption lines from H and H$_2$ -96-
-\end{itemize}
+Present research on Milky Way HI concentrates on:
+\begin{enumerate}
+    \item Origin of high velocity clouds
+    \item Properties of smallest clouds/features
+    \item Search for HI clouds that may contain dark matter, but no stars
+\end{enumerate}
 
-\section{Dust -104-}
-    \begin{itemize}
-  \item Far infrared emission from dust -104-
-  \begin{itemize}
-    \item General properties of dust -104-
-    \item Absorption efficiency: the Q parameter -105-
-    \item Calculating dust mass from FIR fluxes -106-
-    \begin{itemize}
-      \item Spectrum emitted by dust grains $\rightarrow$
-      modified blackbody spectrum -108-
-    \end{itemize}
-    \item Dust temperatures -109-
-  \end{itemize}
-  \item Interstellar extinction -116-
-  \begin{itemize}
-    \item The extinction law -117-
-  \end{itemize}
-  \item Interstellar reddening -118-
-    \end{itemize}
+\mar{50a, 50b, 50c}
+Images and plots.
 
-\section{Molecular Hydrogen and CO -124-}
-      \begin{itemize}
-  \item Molecular gas and CO as a tracer -128-
-  \item Collisional Excitation and Ionization -142-
-  \item Properties of hot ionized gas and spectrum -145-
-  \end{itemize}
-\section{Heating and Cooling -151-}
-    \begin{itemize}
-      \item General
-      \begin{itemize}
-        \item Primary heat source: photoionization -152-
-        \item Primary cooling source: inelastic collisions -153-
-      \end{itemize}
-      \item HII regions (ionized) -154-
-      \begin{itemize}
-        \item Heating -154-
-        \item Cooling -155-
-      \end{itemize}
-      \item HI gas (neutral) -160-
-      \begin{itemize}
-        \item Dominant cooling line from CII (IP = 11.26 eV)
-        \item HI naturally cool, but observe very warm HI!
-        \item General players:
-        \begin{itemize}
-          \item Cooling function -160-
-          \item Heating function -161-
-        \end{itemize}
-      \end{itemize}
-    \end{itemize}
+\mar{I1}
+\section{Atomic structure}
+\subsection{Introduction}
+\subsection{Hydrogen atom \& hydrogen-like atoms (or ions)}
+\mar{I2}
 
 \end{document}
