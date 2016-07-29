@@ -32,7 +32,7 @@
 %   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
 \titleformat{\section}%
     [hang]
-  {\filcenter\fontsize{15}{17}\selectfont\bfseries} %\filcenter\bfseries\LARGE
+  {\filcenter\fontsize{16}{18}\selectfont\bfseries} %\filcenter\bfseries\LARGE
   {\hspace{-0.25in}\Roman{section}.\;}        % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
@@ -861,6 +861,198 @@ Images and plots.
 \section{Atomic structure}
 \subsection{Introduction}
 \subsection{Hydrogen atom \& hydrogen-like atoms (or ions)}
-\mar{I2}
+\mar{I2}\underline{Example}: energy of ground states:
+\begin{itemize}
+    \item H = 13.6 eV
+    \item He$^{+}$ = 54.4 eV
+    \item Li$^{2+}$ = 122.5 eV
+\end{itemize}
+
+\mar{I3}
+\mar{I4}
+\mar{I5}
+\mar{I6}
+\subsection{Electron spin}
+
+\mar{I7}But, since $\vec{J}_{1}$ and $\vec{J}_{2}$ can have different directions,
+there are different possible values of $\vec{J}$.
+
+\mar{I8}
+\subsection{Spin orbit coupling}
+Two possible orientations of electron spin with respect to orbital angular momentum
+lead to a doubling of energy levels of H-like atoms (except $s$-levels, where
+$\ell=0$).
+
+Lines appear in pairs, close together, called doublets.
+Example: for Na D lines, $\lambda$ = 5890\AA{}, 5896\AA{}. (Question: are
+atoms with filled shells + one electron also hydrogen-like? Doubling is due
+to spin-orbit coupling.)
+
+Physically, the spin-orbit coupling produces an extra energy term for the
+electron, proportioned to $\vec{S}\cdot\vec{L}$.
+
+\mar{I10}
+\subsection{Atoms with multiple electrons}
+
+\mar{I11}
+\mar{I12}
+\mar{I13}
+\mar{I14}
+\mar{I15}
+\mar{I16}
+\mar{I17}
+\mar{I18}
+\mar{I19}
+\subsection{Transition rules}
+
+\mar{I20}
+\subsection{X-ray emission}
+\subsection{Zeeman effect}
+
+\mar{I21}
+
+\newpage
+\mar{51}
+\section{HII regions}
+\subsection{Introductory remarks}
+Process: hot OB stars emit UV photons that can ionize the surrounding neutral H
+(and He) medium. In practice, this rquires stars hotter than $\sim$ 30,000
+K, aka.\ spectral type B0 or earlier.
+
+Physics for planetary nebulae is similar, but central stars may be much
+hotter (though they are also dimmer because there is ``more stuff'').
+
+UV photons impart energy to gas by ionizing H and He. Excess kinetic energy
+of created free electrons is shared with ions and other electrons, heating
+the medium. Relevant processes:
+\begin{itemize}
+    \item photoionization
+    \item electron-electron encounters
+    \item electron-ion encounters
+        \begin{itemize}
+            \item Excited ions
+            \item Recombination
+            \item Bremsstrahlung
+        \end{itemize}
+\end{itemize}
+H atom + photon $h\nu$ $\rightarrow$ p$^{+}$ + e$^{-}$ + E$_{k}$
+
+\textcolor{bred}{Since stars create a continuous stream of photons, a
+balance is reached between ionization and recombination.}
+
+Field OB stars: were they born there or travel there somehow? Usually in
+groups (OB associations), dense clouds, etc.
+
+Consequences: $\sim 10^{4}$ K. Warm ionized plasma emitting various forms
+of radiation: recombination, free-free continuum, bree-bound continuum,
+2-photon continuum, collisionally excited forbidden lines from ``metals''.
+If there is dust around, get MIR dust continuum. Runaway OB stars (like
+teenagers!)
+
+1 km $\equiv$ 1 pc in $10^{6}$ years. (?)
+
+$Q_{o}$ [s$^{-1}$]
+= number of ionized photons emitted by OB star per second.
+Factor of 100 from O 9.5V to O 3V (luminosity classes).
+
+\mar{52}
+\subsection{Str\"{o}mgren Theory}
+``It's only a model.''
+
+Classical paper\footnote{Str\"{o}mgren 1939 ApJ 89, 526}
+
+Basic result:
+\begin{itemize}
+    \item Hot star in a uniform medium will ionize a spherical volume out to a certain radius.
+    \item There is a \emph{sharp} boundary from the ionized to the
+        surrounding neutral medium.
+\end{itemize}
+\subsection{Simple derivation}
+Pure H nebula, uniform density. Hot star emits $N_{Lyc}$ photons per
+second ($Lyc$ = Lyman continuum), all at the \emph{same} frequency, $\nu_{o}$.
+The star will ionize the gas, but there is a balance:
+\begin{center}
+    ionization $\leftrightarrow$ recombination
+\end{center}
+Stationary ionization eqilibrium characterized by \textit{degree of ionization}
+inside $R_{o}$: $x(r) \equiv \cfrac{n_{e}(r)}{n_{H}}$ where $n_{H}$ = \emph{total}
+hydrogen density (neutral and ionized).
+$0 \le x \le 1$ ($x = 1 \rightarrow$ complete ionization; $x = 0
+\rightarrow$ completely neutral). Problem: what is the shape of $x(r)$?
+
+Important quantity: the Str\"{o}mgren radius, $R_{SO}$, defined as$${
+    \frac{4}{3}\pi\alpha{n_{H}^{2}}{R_{SO}^{3}} \equiv N_{Lyc}
+}$$
+$\alpha$ is the recombination coefficient (collisional process
+$\sim\rho^{2}$ - more encounters).
+The quantity $N_{Lyc}$\footnote{$N_{Lyc} = S_{4}$ in Spitzer's notation.}
+gives the total number of recombinations per unit
+time (all the magic is here!).\footnote{$S_{4}$ formally should include
+contributions from the diffuse radation field.}
+
+\mar{53}\subsubsection{Description of photoionization equilibrium}
+\paragraph{Overview:} Consider pure H nebula surrouding a single hot star.
+Ionization equilibrium:$${
+    n_{H^{o}}\int_{\nu_{1}}^{\infty}{\frac{4\pi{J\nu}}{h\nu}\sigma_{\nu}\mathrm{d}\nu} =
+    n_{e}n_{p}\alpha(H,T)
+}$$where
+\begin{itemize}
+    \item $n_{H^{o}}$ = neutral hydrogen density
+    \item $J_{\nu}$ = mean intensity of radiation field
+    \item $\sigma_{\nu}$ = ionization cross-section for H by photons with
+        energy above threshold $h\nu_{01}$
+    \item $n_{e}, n_{p}$ = electron and proton densities
+    \item $\alpha(H,T)$ recombination coefficient
+\end{itemize}
+
+\mar{54}Physical conditions: radiative decay from upper levels to $n=1$ is
+quick $\rightarrow$ nearly all neutral hydrogen will be in the ground
+level. Photoionization takes place from the ground level, and is balanced
+by recombination to excited levels, which then quickly de-excite by
+emission of photons.
+
+\mar{55}The summed recombination coefficient ($\alpha$) is the relevant
+quantity because recombination counts, irrespective of the level $n$ to
+which it happens.
+
+\mar{56}Neutral fraction \emph{inside} HII region\footnote{see Draine
+section 15.3}: Consider pure H nebula, and case B recombination (see
+later). \emph{Mean energy} of stellar ionization photons is $h\nu$.
+
+\mar{57}Rewrite latter as:$${
+}$$
+
+so neutral fraction $x$ is small and hence $x^{2} \approx 1$.
+
+\mar{58}Comments:
+\begin{enumerate}
+    \item Reality:
+    \item Is assumption of a static ionization equilibrium realistic? Nope.
+    \item Recombination time scale:
+    \item As we will see later, each Lyc photon results in $\sim$ 0.35
+        H$\alpha$ photons begin produced in this ionization $\rightarrow$
+        recombination equilibrium.
+    \item Next: influence of dust on $R_{SO}$
+\end{enumerate}
+
+\subsection{The spectrum of an HII region}
+\mar{63}
+\subsubsection{Continuum Radiation}
+\subsubsection{Line Radiation}
+\paragraph{Recombination lines}
+\paragraph{Collisionally excited lines in heavy elements}
+
+\subsection{Types of HII Regions}
+\mar{85}In general:
+\begin{itemize}
+    \item HII regions are associated with molecular clouds and dark
+        nebulae.
+\end{itemize}
+
+\subsubsection{``Blister model'' -- cavity inside GMC}
+\subsubsection{``Champagne model'' -- half cavity at edge of GMC}
+\subsubsection{Compact -- only visible at radio and FIR wavelengths}
+
+\section{Interstellar absorption lines in stellar and quasar spectra}
 
 \end{document}

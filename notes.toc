@@ -41,3 +41,25 @@
 \contentsline {section}{\numberline {7}Atomic structure}{}{section.7}
 \contentsline {subsection}{\numberline {7.1}Introduction}{}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Hydrogen atom \& hydrogen-like atoms (or ions)}{}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Electron spin}{}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Spin orbit coupling}{}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}Atoms with multiple electrons}{}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.6}Transition rules}{}{subsection.7.6}
+\contentsline {subsection}{\numberline {7.7}X-ray emission}{}{subsection.7.7}
+\contentsline {subsection}{\numberline {7.8}Zeeman effect}{}{subsection.7.8}
+\contentsline {section}{\numberline {8}HII regions}{}{section.8}
+\contentsline {subsection}{\numberline {8.1}Introductory remarks}{}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Str\"{o}mgren Theory}{}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Simple derivation}{}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Description of photoionization equilibrium}{}{subsubsection.8.3.1}
+\contentsline {paragraph}{Overview:}{}{paragraph*.19}
+\contentsline {subsection}{\numberline {8.4}The spectrum of an HII region}{}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}Continuum Radiation}{}{subsubsection.8.4.1}
+\contentsline {subsubsection}{\numberline {8.4.2}Line Radiation}{}{subsubsection.8.4.2}
+\contentsline {paragraph}{Recombination lines}{}{paragraph*.20}
+\contentsline {paragraph}{Collisionally excited lines in heavy elements}{}{paragraph*.21}
+\contentsline {subsection}{\numberline {8.5}Types of HII Regions}{}{subsection.8.5}
+\contentsline {subsubsection}{\numberline {8.5.1}``Blister model'' -- cavity inside GMC}{}{subsubsection.8.5.1}
+\contentsline {subsubsection}{\numberline {8.5.2}``Champagne model'' -- half cavity at edge of GMC}{}{subsubsection.8.5.2}
+\contentsline {subsubsection}{\numberline {8.5.3}Compact -- only visible at radio and FIR wavelengths}{}{subsubsection.8.5.3}
+\contentsline {section}{\numberline {9}Interstellar absorption lines in stellar and quasar spectra}{}{section.9}

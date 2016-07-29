@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.11.14)  28 JUL 2016 13:34
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.11.14)  29 JUL 2016 14:37
 entering extended mode
  %&-line parsing enabled.
 **notes.tex
@@ -439,12 +439,12 @@ LaTeX Info: Redefining \pageref on input line 103.
 \openout4 = `notes.out'.
 
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <15> not available
-(Font)              size <14.4> substituted on input line 104.
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 104.
 
 
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <15> not available
-(Font)              size <14.4> substituted on input line 104.
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 104.
 
 (./notes.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 15.
@@ -455,7 +455,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 15.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
-))
+)
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+ [][] [][][]\OT1/cmr/m/n/12 Description of pho- 
+ []
+
+)
 \tf@toc=\write5
 \openout5 = `notes.toc'.
 
@@ -466,25 +471,30 @@ stination with the same identifier (name{page.}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.197     \item P
-                 rovides pressure support against gravitational collapse of ...
+l.175             \item a
+                         bsorption lines of highly ionized species toward
 [2]pdfTeX warning (ext4): destination with the same identifier (name{page.}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.253     \item \textbf
-                       {Maxwellian} velocity distribution [3]pdfTeX warning (ex
-t4): destination with the same identifier (name{page.}) has been already used, 
-duplicate ignored
-<to be read again> 
-                   \relax 
-l.316 
-       [4]pdfTeX warning (ext4): destination with the same identifier (name{pag
+l.237 
+       [3]pdfTeX warning (ext4): destination with the same identifier (name{pag
 e.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.364 }$$
-          [5]
+l.290     \item R
+                 MS speed: $<\omega^{2}>^{1/2} = \sqrt{\cfrac{3kT}{m}}$
+[4]pdfTeX warning (ext4): destination with the same identifier (name{page.}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.346 
+       [5]pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.402 
+       [6]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 407.
 
  (/usr/share/texmf/tex/latex/base/omscmr.fd
@@ -501,8 +511,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.422 }$$
-          [6]
+l.463 ...ion{Emission and absorption coefficients}
+                                                   [7]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13> not available
 (Font)              size <12> substituted on input line 464.
@@ -519,14 +529,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.478     \item $
-                 \kappa'_{\nu} = \cfrac{\kappa_{\nu}}{\rho}$ [g$^{-1}$ cm$^{...
-[7]pdfTeX warning (ext4): destination with the same identifier (name{page.}) ha
-s been already used, duplicate ignored
+l.507 \end{itemize}
+                    [8]pdfTeX warning (ext4): destination with the same identif
+ier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.528             \item o
-                         ptically thick emission: [8]
+l.568 
+       [9]
 LaTeX Font Info:    Calculating math sizes for size <13> on input line 571.
 
 
@@ -609,14 +618,7 @@ Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
 Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
 (hyperref)                removing `math shift' on input line 571.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.573 \paragraph{absorption coefficient}
-                                         [9]
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 579.
-
 
 Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
 (hyperref)                removing `math shift' on input line 579.
@@ -637,25 +639,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.624 I
-       SM is too cool for collisions to happen often and cosmic rays are rare.
-[10]pdfTeX warning (ext4): destination with the same identifier (name{page.}) h
-as been already used, duplicate ignored
+l.623 
+       [10]pdfTeX warning (ext4): destination with the same identifier (name{pa
+ge.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.679 }$$
-          [11]pdfTeX warning (ext4): destination with the same identifier (name
-{page.}) has been already used, duplicate ignored
+l.672 \end{center}
+                   [11]pdfTeX warning (ext4): destination with the same identif
+ier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.744 \end{enumerate}
-                      [12]pdfTeX warning (ext4): destination with the same iden
-tifier (name{page.}) has been already used, duplicate ignored
+l.740 \paragraph{Consider two cases}
+                                     [12]pdfTeX warning (ext4): destination wit
+h the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.808     \item
-                HI is \emph{not} concentrated in a small number of giant clo...
-[13]
+l.803     \item O
+                 ne can compare [13]
 Underfull \hbox (badness 10000) in paragraph at lines 857--857
 []\OT1/cmr/m/n/12 -50a,
  []
@@ -665,6 +665,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 857--857
 \OT1/cmr/m/n/12 50b,
  []
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.859 
+       [14]
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
+
+LaTeX Warning: Marginpar on page  moved.
+
 
 LaTeX Warning: Marginpar on page  moved.
 
@@ -672,26 +714,42 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.865 
-       [14]pdfTeX warning (ext4): destination with the same identifier (name{pa
+l.913 
+       [15]pdfTeX warning (ext4): destination with the same identifier (name{pa
 ge.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.866 \end{document}
-                     [15] (./notes.aux)
+l.914 \newpage
+               [16]pdfTeX warning (ext4): destination with the same identifier 
+(name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.974 \begin{center}
+                     [17]pdfTeX warning (ext4): destination with the same ident
+ifier (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1030     \item I
+                  s assumption of a static ionization equilibrium realistic?...
+[18]pdfTeX warning (ext4): destination with the same identifier (name{page.}) h
+as been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1058 \end{document}
+                      [19] (./notes.aux)
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.0pt have occurred.
+(Font)              up to 1.28pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 6832 strings out of 256214
- 92765 string characters out of 1916999
- 259834 words of memory out of 1500000
- 9893 multiletter control sequences out of 10000+200000
- 16841 words of font info for 64 fonts, out of 1200000 for 2000
+ 6890 strings out of 256214
+ 93609 string characters out of 1916999
+ 269882 words of memory out of 1500000
+ 9919 multiletter control sequences out of 10000+200000
+ 17447 words of font info for 66 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 27i,10n,35p,221b,483s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 27i,10n,35p,221b,499s stack positions out of 5000i,500n,6000p,200000b,15000s
 </usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/t
 ype1/bluesky/cm/cmbxti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pf
 b></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/t
@@ -700,15 +758,15 @@ ype1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi6.pfb><
 /bluesky/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/
 share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/blue
 sky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/
-texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
-cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf
-/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy
-8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti10.pfb></usr/share/texmf/fon
-ts/type1/bluesky/cm/cmti12.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msam10
-.pfb>
-Output written on notes.pdf (15 pages, 198817 bytes).
+texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
+cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/
+fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7
+.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts
+/type1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti12.pf
+b></usr/share/texmf/fonts/type1/bluesky/ams/msam10.pfb>
+Output written on notes.pdf (19 pages, 234770 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 131072)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 528 PDF objects out of 1000 (max. 8388607)
+ 139 named destinations out of 1000 (max. 131072)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
