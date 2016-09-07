@@ -1,44 +1,45 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}
-\BOOKMARK [1][-]{section.2}{Validity of the laws of statistical physics in ISM conditions}{}
-\BOOKMARK [1][-]{section.3}{Statistical equilibrium}{}
-\BOOKMARK [1][-]{section.4}{Radiative Transfer}{}
-\BOOKMARK [2][-]{subsection.4.1}{Energy density of radiation}{section.4}
-\BOOKMARK [2][-]{subsection.4.2}{Radiation pressure}{section.4}
-\BOOKMARK [2][-]{subsection.4.3}{Emission and absorption coefficients}{section.4}
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Emission}{subsection.4.3}
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Absorption}{subsection.4.3}
-\BOOKMARK [1][-]{section.5}{Radiative transfer equation}{}
-\BOOKMARK [2][-]{subsection.5.1}{Einstein coefficients}{section.5}
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Relations between the Einstein coefficients}{subsection.5.1}
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Relations between Einstein coefficients and \040and j}{subsection.5.1}
-\BOOKMARK [2][-]{subsection.5.2}{Line profile function, \(\)}{section.5}
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Natural line width}{subsection.5.2}
-\BOOKMARK [3][-]{subsubsection.5.2.2}{Doppler broadening}{subsection.5.2}
-\BOOKMARK [3][-]{subsubsection.5.2.3}{Collisional broadening}{subsection.5.2}
-\BOOKMARK [1][-]{section.6}{Atomic H in the ISM}{}
-\BOOKMARK [2][-]{subsection.6.1}{Excitation and radiative transport for the 21-cm line}{section.6}
-\BOOKMARK [2][-]{subsection.6.2}{Consider simple case of a single layer of gas}{section.6}
-\BOOKMARK [2][-]{subsection.6.3}{Observing brightness temperature}{section.6}
-\BOOKMARK [2][-]{subsection.6.4}{HI emission and absorption}{section.6}
-\BOOKMARK [1][-]{section.7}{Atomic structure}{}
-\BOOKMARK [2][-]{subsection.7.1}{Introduction}{section.7}
-\BOOKMARK [2][-]{subsection.7.2}{Hydrogen atom \046 hydrogen-like atoms \(or ions\)}{section.7}
-\BOOKMARK [2][-]{subsection.7.3}{Electron spin}{section.7}
-\BOOKMARK [2][-]{subsection.7.4}{Spin orbit coupling}{section.7}
-\BOOKMARK [2][-]{subsection.7.5}{Atoms with multiple electrons}{section.7}
-\BOOKMARK [2][-]{subsection.7.6}{Transition rules}{section.7}
-\BOOKMARK [2][-]{subsection.7.7}{X-ray emission}{section.7}
-\BOOKMARK [2][-]{subsection.7.8}{Zeeman effect}{section.7}
-\BOOKMARK [1][-]{section.8}{HII regions}{}
-\BOOKMARK [2][-]{subsection.8.1}{Introductory remarks}{section.8}
-\BOOKMARK [2][-]{subsection.8.2}{Str\366mgren Theory}{section.8}
-\BOOKMARK [2][-]{subsection.8.3}{Simple derivation}{section.8}
-\BOOKMARK [3][-]{subsubsection.8.3.1}{Description of photoionization equilibrium}{subsection.8.3}
-\BOOKMARK [2][-]{subsection.8.4}{The spectrum of an HII region}{section.8}
-\BOOKMARK [3][-]{subsubsection.8.4.1}{Continuum Radiation}{subsection.8.4}
-\BOOKMARK [3][-]{subsubsection.8.4.2}{Line Radiation}{subsection.8.4}
-\BOOKMARK [2][-]{subsection.8.5}{Types of HII Regions}{section.8}
-\BOOKMARK [3][-]{subsubsection.8.5.1}{``Blister model'' -- cavity inside GMC}{subsection.8.5}
-\BOOKMARK [3][-]{subsubsection.8.5.2}{``Champagne model'' -- half cavity at edge of GMC}{subsection.8.5}
-\BOOKMARK [3][-]{subsubsection.8.5.3}{Compact -- only visible at radio and FIR wavelengths}{subsection.8.5}
-\BOOKMARK [1][-]{section.9}{Interstellar absorption lines in stellar and quasar spectra}{}
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Validity of the laws of statistical physics in ISM conditions}{}% 2
+\BOOKMARK [1][-]{section.3}{Statistical equilibrium}{}% 3
+\BOOKMARK [1][-]{section.4}{Radiative Transfer}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Energy density of radiation}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Radiation pressure}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Emission and absorption coefficients}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Emission}{subsection.4.3}% 8
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Absorption}{subsection.4.3}% 9
+\BOOKMARK [1][-]{section.5}{Radiative transfer equation}{}% 10
+\BOOKMARK [2][-]{subsection.5.1}{Einstein coefficients}{section.5}% 11
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Relations between the Einstein coefficients}{subsection.5.1}% 12
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Relations between Einstein coefficients and \040and j}{subsection.5.1}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Line profile function, \(\)}{section.5}% 14
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Natural line width}{subsection.5.2}% 15
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Doppler broadening}{subsection.5.2}% 16
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Collisional broadening}{subsection.5.2}% 17
+\BOOKMARK [1][-]{section.6}{Atomic H in the ISM}{}% 18
+\BOOKMARK [2][-]{subsection.6.1}{Excitation and radiative transport for the 21-cm line}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.2}{Consider simple case of a single layer of gas}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.3}{Observing brightness temperature}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.4}{HI emission and absorption}{section.6}% 22
+\BOOKMARK [1][-]{section.7}{Atomic structure}{}% 23
+\BOOKMARK [2][-]{subsection.7.1}{Introduction}{section.7}% 24
+\BOOKMARK [2][-]{subsection.7.2}{Hydrogen atom \046 hydrogen-like atoms \(or ions\)}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.3}{Electron spin}{section.7}% 26
+\BOOKMARK [2][-]{subsection.7.4}{Spin orbit coupling}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.5}{Atoms with multiple electrons}{section.7}% 28
+\BOOKMARK [2][-]{subsection.7.6}{Transition rules}{section.7}% 29
+\BOOKMARK [2][-]{subsection.7.7}{X-ray emission}{section.7}% 30
+\BOOKMARK [2][-]{subsection.7.8}{Zeeman effect}{section.7}% 31
+\BOOKMARK [1][-]{section.8}{HII regions}{}% 32
+\BOOKMARK [2][-]{subsection.8.1}{Introductory remarks}{section.8}% 33
+\BOOKMARK [2][-]{subsection.8.2}{Str\366mgren Theory}{section.8}% 34
+\BOOKMARK [2][-]{subsection.8.3}{Simple derivation}{section.8}% 35
+\BOOKMARK [3][-]{subsubsection.8.3.1}{Description of photoionization equilibrium}{subsection.8.3}% 36
+\BOOKMARK [3][-]{subsubsection.8.3.2}{the recombination coefficient}{subsection.8.3}% 37
+\BOOKMARK [2][-]{subsection.8.4}{The spectrum of an HII region}{section.8}% 38
+\BOOKMARK [3][-]{subsubsection.8.4.1}{Continuum Radiation}{subsection.8.4}% 39
+\BOOKMARK [3][-]{subsubsection.8.4.2}{Line Radiation}{subsection.8.4}% 40
+\BOOKMARK [2][-]{subsection.8.5}{Types of HII Regions}{section.8}% 41
+\BOOKMARK [1][-]{section.9}{Interstellar absorption lines in stellar and quasar spectra}{}% 42
+\BOOKMARK [2][-]{subsection.9.1}{Theory of formation of \(interstellar\) absorption lines}{section.9}% 43
+\BOOKMARK [1][-]{section.10}{Heating and cooling}{}% 44
+\BOOKMARK [2][-]{subsection.10.1}{Heating and cooling of HI gas}{section.10}% 45

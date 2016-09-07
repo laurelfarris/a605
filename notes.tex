@@ -1,10 +1,10 @@
 \documentclass[12pt]{article}
-\usepackage[left=1in, top=1in, right=1in, bottom=0.5in]{geometry}
+\usepackage[left=1in, top=1in, right=1in, bottom=1in]{geometry}
 \setlength{\marginparwidth}{0.5in}
 \setlength{\parindent}{0em}
-\setlength{\parskip}{0.75ex}
-\pagenumbering{gobble}
+\setlength{\parskip}{2ex}
 \usepackage{graphicx}
+\usepackage{tcolorbox}
 %\usepackage{tasks}
 \usepackage{lipsum}
 %\usepackage{enumerate}
@@ -12,18 +12,42 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 %\usepackage{mdwlist}
-%\usepackage{color}
 \usepackage{xcolor}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}  % Clear all headers and footers (including default page number).
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\thepage}
+
+\definecolor{mygray}{rgb}{0.43, 0.5, 0.5}
+\usepackage{mathtools}
 \usepackage{ragged2e}
+\newlength\ubwidth
+\newcommand\parunderbrace[2]{%
+    \settowidth\ubwidth{$\quad#1\quad$}
+    \begingroup\color{mygray}\underbrace{\color{black}#1}_{%
+    \parbox{\ubwidth}{\scriptsize\centering#2}}\endgroup
+}
+
 
 \usepackage[symbol]{footmisc}
 \usepackage{perpage}
 \MakePerPage{footnote}
+%\renewcommand\footnoterule{\rule{\textwidth}{0.4pt}}
+\renewcommand{\footnoterule}{
+  \kern -3pt
+  \hrule width \textwidth height 0.4pt
+  \kern 2pt
+}
 
 \usepackage{marginnote}
 %\renewcommand*{\raggedrightmarginnote}{\centering}
 \renewcommand*{\raggedleftmarginnote}{\centering}
-\newcommand{\mar}[1]{\hspace{0pt}\marginpar{-{#1}-}}
+\newcommand{\mar}[1]{\hspace{0pt}\marginpar{-\textcolor{black}{#1}-}}
+
+\definecolor{mygreen}{rgb}{0.0, 0.42, 0.24}
+\newcommand{\mynotes}[1]{\textcolor{mygreen}{#1}}
 
 \definecolor{bred}{rgb}{0.8, 0.0, 0.0}
 
@@ -33,17 +57,17 @@
 \titleformat{\section}%
     [hang]
   {\filcenter\fontsize{16}{18}\selectfont\bfseries} %\filcenter\bfseries\LARGE
-  {\hspace{-0.25in}\Roman{section}.\;}        % label%    {\thesection} %{<label>}
+  {\hspace{-0.25in}\arabic{section}.\;}        % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
 \titleformat{\subsection}%
   {\filcenter\fontsize{14}{16}\selectfont\bfseries} %\filcenter\bfseries\LARGE
-  {\arabic{subsection}.\;}
+  {\arabic{section}.\arabic{subsection}.\;}
   {0pt}     % sep
   {}        % before code
 \titleformat{\subsubsection}%
   {\filcenter\fontsize{13}{15}\selectfont\bfseries\itshape} %\filcenter\bfseries\LARGE
-  {\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
+  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
   {0pt}     % sep
   {}        % before code
 
@@ -57,11 +81,12 @@
 
 %\setcounter{secnumdepth}{1}
 
-
-% Lists
-\setitemize{itemsep=-1ex}
+\setitemize{%
+    itemsep=-1ex,
+    topsep=0ex,}
 \setenumerate{%
-    itemsep=-1ex}
+    itemsep=-1ex,
+    topsep=0ex,}
 \setdescription{%
     itemsep=0ex,
     align=right,}
@@ -500,7 +525,7 @@ or $${
     \cfrac{dI_{\nu}}{d\tau_{\nu}} =
     -I_{\nu} + \cfrac{j_{\nu}}{\kappa_{\nu}}
     \equiv S_{\nu}}$$
-where $S_{\nu}$ = \underline{source function} 
+where $S_{\nu}$ = \underline{source function}
 \begin{itemize}
     \item $\tau \gtrsim 1$ optically \emph{thick} emission
     \item $\tau < 1$ optically \emph{thin} emission
@@ -572,7 +597,7 @@ In\marginpar{-30-} TE, apply the Boltzmann law.
 \paragraph{emission coefficient}
 \paragraph{absorption coefficient}
 
-The\marginpar{-31-} second term here for $\kappa_{\nu}$ corresponds to 
+The\marginpar{-31-} second term here for $\kappa_{\nu}$ corresponds to
 \emph{stimulated emission}.
 
 
@@ -748,9 +773,10 @@ of the atoms, so the assumption of a Gaussian profile is correct.
 \mar{40}
 \subsection{Observing brightness temperature}
 
-\fcolorbox{black}{white}{
+%\fcolorbox{black}{white}{
+\begin{tcolorbox}
     Aside: \textbf{How do we observe HI?}
-}
+\end{tcolorbox}
 
 \mar{41}
 \subsection{HI emission and absorption}
@@ -800,7 +826,7 @@ Plots
         50 K $\leq T_{s} \leq$ 1000 K. However, the upper value is only
         a lower limit since we don't see absorption anymore for
         $T_{s} >$ 1000 K.
-    \item One can compare 
+    \item One can compare
 \end{enumerate}
 
 \mar{47}Some relevant results:
@@ -916,7 +942,7 @@ electron, proportioned to $\vec{S}\cdot\vec{L}$.
 \section{HII regions}
 \subsection{Introductory remarks}
 Process: hot OB stars emit UV photons that can ionize the surrounding neutral H
-(and He) medium. In practice, this rquires stars hotter than $\sim$ 30,000
+(and He) medium. In practice, this requires stars hotter than $\sim$ 30,000
 K, aka.\ spectral type B0 or earlier.
 
 Physics for planetary nebulae is similar, but central stars may be much
@@ -935,10 +961,12 @@ the medium. Relevant processes:
             \item Bremsstrahlung
         \end{itemize}
 \end{itemize}
-H atom + photon $h\nu$ $\rightarrow$ p$^{+}$ + e$^{-}$ + E$_{k}$
+H atom + photon $h\nu$ $\longrightarrow$ p$^{+}$ + e$^{-}$ + E$_{k}$
 
 \textcolor{bred}{Since stars create a continuous stream of photons, a
 balance is reached between ionization and recombination.}
+\footnote{Draine Ch 10, 13.1, 14, 15, 17, 18, 27, 28}
+\footnote{Osterbrock AGN$^{2}$}
 
 Field OB stars: were they born there or travel there somehow? Usually in
 groups (OB associations), dense clouds, etc.
@@ -963,7 +991,12 @@ Classical paper\footnote{Str\"{o}mgren 1939 ApJ 89, 526}
 
 Basic result:
 \begin{itemize}
-    \item Hot star in a uniform medium will ionize a spherical volume out to a certain radius.
+    \item Hot star in a uniform medium will ionize a spherical volume
+        out to a certain radius, whose size is determined by:
+        \begin{enumerate}
+            \item Number of ionizing photons emitted by the star
+            \item $\rho$ of medium (determines recombination rate)
+        \end{enumerate}
     \item There is a \emph{sharp} boundary from the ionized to the
         surrounding neutral medium.
 \end{itemize}
@@ -972,10 +1005,11 @@ Pure H nebula, uniform density. Hot star emits $N_{Lyc}$ photons per
 second ($Lyc$ = Lyman continuum), all at the \emph{same} frequency, $\nu_{o}$.
 The star will ionize the gas, but there is a balance:
 \begin{center}
-    ionization $\leftrightarrow$ recombination
+    \vspace{-2ex}\textcolor{bred}{ionization $\longleftrightarrow$ recombination}\vspace{-2ex}
 \end{center}
-Stationary ionization eqilibrium characterized by \textit{degree of ionization}
-inside $R_{o}$: $x(r) \equiv \cfrac{n_{e}(r)}{n_{H}}$ where $n_{H}$ = \emph{total}
+Stationary ionization eqilibrium characterized by \textit{degree of ionization}:$${
+x(r) \equiv \cfrac{n_{e}(r)}{n_{H}}
+}$$where $n_{H}$ = \emph{total}
 hydrogen density (neutral and ionized).
 $0 \le x \le 1$ ($x = 1 \rightarrow$ complete ionization; $x = 0
 \rightarrow$ completely neutral). Problem: what is the shape of $x(r)$?
@@ -983,8 +1017,8 @@ $0 \le x \le 1$ ($x = 1 \rightarrow$ complete ionization; $x = 0
 Important quantity: the Str\"{o}mgren radius, $R_{SO}$, defined as$${
     \frac{4}{3}\pi\alpha{n_{H}^{2}}{R_{SO}^{3}} \equiv N_{Lyc}
 }$$
-$\alpha$ is the recombination coefficient (collisional process
-$\sim\rho^{2}$ - more encounters).
+where $\alpha$ is the recombination coefficient
+(collisional process $\sim\rho^{2} \rightarrow$ more encounters, see \ref{alpha}).
 The quantity $N_{Lyc}$\footnote{$N_{Lyc} = S_{4}$ in Spitzer's notation.}
 gives the total number of recombinations per unit
 time (all the magic is here!).\footnote{$S_{4}$ formally should include
@@ -993,7 +1027,7 @@ contributions from the diffuse radation field.}
 \mar{53}\subsubsection{Description of photoionization equilibrium}
 \paragraph{Overview:} Consider pure H nebula surrouding a single hot star.
 Ionization equilibrium:$${
-    n_{H^{o}}\int_{\nu_{1}}^{\infty}{\frac{4\pi{J\nu}}{h\nu}\sigma_{\nu}\mathrm{d}\nu} =
+    n_{H^{o}}\int_{\nu_{1}}^{\infty}{\frac{4\pi{J_{\nu}}}{h\nu}\sigma_{\nu}\mathrm{d}\nu} =
     n_{e}n_{p}\alpha(H,T)
 }$$where
 \begin{itemize}
@@ -1002,7 +1036,21 @@ Ionization equilibrium:$${
     \item $\sigma_{\nu}$ = ionization cross-section for H by photons with
         energy above threshold $h\nu_{01}$
     \item $n_{e}, n_{p}$ = electron and proton densities
-    \item $\alpha(H,T)$ recombination coefficient
+    \item $\alpha(H,T)$ = recombination coefficient
+    \item LHS: number of \emph{ionizations} per second per cm$^{3}$
+    \item RHS: number of \emph{recombinations} per second per cm$^{3}$
+\end{itemize}
+To first order, not including radiative transfer effects:$${
+    4\pi{J_{\nu}} = \frac{R^{2}}{r^{2}}\pi{F_{\nu}}(0) =
+    \frac{L_{\nu}}{4\pi{r^{2}}}
+}$$
+(Local radiation field.) Order of magnitudes:$${
+    N_{Lyc} = \int_{\nu_{1}}^{\infty}{\frac{L_{\nu}}{h\nu}\mathrm{d}\nu}
+}$$= number of Lyman continuum photons emitted per second.
+\begin{itemize}
+    \item $N_{Lyc} \approx 5\times10^{48}\;\mathrm{sec}^{-1}$ for O6 star
+    \item $\sigma_{\nu} \approx 6\times10^{-18}\;\mathrm{cm}^{2}$
+    \item $\alpha(H,T) \approx 4\times10^{-13}\;\mathrm{cm}^{3}\;\mathrm{sec}^{-1}$
 \end{itemize}
 
 \mar{54}Physical conditions: radiative decay from upper levels to $n=1$ is
@@ -1011,9 +1059,55 @@ level. Photoionization takes place from the ground level, and is balanced
 by recombination to excited levels, which then quickly de-excite by
 emission of photons.
 
+The \emph{photoionization cross-section} ($\sigma \propto \nu^{-3}$) is actually
+rather complicated to calcualte. Spitzer (who calls this erroneously the
+``absorption coefficient'') gives:$${
+    \sigma_{f\nu} = \frac{7.9\times10^{-18}}{Z^{2}}
+    \left(\frac{\nu_{1}}{\nu}\right)^{3}g_{1}f
+}$$
+where $g_{1}f$ = Gaunt factor (from level 1 to free)\footnote{see, e.g.\
+Table 5.1 Spitzer (Draine Ch. 10); see also Fig 13.1 in Draine and Fig. 2.2
+in handout (from Osterbrock).}
+
+Since $\sigma_{\nu} \propto \nu^{-3}$, higher energy photons will
+typically penetrate further into the nebula before being absorbed.
+
+\subsubsection{the recombination coefficient}\label{alpha}
+$\alpha_{n}(H,T)$ = recombination coefficient for \emph{direct} recombination
+to level $n$.$${
+    \alpha^{(n)} \equiv \sum_{m=n}^{\infty}{\alpha_{m}}
+}$$where $m$ = all other levels stepped through to get to $n$.
+
+\mynotes{Note: Ouside of level 1, higher energy not necessarily better
+for ionization. OIII is not necessarily from the same place as OII.
+Free electrons: there is a recombination coefficient for every level,
+depends on velocity of the electron.}
+
 \mar{55}The summed recombination coefficient ($\alpha$) is the relevant
 quantity because recombination counts, irrespective of the level $n$ to
 which it happens.
+
+\mynotes{Larger velocities $\rightarrow$ smaller $\sigma$.}
+
+For a distribution $f(v)\mathrm{d}v$, $n_{e}f(v)v$ = number of electrons
+with velocity $v$ passing through a unit area per second. Thus$${
+    \alpha_{n} = \int_{o}^{\infty}{v\sigma_{n}(H,v)f(v)\mathrm{d}v}
+}$$where $\sigma_{n}(H,v) \propto v^{-2}$ = recombination cross-section to the level
+$n$ for electrons with velocity $v$.$${
+    f(v) = \frac{4}{\sqrt{\pi}}\left(\frac{m}{2kT}
+    \right)^{3/2}v^{2}\mathrm{e}^{-mv^{2}/2kT}
+}$$(Maxwellian). Hence, $\alpha \propto \frac{1}{\sqrt{T}}$\footnote{see e.g.\
+Spitzer, Table 5.2}
+
+We are interested in the total recombination coefficient to all levels:$${
+    \alpha^{(n)} = \sum_{m=n}^{\infty}{\alpha_{m}}
+}$$$\alpha^{(1)}$: summed over all levels. However, for direct recombination
+to level 1, a photon is generated which itself can ionize H again; so the
+recombination coefficient that we are interested in is
+$\alpha^{(2)} \equiv \alpha_{B}$\footnote{see Draine section 14.2}
+\mynotes{This refers to ``case B'': optically thick through Ly$\alpha$
+emission. Almost always here! Most common situation. Case A: very low
+density gas.}
 
 \mar{56}Neutral fraction \emph{inside} HII region\footnote{see Draine
 section 15.3}: Consider pure H nebula, and case B recombination (see
@@ -1026,9 +1120,27 @@ so neutral fraction $x$ is small and hence $x^{2} \approx 1$.
 
 \mar{58}Comments:
 \begin{enumerate}
-    \item Reality:
-    \item Is assumption of a static ionization equilibrium realistic? Nope.
-    \item Recombination time scale:
+    \item Reality: include He, include diffuse radiation field generated
+        from direct recombination to $n=1$ (which can ionize an atom again!),
+        realistic stellar energy spectrum below $\lambda = 912$\AA{};
+        results are qualitatively the same.
+    \item Is assumption of a static ionization equilibrium realistic? No: HII
+        region is overpressureized compared to the surrounding medium: $T_{e}$ and
+        $n$ higher $\longrightarrow$ HII region expands\footnote{First discussed
+        by Kahn (1954)}. Expansion of the ionization front happens rather
+        slowly, $v \propto 1-2$ km s$^{-1}$, dynamical timescale.
+        $\cfrac{R_{SO}}{v} \sim 10^{7}$ years, of order liftime of HII region.
+        So ionization equilibrium does hold.
+    \item Recombination time scale = ionization time scale:$${
+            t_{ionization} \equiv \frac{\frac{4}{3}(R_{SO})^{3}n_{H}}{Q_{o}} =
+            \frac{1}{\alpha_{B}n_{H}} =
+            \frac{1.22\times10^{3}}{n_{2}}\;\mathrm{years} =
+            t_{recombination}
+        }$$
+        ($n_{2} = n_{H}$ in units of 100). The two are identical! So
+        $t_{recombination} \propto \frac{1}{n_{e}}$
+        Key: for $n_{H} > 0.03\;\mathrm{cm}^{-3}\;t_{recombination} <$
+        lifetime of massive stars ($\lesssim$ 5 Myr).
     \item As we will see later, each Lyc photon results in $\sim$ 0.35
         H$\alpha$ photons begin produced in this ionization $\rightarrow$
         recombination equilibrium.
@@ -1038,21 +1150,431 @@ so neutral fraction $x$ is small and hence $x^{2} \approx 1$.
 \subsection{The spectrum of an HII region}
 \mar{63}
 \subsubsection{Continuum Radiation}
-\subsubsection{Line Radiation}
-\paragraph{Recombination lines}
-\paragraph{Collisionally excited lines in heavy elements}
+Sources:
+\begin{itemize}
+    \item free-free\footnote{\S{3.5} Spitzer, Drane ch. 10} = thermal
+        Bremsstrahlung
+    \item free-bound\footnote{See previous footnote}
+    \item two-photon decay\footnote{Osterbrock, pp 89-93}
+    \item emission by dust particles
+\end{itemize}
+\paragraph{Two-photon decay:}
+Transition from $n=2 \rightarrow n=1$ ($\ell=0 \rightarrow \ell=0$) is
+strictly forbidden ($\Delta\ell \neq 0$).
+The actual process happens in two steps, with a virtual intermediate
+phase. Two photons are emitted whose joint energy adds up to the energy
+of a Ly$\alpha$ photon = 3/4 ionization energy of H. The two-photon
+continuum is symmetric about $\nu_{12}/2$ if expressed in photons
+per unit frequency instead.
+
+\paragraph{Free-free emission:}
+Bremsstrahlung, continuous emission and absoprtion by \emph{thermal}
+(Maxwellian velocity distribution) electrons due to \emph{encounters}
+between electrons and positive ions.
+\mynotes{Acceleration/deceleration $\longrightarrow$ photons.}
+
+Classical theory: electron emits a single narrow Em pulse in time,
+with no oscillation in E. $\rightarrow$ FT is broad, almost the FT
+of a $\delta$ function. $\rightarrow$ Emission coefficient $j_{\nu}$ is
+nearly independent of frequency, up to a \emph{cutoff} frequency,
+which corresponds to the Maxwellian velocity distribution of electrons.
+\mar{64}So cutoff frequency is given roughly by $h\nu \sim kT_{e}$.
+(HII regions: $T_{e} \sim 10^{4}$ K, so $h\nu \approx 0.87$ eV and
+$\lambda \approx 1.4 \mu$m).
+
+In practice, dust emission dominates at IR wavelengths, so it is
+unlikely to observe the free-free spectrum this far.
+
+\underline{Emission coefficient}:
+\begin{align*}
+    j_{\nu} &= \frac{8}{3}\left(\frac{2\pi}{3}\right)^{1/2}
+    \frac{Z_{i}^{2}\mathrm{e}^{6}}{m_{e}^{3/2}c^{3}(kT)^{1/2}}
+    g_{ff}n_{e}n_{i}\mathrm{e}^{-h\nu/kT}\\
+    &= 5.44\times10^{-39}\frac{g_{ff}Z_{i}^{2}n_{e}n_{i}}{\sqrt{T}}
+    \mathrm{e}^{-h\nu/kT}\quad
+    [\mathrm{erg}\;\mathrm{cm}^{-3}\;\mathrm{s}^{-1}\;\mathrm{sr}^{-1}\;\mathrm{Hz}^{-1}]
+\end{align*}
+where $\mathrm{e}^{-h\nu/kT}$ is the exponential cutoff due to $kT_{e}$
+and $g_{ff}$ is the Gaunt factor for free-free transitions\footnote{see
+Draine, figure 10.1}.
+
+Total amount of energy radiated in free-free transitions per cm$^{3}$
+per second:$${
+    \epsilon_{ff} = 4\pi\int{j_{\nu}\mathrm{d}\nu}
+}$$\ldots (long-ass equation)
+
+Remember that the corresponding absorption coefficient $\kappa_{\nu}$
+is related to $j_{\nu}$ by Kirchoff's law, since we deal with
+\emph{thermal} emission (\emph{not} blackbody though!)
+$j_{\nu} = \kappa_{\nu}B_{\nu}(T)$ which leads to [anther long-ass
+equation].
+
+\paragraph{Free-bound emission}\mar{68}
+
+\subsubsection{Line Radiation}\mar{69}
+Two kinds:
+\begin{enumerate}
+    \item Recombination lines, predominantly from H and He
+        \begin{itemize}
+            \item optical
+            \item radio
+            \item forbidden
+        \end{itemize}
+    \item Collisionally excited liens in heavy elements
+\end{enumerate}
+\paragraph{Recombination lines:}
+\paragraph{Collisionally excited lines in heavy elements:}\mar{79}
+Generally: electrons don't have enough energy to excite ions from
+the ground state to their first excited states. However, many
+ions have multiplets in their ground state, due to the coupling of
+the electrons individual (orbital and spin) angular momenta.
+
+Many ions have incomplete ``p-shells''; (there is not really a p-shell,
+but we talk about electrons which have $\ell = 1$, corresponding to p).
+Remember:
+
+\begin{tabular}{l l l l}
+    H & 1s\\
+    He & 1s$^{2}$\\
+    C & 1s$^{2}$ & 2s$^{2}$ & 2p$^{2}$\\
+    O & 1s$^{2}$ & 2s$^{2}$ & 2p$^{4}$
+\end{tabular}
+For $n=2$, there is room for 6 p-electrons, since each $n\ell$ has
+a number of $m_{\ell}$ and $m_{s}$ combinations:
+\begin{equation*}
+    \left.
+        \begin{array}{l}
+            m_{\ell}: 2\ell+1\\
+            m_{s}: \pm \frac{1}{2}\\
+        \end{array}
+    \right\}2(2\ell+1)
+\end{equation*}
+So as long as $\ell=1$ is possible (meaning $n>1$), we have 6 potential
+``p-shell'' electrons, \emph{always}.
+
+The enclosed diagram shows the 3 most typical structures of energy
+levels for various elements in different ionization stages.
+For [OIII] we have, in particular: 2 electrons in ``p-shell'',
+$\ell_{1} = \ell_{2}$, so $L = 0, 1, 2$
+
+\mar{81}One can set up 5 equations of statistical equilibrium for each
+of these levels. This shows that both the $^{1}S_{o}$ and the
+$^{1}D_{2}$ levels are populated essentially exclusively by collisions
+from $^{3}P$ level.
+
+So, not surprisingly, the ratio$${
+\frac{N(^{1}S_{0})}{N(^{1}D_{2})}\quad\propto\quad
+\exp\left(\cfrac{-\Delta{E}}{kT}\right)
+}$$
+where $\Delta{E}$ = energy difference between
+$^{1}S_{0}$ and $^{1}D_{2}$
+
+Also, observed flux in $\lambda$4363 line is:$${
+    S(4363) \quad\propto\quad \frac{4}{3}\pi{R^{3}}N('S_{0})A_{4363}h\nu
+}$$and similarly for the 4959 and 5007 lines.
+
+The net result, obtained by solving the equations of statistical
+equilibrium is:$${
+    \frac{S(4959)+S(5007)}{S(4363)} =
+    8.3\exp\left(\frac{3.3\times10^{4}}{T_{e}}\right)
+}$$so this line ratio provides a direct measure of the electron
+temperature.
+
+A similar relationship exists for
+[NII] (6548, 6583, and 5754) lines.
+
+\underline{In general}: Emission lines arising from ions, such as
+O$^{++}$ and N$^{+}$ that have upper energy levels that have considerable
+different energies are useful for estimating $T_{e}$. Vice versa,
+as we will see, ions with closely spaced upper enrgy levels provie
+little info on $T_{e}$, but can be used to derive $n_{e}$
+(examples: [SII], [OII] lines).
 
 \subsection{Types of HII Regions}
 \mar{85}In general:
 \begin{itemize}
     \item HII regions are associated with molecular clouds and dark
         nebulae.
+    \item Structure:
+        \begin{itemize}
+            \item ``Blister model'' -- cavity inside GMC
+            \item ``Champagne model'' -- half cavity at edge of GMC
+        \end{itemize}
 \end{itemize}
+There are also \emph{compact} HII regions, which are only visible at
+radio and FIR wavelengths. These are very young objects, often associated
+with H2O and OH masers, infrared sources, molecular lines of complex
+molecules, etc.
 
-\subsubsection{``Blister model'' -- cavity inside GMC}
-\subsubsection{``Champagne model'' -- half cavity at edge of GMC}
-\subsubsection{Compact -- only visible at radio and FIR wavelengths}
+The \emph{range} in properties of HII regions is
+enormous\footnote{Kennicut, 1984}.
 
+Modeling of HII region spectra: the probably best known code is
+CLOUDY, developed by G. Ferland. You can in put an ioinizing spectrum
+from a star or other, a gas distribution, metallicity, etc., and
+then calculate the detailed emission line spectrum for the region.
+
+HII regions can be density-bounded or radiation-bounded.
+rad: run out of photons before running out of gas.
+density: run out of material before using up photons. No clear boundary.
+
+\newpage
 \section{Interstellar absorption lines in stellar and quasar spectra}
+\mar{89}Discovered in 1904,
+\mynotes{before we were aware of dust, or that
+MW and M31 were separate galaxies.} Typical optical absorption lines
+discovered later include Ca$^{+}$, Na$^{o}$, K, Ti$^{+}$,
+and some molecular lines, e.g.\ CH$^{+}$, CH, CN.
+Lines from more abundant atoms and molecules (H, H$_{2}$, C, N, O, etc.)
+were only found after Copernicus was launched (early 70s) because
+$\lambda < 3000$\AA{} for these lines, so they have to be observed
+from space.
+
+\underline{Key}: Since the absorption process is $\propto I_{incoming}$,
+we can find very small column densities of ISM, provided the
+background source is strong enough.
+
+General, important property: Absorption of optical photons generally
+only occurs from the ground level of the atom, ion, or molecule,
+because only these levels are populated in most conditions
+(remember that kT = 0.86 eV for T = 10$^{4}$ K, or 8.6 eV for T = 10$^{5}$ K).
+This implies that in the formation of absorption lines, stimulated emission
+from the upper level does not play a role.
+
+\mynotes{O$^{+}$ in HII region sits in ground state, can assume ions
+in ISM also stay in $n=1$. Pure absorption foreground screen.
+$I = S(\lambda)\left(1-\mathrm{e}^{-\tau_{\lambda}}\right)$, can
+leave the exponent out ($\rightarrow 0$).}
+
+This is not the case whenever excitation conditions are such that
+absorption lines do arise from excited atoms or molecular levels.
+Usually collisions would be responsibe for the excitation, so keep
+an eye on kT.
+
+\mar{90}Generally, interstellar absorption lines are \emph{narrow} and
+\emph{complex} in structure. So we require very high resolution to
+resolve them:\\
+$\left(\cfrac{\lambda}{\Delta\lambda} > 3\!\times\!10^{5}\right) \Leftarrow$
+ideal, but rarely achieved. \mynotes{res: couple thousand}
+
+\begin{tcolorbox}[colback=darkpowderblue!5!white,colframe=darkpowderblue!75!black,title=Aside]
+Remember that $\cfrac{\Delta\lambda}{\lambda} = \cfrac{\Delta{v}}{c}$
+and for $\cfrac{\lambda}{\Delta\lambda} \ge 3\!\times\!10^{5}
+\rightarrow v \le 1$ km per second. Which implies
+$\Delta\lambda \sim 0.02$ \AA{} at 6000 \AA{} and
+$\Delta\lambda \sim 0.0033$ \AA{} at 1200 \AA{}
+\end{tcolorbox}
+
+\subsection{Theory of formation of (interstellar) absorption lines}
+\mynotes{Ideal background source: bright (especially UV), with a
+fetureless continuum. $\Rightarrow$ Quasars and AGN or hot stars
+(which tend to be more complicated, though quasars sometimes have
+their own lines).}
+
+The high spectral resolution that is required to resolve a line is
+often unattainable. However, even if we cannot \emph{resolve} the
+absorption line, we can still infer some important properties about
+the ISM. As long as the resolution is sufficient to separate absorption lines
+at different velocites, coming from different clouds along the
+line-of-sight, or if only one component is present, we can use the
+\emph{area} of an absorption line, or the \textbf{equivalent width}, EW,
+the width of an absorption line which would absorb 100\% everywhere, and
+which would have the same area as the hatched area. Note that EW
+is always defined relative to $I_{o}$; we \emph{divide} by $I_{o}$.
+
+\mar{91}Note also that if we decrease the resolving power of the
+spectrograph, EW does not change.
+
+\underline{Theoretical expression for EW}:$${
+    \tau_{\nu} = \int_{0}^{\infty}{\kappa_{\nu}\mathrm{d}r};\quad
+    \kappa_{\nu} = h\nu_{u\ell}
+    \frac{n_{\ell}B_{\ell{u}}-n_{u}B_{u\ell}}{c}\phi(\nu)
+}$$(using ``energy density'' definition of $B$ coefficients).
+$u$ = upper level and $\ell$ = lower level.
+
+If stimulated emission can be neglected, we have:$${
+    \kappa_{\nu} = \frac{h\nu_{u\ell}B_{\ell{u}}}{c}n_{\ell}\phi(\nu) \equiv
+    \frac{\pi\mathrm{e}^{2}}{m_{e}c}f_{\ell{u}}n_{\ell}\phi(\nu)
+}$$
+where $f_{\ell{u}}$ = \emph{oscillator strength}
+\mynotes{(historical terminology)},
+and $\frac{\pi\mathrm{e}^{2}}{m_{e}c}$ = ``classical cross-section''\footnote{
+    see for example Rybicki and Lightman, section 3.6}
+\mynotes{$\sim$ Einstein coefficient.}
+
+Use
+$\vert\mathrm{d}v\vert = \cfrac{c}{\lambda^{2}}\vert\mathrm{d}{\lambda}\vert$
+and we obtain:
+\begin{align*}
+    EW &= \int_{o}^{\infty}{\left[1-\mathrm{e}^{-\tau_{\nu}}\right]\mathrm{d}\lambda}\\
+    &= \frac{\lambda^{2}}{c}\int_{o}^{\infty}{
+        \left[1-\mathrm{e}^{-\tau_{\nu}}\right]\mathrm{d}\nu}\\
+    &= \frac{\lambda^{2}}{c}\int_{o}^{\infty}{\mathrm{d}\nu\left[1-\exp\left(
+    -\int_{0}^{\infty}{\left(\frac{\pi\mathrm{e}^{2}}{mc}\right)
+    f_{\ell{u}}n_{\ell}\phi(\nu)\mathrm{d}r}\right)\right]}
+\end{align*}
+\mynotes{$\tau\sim{n_{e}}$}
+
+Now assume: $\phi(\nu)$ independent of $r$ for the particular cloud
+that we are observing. Then:$${
+    EW = \frac{\lambda^{2}}{c}\int_{0}^{\infty}{
+        \mathrm{d}\nu\left[1-\exp\left(-\left(\frac{\pi\mathrm{e}^{2}}{mc}\right)
+        f_{\ell{u}}\phi(\nu)N_{\ell}\right)\right]}
+}$$with $N_{\ell} = \int{n_{\ell}\mathrm{d}\nu}$ = \emph{column density}
+of atoms in level $\ell$. The quantity $\phi(\nu)N_{\ell}$ is the key
+part of this equation.
+
+\mar{92}\underline{Note}: This situation is very different from the
+discussion of HI 21-cm abs lines where the upper level \emph{is}
+populated, and we had to include stimulated emission to first order.
+
+We next assume a Gaussian velocity distribution (Maxwellian) to
+describe the distribution of radial velocities:$${
+    f(v_{rad}) = \frac{1}{\sqrt{\pi}b}\exp\left[
+        -\left(\frac{v_{rad}-v_{o}}{b}\right)^{2}\right]
+}$$where $b = \sqrt{\frac{2kT}{m}}$ (only valid for thermal motions)
+and $\phi(\nu)$ becomes:$${
+    \phi(\nu) = \frac{1}{\sqrt{\pi}}\frac{1}{\Delta{v_{b}}}H(a,u)
+}$$where $a \equiv \cfrac{\Gamma}{4\pi\Delta{v_{b}}}$;
+$u = \cfrac{\nu-\nu*}{\Delta\nu_{b}}$;
+$\Delta\nu_{b} \equiv b\cfrac{\nu_{o}}{c}$; and
+$\nu* = \nu_{o}(1-\cfrac{v_{o}}{c})$, the central frequency of the line.
+$b^{2} = 2\sigma^{2}$ where $\sigma$ = velocity dispersion, and $a$ is
+a measure of where the Gaussian profile levels off to the Lorentzian
+wings\footnote{see notes from before, p. 34}
+\mynotes{(transition of Gaussian line core to the damping wings)}.
+
+\underline{What is all this good for?}
+
+For a given spectral line, we can measure $EW$ from observations.
+Free parameters: $N_{\ell}$, $b$, and $a$. For a given cloud, $b$
+and $a$ are specified, and we can plot $EW$ as a function of $N_{\ell}$.
+\begin{center}
+    $\Longrightarrow$ The Curve of Growth
+\end{center}
+In practice, one plots $\log\left(\cfrac{W}{\lambda}\right)$ against
+$\log\left(N_{\ell}f_{\ell{u}}\lambda\right)$.\footnote{
+    example: figure 3.2 in Spitzer}
+
+We can distinguish three regimes in a curve of growth.
+
+\begin{enumerate}[label={\Roman*}]
+    \item \mar{93}$EW \propto N_{\ell}$ (linear)
+    \item $EW$ almost independent of $N_{\ell}$
+    \item $EW \propto \sqrt{N_{\ell}}$
+\end{enumerate}
+
+
+\newpage
+\section{Heating and cooling}\mar{151}
+Following Spitzer's general formalism\footnote{
+    see also Draine chapters 27, 30, 34}:
+\begin{itemize}[label={}]
+    \item $\Gamma$ = total kinetic energy \emph{gained} [erg cm$^{-3}$ s$^{-1}$]
+    \item $\Lambda$ = total kinetic energy \emph{lost} [erg cm$^{-3}$ s$^{-1}$]
+        (aka.\ the ``cooling function'')
+\end{itemize}
+\mynotes{All the physics are contained in these two quantities; need to find out
+what they are.}
+
+For $\Lambda = \Gamma$ we reach equilibrium temperature, $T_{E}$.
+Since $\Lambda$ and $\Gamma$ may depend on $T_{E}$ themselves, we can
+set up a time dependent differential equation:\[
+    \parunderbrace{n\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{3}{2}kT\right)}
+    {rate of increase in thermal energy for a mono atomic gas}
+    - \parunderbrace{kT\frac{\mathrm{d}n}{\mathrm{d}t}}
+    {work done by gas (energy loss)}
+    = \parunderbrace{\sum_{\varrho,\eta}{\left(
+    \Gamma_{\varrho,\eta}-\Lambda_{\varrho,\eta}\right)}}
+    {Sum over interacting particles}
+    =\quad \Gamma - \Lambda
+\]
+(Note: in what follows we generally ignore ``work done by gas'' component.)
+Also ignored is thermal conduction, which is okay for T$\leq2\times10^{4}$ K.
+If we do have enrgy gain or loss by conduction (electrons), we add
+-$\vec{\nabla}\cdot\left(k\vec{\nabla}T\right)$ to the righthand side.
+\mynotes{Conductivity is hard to figure out, but not important below 20,000 K.}
+$\vec{B}$ fields prevent conductivity across field lines.
+
+\mynotes{ $PV = nRT = NkT \rightarrow P\Delta{V} $ = work done by gas.
+$R = N_{A}k$, where $N_{A}$ is Avagadro's number.}
+
+If a gas is not at its equilibrium temperature (T$_{E}$), we can
+define a ``cooling time'' $t_{T}$ \mynotes{(like a half-life, sorta)}:\[
+    \frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{3}{2}kT\right) =
+    \frac{3}{2}k\left(\frac{T-T_{E}}{t_{T}}\right)
+\]where $T_{E}$ = constant and $T$ = variable. For $T_{E}$ and $t_{T}$
+= constant, $T-T_{E} \propto \mathrm{e}^{-t/t_{T}}$
+\mynotes{(exponential decay for cooling). $t$ obviously can't be negative
+$\rightarrow$ quasi-stable}
+
+\mar{152}If $t_{T} < 0$, unstable situation and gas will cool or heat
+toward an entirely different equilibrium temperature. This is relevant
+to the multi-phase ISM. All the physics is in $\Lambda$ and $\Gamma$.
+
+\underline{General primary heat source}: (photo)ionization \mynotes{-starlight}.
+\begin{itemize}[label={}]
+    \item $E_{2}$ = kinetic energy of ejected electron
+    \item $E_{1}$ = kinetic energy of recaptured electron
+\end{itemize}
+\mynotes{$\Delta{E} = |E_{2} - E_{1}| \rightarrow$ energy available.}
+Number of captures to level $j$ of neutral atom [cm$^{-3}$ s$^{-1}$] =
+$n_{e}n_{i}<\omega\sigma_{cj}>$ where $<\omega\sigma_{cj}>$ =
+recombination coefficient. $\rightarrow$ final net gain associated with
+electron-ion recombination:\[
+    \Gamma_{ei} = n_{e}n_{i}\sum_{j}{\left(
+    \parunderbrace{<\omega\sigma_{cj}>\overline{E}_{2}}{ionization out of $j$} -
+    \parunderbrace{<\omega\sigma_{cj}E_{1}>}{recapture back to $j$}
+    \right)}
+\]
+\begin{itemize}[label={}]
+    \item $<>$ = average over Maxwellian velocity distribution
+    \item $\overline{E}_{2}$ = average over all ionizing photon energies
+\end{itemize}
+As we have seen, all ionizations take place from the ground level
+$\rightarrow \overline{E}_{2}$ is independent of $j$; use recombination
+coefficient to all levels $\geq n$:
+\[
+    \alpha^{(n)} = \sum_{n}^{\infty}{\alpha_{m}}
+\]
+and
+\[
+    \Gamma_{ei} = n_{e}n_{i}\left\{\parunderbrace{
+        \alpha\overline{E}_{2}}{$\equiv \alpha^{(1)}$} - \parunderbrace{
+        \frac{1}{2}m_{e}\sum{<\omega^{3}\sigma_{cj}>}}{kinetic energy}\right\}
+\]
+
+\mar{153}\underline{Main point}: $\Gamma_{ei}$ not dependent on ionization
+probability, or on radiation density for steady state, where number of
+ionizations is equal to the number of recombinations.
+
+\underline{Primary cooling source}: inelastic collisions (hence
+excitation of energy levels).
+\begin{itemize}
+    \item $n_{e}n_{i}\gamma_{jk}$ = number of excitations from level
+        $j \rightarrow k$ [cm$^{-3}$ s$^{-1}$] of ions in ionization
+        stage $i$ and excitation state $j$.
+    \item $E_{jk} = E_{k}-E_{j}$ = energy lost by colliding electrons
+        \mynotes{(emit photons)}
+\end{itemize}
+Also: de-exciting collisions, which give energy gain to electrons.
+\mynotes{Net cooling:}
+\[
+    \rightarrow\Lambda_{ei} = n_{e}\sum_{j<k}{E_{jk}\left(\parunderbrace{
+    n_{ij}\gamma_{jk}}{excitation} - \parunderbrace{
+    n_{ik}\gamma{kj}}{de-excitation}\right)}
+\]
+\mynotes{$\gamma$s are collisional rate coefficients. De-excitation
+process gives energy back to the nebula.}
+Assumption: all photons escape (not true for dense molecular clouds).
+Again, in most cases all ions are in the ground level, so we don't
+need to sum over $j$, and $n_{ij} = n_{i1} = n_{i}$ \mynotes{(simpler)}
+
+
+\subsection{Heating and cooling of HI gas}
+\mar{160}
+
+
+
 
 \end{document}
