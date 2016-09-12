@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
-\usepackage[left=1in, top=1in, right=1in, bottom=1in]{geometry}
+%\usepackage[left=1in, top=1in, right=1in, bottom=1in]{geometry}
+\usepackage[margin=1.5in]{geometry}
 \setlength{\marginparwidth}{0.5in}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{2ex}
@@ -30,7 +31,6 @@
     \parbox{\ubwidth}{\scriptsize\centering#2}}\endgroup
 }
 
-
 \usepackage[symbol]{footmisc}
 \usepackage{perpage}
 \MakePerPage{footnote}
@@ -46,7 +46,8 @@
 \renewcommand*{\raggedleftmarginnote}{\centering}
 \newcommand{\mar}[1]{\hspace{0pt}\marginpar{-\textcolor{black}{#1}-}}
 
-\definecolor{mygreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{notmygreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{mygreen}{rgb}{0.0, 0.26, 0.15}
 \newcommand{\mynotes}[1]{\textcolor{mygreen}{#1}}
 
 \definecolor{bred}{rgb}{0.8, 0.0, 0.0}
@@ -58,21 +59,24 @@
     [hang]
   {\filcenter\fontsize{16}{18}\selectfont\bfseries} %\filcenter\bfseries\LARGE
   {\hspace{-0.25in}\arabic{section}.\;}        % label%    {\thesection} %{<label>}
-  {0pt}     % sep
+  {1em}     % sep
   {}        % before code
 \titleformat{\subsection}%
   {\filcenter\fontsize{14}{16}\selectfont\bfseries} %\filcenter\bfseries\LARGE
-  {\arabic{section}.\arabic{subsection}.\;}
-  {0pt}     % sep
+  {\arabic{section}.\arabic{subsection}\;}
+  {1em}     % sep
   {}        % before code
 \titleformat{\subsubsection}%
   {\filcenter\fontsize{13}{15}\selectfont\bfseries\itshape} %\filcenter\bfseries\LARGE
   {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
-  {0pt}     % sep
+  {1em}     % sep
   {}        % before code
 
 %\titlespacing*{\section}{-0.5in}{0ex}{0ex}
 %\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
+
+\titlespacing*{\paragraph}{0ex}{0ex}{2em}
+%\titlespacing*{\paragraph}{0pt}{1ex}{-2ex}
 
 % Section references
 %\renewcommand{\thesection}{}
@@ -81,21 +85,19 @@
 
 %\setcounter{secnumdepth}{1}
 
-\setitemize{%
-    itemsep=-1ex,
-    topsep=0ex,}
-\setenumerate{%
-    itemsep=-1ex,
-    topsep=0ex,}
-\setdescription{%
-    itemsep=0ex,
-    align=right,}
-\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\setitemize{itemsep=-1ex, topsep=0ex,}
+\setenumerate{itemsep=-1ex, topsep=0ex,}
+\setdescription{itemsep=0ex, align=right,}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\footnotesize$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\footnotesize$\circ$}}$}
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
 \definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
     \ttfamily\textcolor{cadet}{#1}
 }
+
+
+
 % Verbatim
 \usepackage{fancyvrb}  % framebox around verbatim text
 \makeatletter
@@ -1444,7 +1446,8 @@ a measure of where the Gaussian profile levels off to the Lorentzian
 wings\footnote{see notes from before, p. 34}
 \mynotes{(transition of Gaussian line core to the damping wings)}.
 
-\underline{What is all this good for?}
+\subsection{The Curve of Growth}
+What is all this good for?
 
 For a given spectral line, we can measure $EW$ from observations.
 Free parameters: $N_{\ell}$, $b$, and $a$. For a given cloud, $b$
@@ -1457,13 +1460,148 @@ $\log\left(N_{\ell}f_{\ell{u}}\lambda\right)$.\footnote{
     example: figure 3.2 in Spitzer}
 
 We can distinguish three regimes in a curve of growth.
-
 \begin{enumerate}[label={\Roman*}]
     \item \mar{93}$EW \propto N_{\ell}$ (linear)
     \item $EW$ almost independent of $N_{\ell}$
     \item $EW \propto \sqrt{N_{\ell}}$
 \end{enumerate}
 
+\mar{94}
+
+\subsubsection{Turnover points in the curve of growth}
+
+\subsubsection{Growth curves in practice}
+
+\subsection{UV absorption lines from H and H$_{2}$}
+\mar{96}
+
+\newpage
+\section{Dust}
+\mar{104}
+\subsection{Far infrared emission from dust}
+
+
+
+\subsubsection{General properties of dust}
+\subsubsection{Absorption efficiency: the Q parameter}
+\subsubsection{Calculating dust mass from FIR fluxes}
+\subsubsection{Dust temperatures}
+
+\subsection{Interstellar extinction}
+\mar{116}The presence of dust was demonstrated by Trumpler, who detected the
+dimming and reddening of distant stars. \mynotes{High-z proto-galaxies!}
+
+Dust both scatters and absorbs light. The combined effect is
+\textbf{extinction}.
+For a point source (e.g.\ a star), the object is \emph{dimmed}
+by extinction, since both scattered and absorbed light do not reach the
+observer. For an extended source (e.g.\ a galaxy), some light may be scatter
+\emph{into} the line of sight, so the extinction will generally be less than
+for point sources.
+On average, extinction is about 0.6 - 1 mag kpc$^{-1}$
+(reddening is about 0.3 mag kpc$^{-1}$ in (B-V) in the plane of the
+Milky Way - see \S{}\ref{reddening}).
+
+\mynotes{NGC 6240, a heavily obscured starburst nucleus, emits 10 times more
+power in the IR/FIR than in the optical, with peak near 60-100 $\mu$m.
+Large z: shifts into sub-mm. Led to detection of Ultra-Luminous
+IR Galaxies (ULIRGs), where ``ultra-luminous'' is $> 10^{12}$ L$_{\odot}$.
+More typical galaxies have L$_{\mathrm{FIR}} \sim$ L$_{\mathrm{optical}}$.}
+
+\subsubsection{The extinction law}
+\mar{117}Empirical result: reddening in magnitudes
+\[
+    r_{\lambda} = a + \frac{b}{\lambda}
+    \]
+where $a$ and $b$ are roughly constant. This is between two extreme cases:
+\begin{enumerate}
+    \item grey extinction, $r_{\lambda}$ independent of $\lambda$
+    \item Rayleigh scattering, $r_{\lambda} \propto \lambda^{-4}$
+\end{enumerate}
+$\Rightarrow$ particle size is $\sim 10^{-5}$ cm = 0.1 $\mu$m
+\mynotes{(= 100 nm)}.
+
+\[
+    \mathrm{d}I_{\lambda}
+    = -I_{\lambda}n(x)\sigma_{\lambda}\mathrm{d}\lambda
+    = -I\mathrm{d}\tau_{\lambda}
+    \]
+\begin{itemize}
+    \item $n(x)$ = number density of grains at position $x$
+    \item $\sigma_{\lambda}$ = extinction cross-section per dust grain at
+        wavelength $\lambda$
+\end{itemize}
+The star is dimmed by
+\[
+    I_{\lambda} = I_{\lambda} ^{0}\mathrm{e}^{-\tau_{\lambda} }
+    \]
+where
+\[
+    \tau_{\lambda}  = \sigma_{\lambda} \int_{0}^{x} {n(x')\mathrm{d}x'
+    =\sigma_{\lambda}N(x) }
+    \]
+In magnitudes:
+\begin{align*}
+    A_{\lambda}
+    &\equiv -2.5\log\left[ \frac{I_{\lambda} }{I_{\lambda}^{0}} \right]\\
+    &= -2.5\log\left[ \mathrm{e}^{-\tau_{\lambda}} \right]\\
+    &= -2.5\log\left[\mathrm{e}^{\ln(\mathrm{e}^{-\tau_{\lambda}}) }\right]\\
+    &= -2.5\ln(\mathrm{e}^{-\tau_{\lambda}}) \log\left[\mathrm{e} \right]\\
+    &= -2.5 (-\tau_{\lambda}) \log\left[\mathrm{e} \right]\\
+    &= 1.086\tau_{\lambda}
+\end{align*}
+
+\paragraph{Dependence on Galactic latitude:}
+Assume simplest model of uniform dust layer.
+
+\mar{118}In reality, an exponential z-depenence would be more realistic,
+while the dust is also clumped, just like the gaseous ISM.
+
+\subsection{Interstellar reddening}\label{reddening}
+Reddening is caused by the wavelength dependence of extinction.
+We can define a \textbf{color excess}:
+\[
+    E( \lambda_{1}-\lambda_{2} )
+    \equiv \parunderbrace{
+        ( m_{\lambda1}-m_{\lambda2} )}{observed color}
+    - \parunderbrace{
+        ( m_{\lambda1,0}-m_{\lambda2,0} )}{intrinsic color}
+    \]
+e.g.:
+\[
+    E(B-V) = (B-V) - (B-V)_{0}
+    \]
+
+\underline{Question}: How is the reddening measured?
+
+Reddening line is defined by the extinction law.
+\[
+    E(U-B) = \parunderbrace{
+        0.72}{``standard Galactic reddening law''}
+    E(B-V) +
+    \parunderbrace{0.05(B-V)}{minor correction}
+    \]
+We can define \textit{reddening free colors}, if the shape of the reddening law
+is known. For example, the following is reddening free:
+\[
+    Q \equiv (U-B)
+    - \frac{E(U-B)}{E(B-V)}(B-V)
+    = (U-B) - 0.72(B-V)
+    \]
+
+\mar{119}In general:
+\begin{align*}
+    m_{i} &= m_{i}^{0} + A(\lambda_{i})\\
+    m_{j} &= m_{j}^{0} + A(\lambda_{j})
+\end{align*}
+\[
+    \]
+
+2200\AA{} bump.
+
+\newpage
+\section{Molecular hydrogen and CO}
+\mar{124}
 
 \newpage
 \section{Heating and cooling}\mar{151}
@@ -1488,22 +1626,26 @@ set up a time dependent differential equation:\[
     \Gamma_{\varrho,\eta}-\Lambda_{\varrho,\eta}\right)}}
     {Sum over interacting particles}
     =\quad \Gamma - \Lambda
-\]
-(Note: in what follows we generally ignore ``work done by gas'' component.)
-Also ignored is thermal conduction, which is okay for T$\leq2\times10^{4}$ K.
+    \]
+(Note: in what follows, we generally ignore ``work done by gas'' component.)
+
+For T$\lesssim2\times10^{4}$ K, thermal conduction can be ignored.
 If we do have enrgy gain or loss by conduction (electrons), we add
 -$\vec{\nabla}\cdot\left(k\vec{\nabla}T\right)$ to the righthand side.
 \mynotes{Conductivity is hard to figure out, but not important below 20,000 K.}
-$\vec{B}$ fields prevent conductivity across field lines.
+($\vec{B}$ fields prevent conductivity across field lines.)
 
 \mynotes{ $PV = nRT = NkT \rightarrow P\Delta{V} $ = work done by gas.
 $R = N_{A}k$, where $N_{A}$ is Avagadro's number.}
 
 If a gas is not at its equilibrium temperature (T$_{E}$), we can
-define a ``cooling time'' $t_{T}$ \mynotes{(like a half-life, sorta)}:\[
+define a ``cooling time'' $t_{T}$ \mynotes{(like a half-life, sorta)}:
+\[
     \frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{3}{2}kT\right) =
+    \frac{3}{2}k\left(\frac{\mathrm{d}T}{\mathrm{d}t} \right) =
     \frac{3}{2}k\left(\frac{T-T_{E}}{t_{T}}\right)
-\]where $T_{E}$ = constant and $T$ = variable. For $T_{E}$ and $t_{T}$
+    \]
+where $T_{E}$ = constant and $T$ = variable. For $T_{E}$ and $t_{T}$
 = constant, $T-T_{E} \propto \mathrm{e}^{-t/t_{T}}$
 \mynotes{(exponential decay for cooling). $t$ obviously can't be negative
 $\rightarrow$ quasi-stable}
@@ -1512,16 +1654,23 @@ $\rightarrow$ quasi-stable}
 toward an entirely different equilibrium temperature. This is relevant
 to the multi-phase ISM. All the physics is in $\Lambda$ and $\Gamma$.
 
-\underline{General primary heat source}: (photo)ionization \mynotes{-starlight}.
+\subsection{General}
+\subsubsection{Primary heat source}
+The primary heat source is (photo)ionization.
 \begin{itemize}[label={}]
     \item $E_{2}$ = kinetic energy of ejected electron
     \item $E_{1}$ = kinetic energy of recaptured electron
 \end{itemize}
-\mynotes{$\Delta{E} = |E_{2} - E_{1}| \rightarrow$ energy available.}
-Number of captures to level $j$ of neutral atom [cm$^{-3}$ s$^{-1}$] =
-$n_{e}n_{i}<\omega\sigma_{cj}>$ where $<\omega\sigma_{cj}>$ =
-recombination coefficient. $\rightarrow$ final net gain associated with
-electron-ion recombination:\[
+\mynotes{$\Delta{E} = |E_{2} - E_{1}| \rightarrow$ energy available.
+Ionization from the ground state (maximum energy) recombines with
+less energy.}
+Number of captures to level $j$ of neutral atom:
+\[
+    n_{e}n_{i}<\omega\sigma_{cj}> \quad [\mathrm{cm}^{-3}\; \mathrm{s}^{-1}]
+    \]
+where $<\omega\sigma_{cj}>$ = recombination coefficient.
+The final net gain associated with electron-ion recombination:
+\[
     \Gamma_{ei} = n_{e}n_{i}\sum_{j}{\left(
     \parunderbrace{<\omega\sigma_{cj}>\overline{E}_{2}}{ionization out of $j$} -
     \parunderbrace{<\omega\sigma_{cj}E_{1}>}{recapture back to $j$}
@@ -1536,44 +1685,373 @@ $\rightarrow \overline{E}_{2}$ is independent of $j$; use recombination
 coefficient to all levels $\geq n$:
 \[
     \alpha^{(n)} = \sum_{n}^{\infty}{\alpha_{m}}
-\]
+    \]
 and
 \[
     \Gamma_{ei} = n_{e}n_{i}\left\{\parunderbrace{
         \alpha\overline{E}_{2}}{$\equiv \alpha^{(1)}$} - \parunderbrace{
         \frac{1}{2}m_{e}\sum{<\omega^{3}\sigma_{cj}>}}{kinetic energy}\right\}
-\]
+    \]
 
-\mar{153}\underline{Main point}: $\Gamma_{ei}$ not dependent on ionization
-probability, or on radiation density for steady state, where number of
-ionizations is equal to the number of recombinations.
 
-\underline{Primary cooling source}: inelastic collisions (hence
-excitation of energy levels).
+\paragraph{Main point:}\mar{153}
+$\Gamma_{ei}$ is not dependent on ionization probability or radiation density
+for \textit{steady state}, where the number of ionizations is equal to the
+number of recombinations.
+
+\subsubsection{Primary cooling source}
+The primary cooling source is \textbf{inelastic collisions}.
+(excitation of energy levels, \mynotes{since particles that undergo
+inelastic collisions will lose energy}).
 \begin{itemize}
-    \item $n_{e}n_{i}\gamma_{jk}$ = number of excitations from level
-        $j \rightarrow k$ [cm$^{-3}$ s$^{-1}$] of ions in ionization
-        stage $i$ and excitation state $j$.
+    \item $n_{e}n_{i}\gamma_{jk}$[cm$^{-3}$ s$^{-1}$] =
+        number of excitations from level $j \rightarrow k$
+        for ions in ionization stage $i$ and excitation state $j$.
     \item $E_{jk} = E_{k}-E_{j}$ = energy lost by colliding electrons
-        \mynotes{(emit photons)}
+        \mynotes{(in the form of emitted photons).}
 \end{itemize}
-Also: de-exciting collisions, which give energy gain to electrons.
+
+This cooling is offset by
+\textit{de-exciting} collisions, which give energy gain to electrons
+\mynotes{(give energy back to the nebula)}.
 \mynotes{Net cooling:}
 \[
     \rightarrow\Lambda_{ei} = n_{e}\sum_{j<k}{E_{jk}\left(\parunderbrace{
     n_{ij}\gamma_{jk}}{excitation} - \parunderbrace{
     n_{ik}\gamma{kj}}{de-excitation}\right)}
 \]
-\mynotes{$\gamma$s are collisional rate coefficients. De-excitation
-process gives energy back to the nebula.}
-Assumption: all photons escape (not true for dense molecular clouds).
+\mynotes{$\gamma$s are collisional rate coefficients.}
+\underline{Assumption}:
+all photons escape (not true for dense molecular clouds).
 Again, in most cases all ions are in the ground level, so we don't
 need to sum over $j$, and $n_{ij} = n_{i1} = n_{i}$ \mynotes{(simpler)}
 
+\subsection{HII Regions}\mar{154}
+\begin{itemize}
+    \item Main heat sources: ionization of H and He
+    \item Main cooling source: excitation of C, N, O, Ne
+        \begin{itemize}
+            \item Heavy elements have low abundance. If they didn't,
+                HII regions would cool to very low $T_{E}$!
+        \end{itemize}
+\end{itemize}
 
-\subsection{Heating and cooling of HI gas}
-\mar{160}
+\mynotes{UV = radiation field energy density. Radiation is from
+OB stars (ionizing photons) and diffuse radiation in HII regions
+from direct recombination to n=1.}
 
+\mynotes{HII Regions: Lyman photons didn't escape; they were all
+re-absorbed and turned into Balmer line. Photons absorbed by dust
+$\rightarrow$ cooling. Photons scattered $\rightarrow$ \emph{not} cooling.
+Keep in mind: \textbf{Do all photons make it out of the nebula?}}
+
+\subsubsection{Heating}
+\[
+    \overline{E}_{2} = \frac{
+        \int_{\nu_{1}}^{\infty}{
+            h(\nu-\nu_{1})s_{\nu}U_{\nu}\mathrm{d}\nu/\nu}}{
+        \int_{\nu_{1}}^{\infty}{
+            s_{\nu}U_{\nu}\mathrm{d}\nu/\nu}}
+    \]
+\begin{itemize}
+    \item $s_{\nu}$ = cross section
+    \item $\nu_{1}$ = ionization limit for HI
+\end{itemize}
+
+\underline{Problem}:
+$U_{\nu}$ is determined by stellar radiation ($U_{s\nu}$) and
+diffuse radiation ($U_{D\nu}$), and depends in turn on $n_{H}$, etc.
+
+Spitzer discusses two simple cases:
+\begin{enumerate}
+    \item Close to exciting star: $U_{s\nu}$ large, $U_{D\nu}$ negligible
+        in comparison
+    \item Evaluate $\overline{E}_{2}$ for entire HII region.
+\end{enumerate}
+
+\underline{Approximation}:
+Use dilute blackbody of temperature $T_{c}$ (color temperature)
+to describe the stellar radiation field at distances from the stars.
+
+Define: $\psi = \cfrac{\overline{E}_{2}}{kT_{c}}$
+\begin{itemize}[label={}]
+    \item $\psi_{0} = \psi(r\rightarrow 0)$, so close to star
+    \item $<\psi>$ = average of star
+    \item $\psi(r)$ = over entire HII region
+\end{itemize}
+
+\mar{155}
+\[
+    \psi_{0}:\quad U_{\nu} = \frac{4 \pi B_{\nu} (T_{c})}{c}
+    = \frac{1}{c}\int{I_{\nu}\mathrm{d}\Omega}
+    \]
+Then it is possible to calculate table 6.1 (Spitzer), which lists values of
+$\psi_{0}$ (Draine, table 27.1) for various values of $T_{c}$. \footnote{
+    Spitzer also discusses how to calculate $<\psi>$; too lengthy to do here.
+}
+
+Result:
+\begin{tabular}{c c c c c}
+    1.05 & \textless & $<\psi>$ & \textless & 1.65\\
+    4000 & \textless & $T_{c}$ & \textless & 64,000\\
+\end{tabular}
+
+We had that:
+\[
+    \Gamma_{ei} = n_{e}n_{i}\left\{\alpha\overline{E}_{2}
+    - \frac{1}{2}m_{e}\sum{<\omega^{3}\sigma_{cj}>}\right\}
+    \]
+where second term = mean energy lost per recombining electron.
+
+We have $\overline{E}_{2}$, now we need
+\[
+    \sum_{j=k}^{\infty}{<\omega^{3}\sigma_{cj}>}
+    = \frac{2A_{r}}{\sqrt{\pi}} \left(\frac{2kT}{m_{e}}\right)^{3/2}
+    \beta\chi_{k}(\beta)
+    \]
+\begin{itemize}[label={}]
+    \item $A_{r}$ = ``recapture constant''\footnote{Spitzer, page 100}
+    \item $\beta = \cfrac{h\nu_{1}}{kT}$
+\end{itemize}
+$\chi_{k}(\beta)$ are listed in table 6.2 in Spitzer.
+They are ``energy gain functions'' with values from $\sim$0.4 to 4.0.
+
+\subsubsection{Cooling}
+
+Use directly the basic equation using
+\[
+    \frac{n_{k}}{n_{j}} = \frac{b_{k}}{b_{j}}
+    \frac{g_{k}}{g_{j}}\exp\left(-\frac{h\nu_{ju}}{kT}\right)
+    \]
+and
+\[
+    \frac{b_{2}}{b_{1}} = \frac{1}{1 + A_{21}/n_{e}\gamma_{21}}
+    \]
+(discussed for HI emission) for a two-state ion.
+3 level ions are more complicated.
+\begin{itemize}
+    \item $\frac{g_{k}}{g_{j}}\exp\left(-\frac{h\nu_{ju}}{kT}\right)
+        \rightarrow$ Boltzmann equation
+    \item $\cfrac{b_{2}}{b_{1}} \rightarrow$ ``b correction'', since we
+        can't assume Boltzmann level populations
+\end{itemize}
+
+\subsubsection{Results}\mar{156}
+See figures on handout (page -157-).
+
+\paragraph{Some main points:} two groups of coolants
+\begin{enumerate}
+    \item meta-stable fine-structure levels in ground.
+        Spectroscopic term of various ions.
+        \begin{itemize}
+            \item E$_{ex} < 0.1$ eV $\rightarrow$ IR radiation
+        \end{itemize}
+        examples in Fig:
+        \begin{center}
+            \begin{tabular}{c c c}
+                [OIII] & $^{3}P_{0} - ^{3}P_{1}$ & 88.4 $\mu$m\\
+                       & $^{3}P_{0} - ^{3}P_{2}$ & 32.7 $\mu$m\\
+            \end{tabular}
+        \end{center}
+        \textbf{Weak $T_{E}$ dependence}
+    \item meta-stable other spectroscopic terms with excitation energies
+        $\gtrsim$ 1 eV, giving rise to optical and UV lines.
+        Strong T$_{e}$ dependence of course! Act as thermostat
+        $\rightarrow$ will keep T$_{e} \sim 10,000$ K in HII regions.
+\end{enumerate}
+
+\paragraph{Note:}
+Figure is for (arbitrary) assumption that O, Ne, N are 80\% singly and
+20\% double ionized. H is 0.1\% neutral.
+\paragraph{Net effective heating rate}
+G-L$_{R}$ in the fig. is what we have been calculating
+(where G is photoionization and L$_{R}$ is recombination emission for
+H and He).
+
+\paragraph{The intersection between heating and cooling gives $T_{E}$}
+
+\paragraph{Optical depth $\tau_{0}$} in figures refers to \emph{distance}
+from star. It is the optical depth at the ionization limit of HI, so
+it is proportional to N(H).
+
+\paragraph{Outer parts of nebula are hotter!}
+\mar{158}This happens because the photoionization cross-section is
+proportional to $\nu^{-3}$, so higher energy photons are absorbed
+\emph{later}. $T_{E}$ decreases at first, because $U_{s\nu}$ falls.
+Then, beyond $r = 0.6R_{S}$, $T_{E}$ increases and is higher near
+$r = R_{0}$. Finally, it decreases again in the transition region
+where the ionized fraction drops to zero.
+
+The second figure shows what happens if Ne is large enough that some
+excited levels of heavy ions are collisionally de-excited;
+$T_{E}$ increases, since cooling is less effective.
+
+$\epsilon_{ff}$, the free-free loss rate, follows directly from
+(3-56) in Spitzer; it is not very important.
+
+\paragraph{How fast does T change when $T \neq T_{E}$?}
+Close to $T_{E}$,
+\[
+    t_{T} \approx \frac{2\times10^{4}}{n_{p}} \quad [\mathrm{years}]
+    \]
+Compare to recombination time:\footnote{Spitzer 6-11}
+\[
+    t_{r} = \frac{1}{n_{e}\alpha}
+    = \frac{1.54\times10^{3}\sqrt{T}}{Z^{2}n_{e}\phi_{2}(\beta)}
+    \quad [\mathrm{years}]
+    \]
+\mynotes{(It would take 10$^{4}$ years for recombination to occur if
+the star in the HII region disappeared).}
+So for $T \sim 10^{4}$ K, $t_{R} \gtrsim t_{k} \rightarrow$
+cooling is faster than recombination. (Also, cooling time is much larger
+for $T \gg 10^{4}$ K, as we discussed before.)
+
+\mar{159}Consider the handout (cooling and heating in HII regions, taken from
+Osterbrock). What is missing in these diagrams?
+\begin{itemize}
+    \item Cooling by free-bound and bound-bound HI and He?
+        No; since each recombination is balanced by an ionization, these
+        photons, even though they may well escape from the nebula, do
+        not draw net heat from it. Rather, they draw heat from the star
+        itself, not the nebula.\footnote{Draine does not agree? He includes
+        a recombination cooling rate in Fig. 27.2, 27.3; it is low.
+        He keeps it in heating too though\ldots so okay, fine. Whatever.}
+    \item photon $h\nu$ absorbed
+        $\rightarrow$
+        ionizes atom
+        $\rightarrow$
+        creates electron with \mynotes{(kinetic)} energy
+        $\cfrac{1}{2}mv^{2} = h(\nu - \nu_{0})  $
+        $\rightarrow$
+        electron thermalizes its energy with ions and electrons and
+        sets up temperature $T_{e}$.
+    \item However, each electron recombines from energy $\cfrac{1}{2}mv'^{2}$,
+        which produces photons with a total energy
+        $h\nu' = \cfrac{1}{2}mv^{-2} - h\nu_{0} $
+\end{itemize}
+The \emph{net} energy (or heat) gain from the photoionization is given by
+$ \cfrac{1}{2}mv^{2} - \cfrac{1}{2}mv'^{2} $
+(Notice that in general, $|v'| < |v|$).
+This is to be balanced against the \emph{cooling}, which is predominantly
+due to emission from collisonally excited heavier elements
+(in HII regions).
+
+\mynotes{Pure H in the ISM: not many photons around; HII regions are fully
+ionized. Gas not generally in both phases, e.g.\ 90\% neutral and 10\% ionized.}
+
+\subsection{HI gas}\mar{160}
+(Draine, ch. 30)
+
+Not as simple as one might believe\ldots
+\paragraph{Simple considerations}
+HI neutral $\rightarrow$ few free electrons to share heat.
+Only elements with ionization potential (IP) $<$ 13.6 eV will be
+ionized (and dust grains, but more on that later).
+However, there is still a dominant cooling line from CII
+(IP of C is 11.26 eV). So:
+\begin{itemize}
+    \item $\cfrac{\Gamma_{ei}}{n_{e}} $ down by factor of $\sim$ 1/2000
+    \item $\cfrac{\Lambda_{ei}}{n_{e}} $ similar below $T \sim 1000$ K
+\end{itemize}
+HI is naturally cool
+
+\paragraph{Problem:}
+We observe some very warm HI. General solution may well depend on
+$T_{e}$, $n$, chemical composition (i.e.\ depletion)\ldots
+
+We will just list the general players.
+
+\subsubsection{Cooling function}
+\begin{minipage}[t]{0.5\textwidth}
+Cooling function $\Lambda$:
+\begin{itemize}
+    \item neutral atoms
+    \item ions
+    \item molecules
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+Excitation sources:
+\begin{itemize}
+    \item electrons
+    \item H atoms
+\end{itemize}
+\end{minipage}
+
+\mar{161}Some sources in particular:
+\begin{enumerate}
+    \item CII and SiII excitation by collisions with H. Problem: \emph{depletion}
+    \item Excitation of HI, [exp.?] $n=2$ level in warm HI.
+        Generally, $n=2$ is not strongly populated, but if it does happen,
+        it will cool:
+        \begin{itemize}[itemsep=0ex]
+            \item Ly$\alpha$ photon $\rightarrow$ dust $\rightarrow$ IR
+            \item $\Lambda_{eH} = 7.3\times10^{-19} n_{e}n(HI)
+                \exp(-118,400/T) $ [erg cm$^{-3}$ s$^{-1}$]\\
+                ($T = h\nu/k$ = 118,400 for a 1216\AA{} photon).
+        \end{itemize}
+        \mynotes{Fate of Ly$\alpha$ photons: Scatter until absorbed by dust,
+        can't do 2-photon emission, level 1 $\rightarrow$ 2p\ldots or something.}
+    \item H$_{2}$ molecules: gain or loss source
+        \begin{itemize}
+            \item loss: excitation of rotational levels
+            \item gain: photon pumping of upper rotational levels, followed by
+                collisional de-excitation.
+                Also other molecular lines may cool (CO, CN, CH,\ldots)
+        \end{itemize}
+    \item Collisions with dust grains (can both heat and cool):
+        Spitzer's fig. 6-2 (page -172- in notes) shows cooling function,
+        including HI and H$^{+}$ range.
+        Generally, cooling time:
+        \[
+            t_{T} \approx \frac{2.4\times10^{5}}{n_{H}} \quad [\mathrm{years}]
+            \]
+        longer than for HII regions \mynotes{(not many lines available)}.
+\end{enumerate}
+
+\subsubsection{Heating function}
+Very poorly known. $\Gamma_{ei}$ from ionizing elements such as C is best
+known (i.e.\ photo-electric heating).
+
+\mar{162}However, using only CII heating would produce $T_{E}$ = 16 K
+(Spitzer); clearly too cool. \mynotes{Adding metals is not enough}
+
+\paragraph{Other potential players}
+\begin{enumerate}[label=(\alph*)]
+    \item Cosmic ray ionization of H, \mynotes{no radiation, but this
+        could do it too}.
+    \item Formation of H$_{2}$ molecules on grains.
+        This releases 4.48 eV. Goes into:
+        \begin{itemize}
+            \item heating grain
+            \item overcome energy of adsorption to grain surface
+            \item excitation of new H$_{2}$ molecule
+            \item translational kinetic energy that H$_{2}$ molecule
+                gets as it leaves the grain.
+        \end{itemize}
+    \item Photoelectric emission from grains. What is efficiency, as a
+        function of $\lambda$? Clearly, complicated problems; see
+        Draine for a discussion.
+\end{enumerate}
+How can HI become 6000K? Cooling is 10 times more efficient
+(from figure on page 172: $\cfrac{\Lambda}{n_{H}}$) than for cool HI.
+But, if $n_{H}$ is lower, then:
+\begin{itemize}
+    \item cosmic ray heating more efficient, but still problematic
+    \item also grain - photoelectric heating
+\end{itemize}
+
+\subsection{Few comments/additions from Spitzer}
+See figure 6.2, which sketches what happens at lower T (below 10$^{4}$K).
+Note that Spitzer talks about $\cfrac{\Lambda}{n_{H}^{2}}$
+
+\mar{166}Why are there two HI phases?
+
+\mar{167}The ``destruction'' of the hot phase happens (only) through
+cooling of the gas. This cooling depends critically on $T_{e}$ and
+$n_{e}$, as we will next explore.
+
+\mar{168}Heating and cooling of hot gas:
 
 
 
