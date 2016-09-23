@@ -1,18 +1,15 @@
 \documentclass[12pt]{article}
 %\usepackage[left=1in, top=1in, right=1in, bottom=1in]{geometry}
-\usepackage[margin=1.5in]{geometry}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[textwidth=5.5in]{geometry}
 \setlength{\marginparwidth}{0.5in}
 \setlength{\parindent}{0em}
-\setlength{\parskip}{2ex}
 \usepackage{graphicx}
-\usepackage{tcolorbox}
-%\usepackage{tasks}
+\usepackage{framed}
 \usepackage{lipsum}
-%\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{amssymb}
-%\usepackage{mdwlist}
 \usepackage{xcolor}
 
 \usepackage{fancyhdr}
@@ -46,11 +43,9 @@
 \renewcommand*{\raggedleftmarginnote}{\centering}
 \newcommand{\mar}[1]{\hspace{0pt}\marginpar{-\textcolor{black}{#1}-}}
 
-\definecolor{notmygreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{bred}{rgb}{0.8, 0.0, 0.0}
 \definecolor{mygreen}{rgb}{0.0, 0.26, 0.15}
 \newcommand{\mynotes}[1]{\textcolor{mygreen}{#1}}
-
-\definecolor{bred}{rgb}{0.8, 0.0, 0.0}
 
 \usepackage{titlesec}
 %\titleformat{<command>}
@@ -68,15 +63,16 @@
   {}        % before code
 \titleformat{\subsubsection}%
   {\filcenter\fontsize{13}{15}\selectfont\bfseries\itshape} %\filcenter\bfseries\LARGE
-  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
+  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}% label% {\thesection} %{<label>}
   {1em}     % sep
   {}        % before code
+\titleformat{\paragraph}%
+  {\fontsize{12}{13}\selectfont\bfseries}
+  {$\Rightarrow$}{}{}
 
 %\titlespacing*{\section}{-0.5in}{0ex}{0ex}
 %\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
-
-\titlespacing*{\paragraph}{0ex}{0ex}{2em}
-%\titlespacing*{\paragraph}{0pt}{1ex}{-2ex}
+\titlespacing*{\paragraph}{0pt}{1ex}{-2ex}
 
 % Section references
 %\renewcommand{\thesection}{}
@@ -85,24 +81,15 @@
 
 %\setcounter{secnumdepth}{1}
 
-\setitemize{itemsep=-1ex, topsep=0ex,}
-\setenumerate{itemsep=-1ex, topsep=0ex,}
+\setitemize{noitemsep, topsep=0ex,}
+\setenumerate{noitemsep, topsep=0ex,}
 \setdescription{itemsep=0ex, align=right,}
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\footnotesize$\bullet$}}$}
 \renewcommand{\labelitemii}{$\vcenter{\hbox{\footnotesize$\circ$}}$}
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
 \definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
-    \ttfamily\textcolor{cadet}{#1}
-}
-
-
-
-% Verbatim
-\usepackage{fancyvrb}  % framebox around verbatim text
-\makeatletter
-\renewcommand\verbatim@font{\normalfont\small\ttfamily}
-\makeatother
+    \ttfamily\textcolor{cadet}{#1}}
 
 \usepackage{listings}
 \lstset{% general command to set parameter(s)
@@ -114,25 +101,25 @@
     showstringspaces=false % no special string spaces
     }
 
-\usepackage{setspace} % spacing between toc items
-\usepackage[toc]{multitoc}
-\renewcommand*{\multicolumntoc}{2}
+%\usepackage{setspace} % spacing between toc items
+%\usepackage[toc]{multitoc}
+%\renewcommand*{\multicolumntoc}{2}
 %\setlength{\columnseprule}{0.5pt}
 
 \usepackage{hyperref}
 \definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
-\hypersetup{colorlinks=true,
-    urlcolor=darkpowderblue,
-    linkcolor=black % This may be what links the contents in the first place!
-}
+\hypersetup{colorlinks=true, urlcolor=darkpowderblue, linkcolor=black}
 \urlstyle{same}
 
 \begin{document}
+\setlength{\parskip}{0ex}
 \tableofcontents\newpage
+\setlength{\parskip}{2ex}
 
 \reversemarginpar
 \section{Introduction}
-\mar{6}Discuss general viewpoint: What can happen to an atom or molecule or dust
+\subsection{General viewpoint}
+\mar{6}What can happen to an atom or molecule or dust
 grain sitting in the ISM?
 \begin{itemize}
     \item Can it absorb a photon? Energy levels $\leftrightarrow$ $h\nu$
@@ -156,7 +143,8 @@ Three possible sources of ionization (and excitation):
 Typical collisional energies: kinetic energy.
 Translate $mv^{2} \rightarrow kT \rightarrow h\nu \rightarrow eV$.
 
-\paragraph{Dust grains}\marginpar{-8-} also occur in the neutral medium, and
+\subsection{Dust grains}
+\mar{8}Dust grains also occur in the neutral medium, and
 probably also in the (warm) ionized medium. Dust grains play an important
 role in various processes:
 \begin{itemize}
@@ -177,15 +165,14 @@ photon (smaller heat capacity, as volume $\propto r^{3}$). A promising
 candidate for small dust grains: polycyclic aromatic hydrocarbons
 ($\sim$ car soot!)
 
-In hot environments, dust grains may be destroyed by \textit{sputtering},
-where collisiosn of grains with other atoms, electrons, or molecules
-knock molecules off the grains. \marginpar{-9-}At low temperatures,
-molecules stick to dust grains, causing depletion of heavy elements
-along certain lines of sight (most dust in the plane).
-Dust contributes about 1\% of the mass of the ISM in the solar
+In hot environments, dust grains may be destroyed by \textit{sputtering}, where
+collisiosn of grains with other atoms, electrons, or molecules knock molecules
+off the grains. \mar{9}At low temperatures, molecules stick to dust grains,
+causing depletion of heavy elements along certain lines of sight (most dust in
+the plane). Dust contributes about 1\% of the mass of the ISM in the solar
 neighborhood, mostly in the form of large grains.
 
-\paragraph{Ionized gas}
+\subsection{Ionized gas}
 \begin{enumerate}[label=\alph*)]
     \item Photoionization: especially effective near hot stars. Shock
         ionization
@@ -193,7 +180,7 @@ neighborhood, mostly in the form of large grains.
         produce a small amount of ionization in denser gas (though
         recombination happens quickly, so not much of gas is in an
         ionized state at any given time).
-    \item Collisions\marginpar{-11-} Hot ($\sim 10^{7}$ K) expanding bubble
+    \item \mar{11}Collisions: Hot ($\sim 10^{7}$ K) expanding bubble
         sweeps up shell of warm ($\sim 10^{4}$ K) ionized gas, which shows
         a different optical spectrum than HII regions. The hot gas shows
         up by:
@@ -206,8 +193,8 @@ neighborhood, mostly in the form of large grains.
         through a gas that is hotter than the source behind it!
 \end{enumerate}
 
-\paragraph{Magnetic fields and cosmic rays}\marginpar{-13-}
-In the solar neighborhood, $\mathbf{B} \sim 2-5\times10^{6}$ Gauss.
+\subsection{Magnetic fields and cosmic rays}
+\mar{13}In the solar neighborhood, $\mathbf{B} \sim 2-5\times10^{6}$ Gauss.
 This follows from measurements of \textit{Faraday rotation}, giving
 $<n_{e}B_{||}>$ toward pulsars and radio sources. The random component of
 the $B$ field is probably as large as the uniform component. In clouds,
@@ -224,12 +211,12 @@ The magnetic field is important for several reasons:
     \item Provides pressure support against gravitational collapse of matter
         since it is frozen into the matter due to ionization heavy elements.
         It also seems to play animportant role in solving the angular momentum
-        problem in star formation.\marginpar{Shu et al.}
+        problem in star formation.\footnote{Shu et al.}
 \end{enumerate}
 
 Total energy density of cosmic rays in solar neighborhood:
 $U_{R} \sim 1.3\times10^{-12}$ erg cm$^{-3}$.
-Why are cosmic rays important?\marginpar{-14-}
+\mar{14}Why are cosmic rays important?
 \begin{itemize}
     \item They produce $\gamma$-rays through collisions with atoms and
         molecules. The observed $\gamma$-ray intensity from the ISM forms
@@ -254,7 +241,7 @@ the components. This is not a coincidence; in fact, some of this
 information was inferred by assuming pressure equilibrium. The
 argument is that if there were no equilibrium, the resulting
 perturbations would be wiped out on sound-crossing time scales, which
-are short compared to\marginpar{-15-} the time scales we wouuld
+are short compared to\mar{15} the time scales we wouuld
 consider the ISM to evolve over.
 
 However, the actual evidence for equilibrium in the thermal pressure
@@ -271,7 +258,7 @@ number is also very similar to the energy density of the CMB\@.
 \footnote{Draine discusses possible reasons in section 1.3}
 \footnote{Supplemental info in Draine chapter 1.}
 
-Next\marginpar{-16-} section is sort of a shortened condensation of Draine's chapters
+Next\mar{16} section is sort of a shortened condensation of Draine's chapters
 2 and 3. We may come back to specific topics discussed there in more
 detail.
 \section{Validity of the laws of statistical physics in ISM conditions}
@@ -303,7 +290,7 @@ $${ f(\omega) =
 For two groups of particles with different masses, we replace $\omega$
 by $u$, the relative velocity between the two groups, and $m$ by the
 reduced mass $m_{r} = \cfrac{m_{1}m_{2}}{m_{1}+m_{2}}$.
-For\marginpar{-17-} H atoms colliding with particles of mass $Am_{H}$,
+For\mar{17} H atoms colliding with particles of mass $Am_{H}$,
 Spitzer derives:$${
     <u> = \left[\frac{8kT}{\pi m_{r}}\right]^{1/2}
     = 1.46\times10^{4}\sqrt{T}\left(1+\frac{1}{A}\right)^{1/2}\;
@@ -320,7 +307,7 @@ The Maxwell velocity distribution is characterized by several speeds:
 \end{itemize}
 \paragraph{Boltzmann distribution}
 gives the
-\marginpar{-18-}
+\mar{18}
 population of energy levels in an atom or molecule:$${
     \frac{n_{u}}{n_{l}} =
     \frac{g_{u}}{g_{l}}\exp\left[-\left(E_{u}-E_{l}\right)/kT\right] =
@@ -355,7 +342,7 @@ affect whether and how easily atoms can be ionized.
 \end{align*}
 
 \section{Statistical equilibrium}
-\textcolor{bred}{The\marginpar{-19-} four laws discussed above hold under
+\textcolor{bred}{The\mar{19} four laws discussed above hold under
 thermodynamic equilibrium (TE).}
 However, this is not often the case for the ISM\@.
 Thermodynamic equilibrium requires \textbf{detailed balancing},
@@ -379,7 +366,7 @@ However, the Earth is not 6000 K because by the time the radiation reaches us,
 it is diluted. \textcolor{bred}{A diluted radiation field is one in which
 the energy density does not match the color temperature.}
 
-For \marginpar{-20-}the solar neighborhood, the total energy density of the
+For \mar{20}the solar neighborhood, the total energy density of the
 radiation field due to all stars in that volume is about 1 eV cm$^{-3}$
 (close to cosmic ray density, as mentioned before). When interpreted as an
 average temperature using the Stefan-Boltzmann law (energy density of a
@@ -401,7 +388,7 @@ temperature which describes the physical condition of the gas. Often,
 for a plasma, the kinetic temperature is equal to the electron temperature:
 $T_{ions} = T_{e}$. $T_{ions} \neq T_{e}$ may occur behind shocks.
 
-\paragraph{2. Boltzmann distribution} is rarely correct.\marginpar{-21-}
+\paragraph{2. Boltzmann distribution} is rarely correct.\mar{21}
 If excitation and de-excitation occurs by photons, we may still not have a
 Boltzmann distribution because the photon distribution is not given by the
 Planck function. Often we do not even have detailed balancing.
@@ -420,7 +407,7 @@ dominate the level populations. Since motions of particles \emph{are} described
 by a Maxwellian velocity distribution, whenever collisions dominate the level
 population they will closely follow a Boltzmann law.
 
-In \marginpar{-22-}general, a Maxwellian velocity distribution tends to set up
+In \mar{22}general, a Maxwellian velocity distribution tends to set up
 a Boltzmann population for energy levels in the atoms/particles \emph{if}
 transitions resulting from emission and absorption of photons are relatively
 unimportant, and collisional (de-)excitation is dominant.
@@ -447,7 +434,7 @@ $R_{ji}n_{j}$ [s$^{-1}$] = \# transitions from level $j$ to level $i$\\
 $${ \frac{\mathrm{d}n_{i}}{\mathrm{d}t} =
     \sum_{j}\left(-R_{ij}n_{i} + R_{ji}n_{j}\right);\quad i=1,2,\ldots
 }$$
-In\marginpar{-23-} statistical equilibrium,
+In\mar{23} statistical equilibrium,
 $\cfrac{\mathrm{d}n_{i}}{\mathrm{d}t} = 0$. The rate factor $R_{ij}$
 includes \emph{all} possible processes that would take the atom or
 molecule from level $i$ to $j$. In the worst case, you would have to
@@ -462,7 +449,7 @@ can be very simple. We will encounter cases of each.
 Before going more into Ch 2 and 3 in Draine, we will first discuss
 some basic radiative transfer.\footnote{RL Ch 1, Draine Ch 6, 7}
 
-\section{Radiative Transfer}\marginpar{-24-}
+\section{Radiative Transfer}\mar{24}
 \begin{minipage}{0.45\textwidth}
     \underline{Flux at surface of a sphere}:
     \begin{list}{}
@@ -480,7 +467,7 @@ some basic radiative transfer.\footnote{RL Ch 1, Draine Ch 6, 7}
     \end{list}
 \end{minipage}
 
-\marginpar{-25-}
+\mar{25}
 \subsection{Energy density of radiation}
 $u_{\nu} = \frac{1}{c}\int{I_{\nu}\mathrm{d}\Omega}$ [erg cm$^{-3}$
 Hz$^{-1}$]
@@ -498,7 +485,7 @@ Hz$^{-1}$]
     \item $j_{\nu} = \cfrac{\epsilon_{\nu}}{4\pi}$ (isotropic emitter);
         $\epsilon_{\nu}$ = emissivity [erg cm$^{-3}$ s$^{-1}$ Hz$^{-1}$]
 \end{itemize}
-\subsubsection{Absorption}\marginpar{-26-}
+\subsubsection{Absorption}\mar{26}
 \begin{itemize}
     \item $\kappa_{\nu}$ [cm$^{-1}$] volume absorption coefficient (includes
         \emph{stimulated emission}, aka ``negative absorption'').
@@ -538,7 +525,7 @@ where $S_{\nu}$ = \underline{source function}
         \int_{0}^{\tau_{\nu}}\!{\mathrm{e}^{-(\tau_{\nu}-\tau'_{\nu})}
         S(\tau'_{\nu})\mathrm{d}\tau'_{\nu}}
 }$$
-$\rightarrow$\marginpar{-27-}attenuated incoming beam + contribution from gas itself.
+$\rightarrow$\mar{27}attenuated incoming beam + contribution from gas itself.
 
 \paragraph{Special cases}
 \begin{enumerate}
@@ -572,7 +559,7 @@ Solution of the transfer equation in terms of $T_{b}$:$${
     T_{b,\mathrm{obs}} = T_{b,o}\mathrm{e}^{-\tau_{\nu}} + T(1-\mathrm{e}^{-\tau_{\nu}})
 }$$
 
-where\marginpar{-28-}
+where\mar{28}
 \begin{itemize}
     \item $T$ is the thermal source temperature (\emph{physical} temperature of the layer)
     \item $T_{b}$ is the brightness temperature of the incident radiation
@@ -584,7 +571,7 @@ where\marginpar{-28-}
 \begin{enumerate}
     \item Spontaneous emission: Einstein $A$ coefficient
     \item Absorption
-    \item Stimulated\marginpar{-29-} emission
+    \item Stimulated\mar{29} emission
 \end{enumerate}
 
 \subsubsection{Relations between the Einstein coefficients}
@@ -593,13 +580,13 @@ Valid under all conditions since they only refer to \emph{atomic} principles
 TE: rate of transitions out of state 1 = rate of transitions into state 1
 (per unit volume).
 
-In\marginpar{-30-} TE, apply the Boltzmann law.
+In\mar{30} TE, apply the Boltzmann law.
 
 \subsubsection{Relations between Einstein coefficients and $\kappa_{\nu}$ and $j_{\nu}$}
 \paragraph{emission coefficient}
 \paragraph{absorption coefficient}
 
-The\marginpar{-31-} second term here for $\kappa_{\nu}$ corresponds to
+The\mar{31} second term here for $\kappa_{\nu}$ corresponds to
 \emph{stimulated emission}.
 
 
@@ -618,51 +605,51 @@ due to other effects is more important.
     \item Bulk motion (turbulence)
 \end{itemize}
 
-and\marginpar{-32-} the profile function is
+and\mar{32} the profile function is
 
 \subsubsection{Collisional broadening}
 $\sim$ Pressure broadening, which is not generally important in the ISM because
 the density is so low\ldots mostly occurs in stellar atmospheres.
 This still produces a Lorenzian profile, but with:
-$${
+\[
     \phi(\nu) = \frac{4\Gamma^{2}}{16\pi^{2}(v-v_{o})^{2} + \Gamma^{2}}
-}$$
+    \]
 Can be written in terms of a \emph{Voigt function}:
 
-So\marginpar{-33-} the core of the profile is Gaussian due to Doppler broadening,
+\mar{33}So the core of the profile is Gaussian due to Doppler broadening,
 while the wings are much stronger than expected in a Gaussian profile,
 due to the intrinsic line width.
 
-
 \section{Atomic H in the ISM}
 \footnote{Draine Ch 8, 29; Ch 17.1, 17.3}
+(Aka HI, or neutral hydrogen).
 Wherever HI dominates the ISM, all atoms are found in the \textbf{ground state}
 ($^{2}$S)(n=1). The next excited level ($^{2}$P) is about 10 eV above the
-ground-level. This excitation is very rare and and quickly falls back to
-the ground level, so there is no significant population of this level.
-For example, consider potential excitation mechanism: collision of H-atom
-with cosmic ray particle (lots of energy, probability is once per
-10$^{17}$ seconds), ionizes the H-atom. Recombination results in some
-atoms winding up in $^{2}$P state. But $A$ coefficient for spontaneous
-emission from 2P $\rightarrow$ 2S is 10$^{8}$ s$^{-1}$. Hence, this excitation
-process results in ralative population of 2P level of
-$10^{-8}/10^{17} = 10^{-25}$!
+ground-level. This excitation is very rare and and quickly falls back to the
+ground level, so there is no significant population of this level. For example,
+consider potential excitation mechanism: collision of H-atom with cosmic ray
+particle (lots of energy, probability is once per 10$^{17}$ seconds), ionizes
+the H-atom. Recombination results in some atoms winding up in $^{2}$P state.
+But the Einstein $A$ coefficient for spontaneous emission from $^{2}P$
+$\rightarrow$ $^{2}S$ is 10$^{8}$ s$^{-1}$. Hence, this excitation process
+results in relative population of $^{2}P$ level of $10^{-8}/10^{17} =
+10^{-25}$.
 
 ISM is too cool for collisions to happen often and cosmic rays are rare.
-Possible tracers of HI gas:
+
+\subsection{Possible tracers of HI gas}
 \begin{enumerate}
     \item 21 cm HI transition (=hyperfine transition) in emission or absorption.
     \item Lyman absorption lines against hot background stars.
 \end{enumerate}
-Only the $^{2}$S level is populated. HI is hard to find in the ground state;
-fine structure $\rightarrow$ different angular momentum.
+Why only these two? Because only the $^{2}$S level is populated. HI is hard to
+find in the ground state; fine structure $\rightarrow$ different angular
+momentum.\footnote{
+    See Draine Ch 4 (\& 5) on notation of energy levels and
+    atomic structure.}
 
-\footnote{See Draine Ch 4 (\& 5) on notation of energy levels and
-atomic structure.}
-
-\subsection{Excitation and radiative transport for the 21-cm line}
-\marginpar{-34-}
-Spin of proton and electron:
+\subsubsection{Excitation and radiative transport for the 21-cm line}
+\mar{34}Spin of proton and electron:
 \begin{itemize}
     \item Parallel (upper energy)
     \item Anti-parallel (lower energy)
@@ -678,18 +665,25 @@ Energy difference (very small):
     \lambda &= 21.11\:\mathrm{cm}
 \end{align*}
 
-Spontaneous emission probability is \emph{very} small:
-$${ A_{kj} = 2.86\times10^{-15}\:\mathrm{sec}^{-1}  }$$
-$${ \rightarrow \mathrm{lifetime} = 1.10\times10^{7}\:\mathrm{years} }$$
-More frequently, atoms will flip energy states by \emph{collisions}.
-These dominate transitions and cause energy levels to flip.\\
-{\centering H + H $\rightarrow$ H$_{2}^{*}$ $\rightarrow$ H + H}\\
-excited H$_{2}$ molecule (not stable). Chance for collisional excitation
+\paragraph{Spontaneous emission:} probability is \emph{very} small:
+\[
+    A_{kj} = 2.86\times10^{-15}\:\mathrm{sec}^{-1}
+    \]
+\[
+    \rightarrow \mathrm{lifetime} = 1.10\times10^{7}\:\mathrm{years}
+    \]
+\paragraph{Collisions:}
+are more likely to dominate transitions and cause the atoms to flip energy states.
+\begin{center}
+    H + H $\rightarrow$ H$_{2}^{*}$ $\rightarrow$ H + H
+\end{center}
+(excited H$_{2}$ molecule - not stable). Chance for collisional excitation
 per second: $\gamma n(H)$ [s$^{-1}$].
 
 \begin{center}
     \begin{tabular}{c c}
         $\gamma [\times10^{-11}\;\mathrm{cm}^{3}\mathrm{s}^{-1}]$ & T [K]\\
+        \hline
         0.23 & 10\\
         3.0 & 30\\
         9.5 & 100\\
@@ -701,40 +695,45 @@ As long as $n(H^{o}) > 10^{-2}$ cm$^{-3}$, $\gamma n_{H} >> A$, so
 collisions determine excitation and de-excitation\ldots implies
 detailed balancing, so Boltzmann distribution is valid for level
 populations.
-$${ \frac{n_{1}}{n_{o}} = \frac{g_{1}}{g_{o}}\exp(-h\nu/kT_{k})
+\[
+    \frac{n_{1}}{n_{o}} = \frac{g_{1}}{g_{o}}\exp(-h\nu/kT_{k})
     \approx \frac{g_{1}}{g_{o}}(1-\frac{h\nu}{kT_{k}}) \approx \frac{g_{1}}{g_{o}}
-}$$
+    \]
 where $T_{k}$ = kinetic gas temperature.
 
 
+\underline{Derivation}:\mar{35}
 
-
-
-\underline{Derivation}:\marginpar{-35-}
-
-Now\marginpar{-36-} assume that\ldots
+Now\mar{36} assume that\ldots
 
 In general, in situations where stimulated emission and absorption can
 be neglected, we would obtain
-$${ \frac{b_{1}}{b_{o}} = \frac{1}{1 + \frac{A_{10}}{n_{H}\gamma_{10}}}
+\[
+    \frac{b_{1}}{b_{o}} = \frac{1}{1 + \frac{A_{10}}{n_{H}\gamma_{10}}}
     \approx 1
-}$$
+    \]
 Note: Potential other excitation process of upper level for HI:
-HI + Ly$\alpha$ photon $\rightarrow$ n=2 level (2P). 2P level might cascade
-down to upper 2S hyperfine level.
+HI + Ly$\alpha$ photon $\rightarrow$ n=2 level ($^{2}P$). $^{2}P$ level might cascade
+down to upper $^{2}S$ hyperfine level.
 
 In principle, one might selectively populate the upper level with this
-so-called photon pumping\footnote{D 17.3}.
+so-called \textit{photon pumping}\footnote{D 17.3}.
 It turns out that, due to thermilization of the photons this anomalous
-population of the levels does not generally occur. (Ly$\alpha$ photons
-frequently scatter off A-atom again = LTE situation).
+population of the levels does \emph{not} generally occur. (Ly$\alpha$ photons
+frequently scatter off A-atom again = LTE situation).\footnote{
+    This point is also discussed in Kushami \& Heiles (in Gal. \&
+    Extragal. Radio astron., page 100)}
 
-\mar{37}
-Since the b's are effectively 1, our \textcolor{bred}{main result}
-is that$${
-}$$
+\mar{37}Since the b's are effectively 1, our \textcolor{bred}{main result}
+is that
+\[
+    \frac{n_{1}}{n_{0}}
+    = \frac{g_{1}}{g_{0}} \left( 1 - \frac{h\nu}{kT_{k}} \right)
+    \approx \frac{g_{1}}{g_{0}} = 3
+    \]
+(since $h\nu \ll kT$). So $n_{0} = (1/4)n(H^{o}$, $n_{1} = (3/4)n(H^{o}$
 
-Are the HI levels always populated mainly by collisions? No, if n(H$^{o}$) drops
+Are the HI levels always populated mainly by collisions? No, if $n(H^{o})$ drops
 low enough, and if the HI is warm it doesn't work as well.
 
 The warm HI in our Galaxy has $n_{H}\sim0.4$ cm $^{-3}$ and $T_{k} \approx$ 8000 K.
@@ -750,18 +749,26 @@ But even in that case, $T_{s} \approx T_{k}$ because of the above mentioned
 Ly$\alpha$ excitation.
 
 In any case, in general we now obtain for the emission coefficient:
-$${
-}$$
-which is independent of T in most circumstances, and for the absorption
-coefficient:
-$${
-}$$
-
+\[
+    j_{\nu} = \frac{3}{4} A \frac{h\nu}{4\pi} n(H^{o}) \phi(\nu)
+    \]
+which is independent of temperature in most circumstances.
+\mynotes{So we don't need temp to know how much HI there is!}
+And for the absorption coefficient:
+\[
+    \kappa_{\nu} = \frac{h\nu}{c} \left[
+        n_{0}B_{01} - n_{1}B_{10} \right]
+        \phi(\nu)
+    \]
 
 \mar{38}
 Using the relation between Einstein coefficients:
 
-\subsection{Consider simple case of a single layer of gas}
+\textcolor{bred}{Important result:} high $T_{k}$ (and $T_{s}$) and/or
+broad $\phi_{\nu}$ both = less absorption. \mynotes{Warm HI has less optical
+depth than cold HI for the same column density.}
+
+\subsection{Simple case of a single layer of gas}
 
 \mar{39}
 \paragraph{Consider two cases}
@@ -775,103 +782,298 @@ of the atoms, so the assumption of a Gaussian profile is correct.
 \mar{40}
 \subsection{Observing brightness temperature}
 
-%\fcolorbox{black}{white}{
-\begin{tcolorbox}
+\begin{framed}
     Aside: \textbf{How do we observe HI?}
-\end{tcolorbox}
+    \begin{enumerate}
+        \item Radio telescope
+            \begin{itemize}
+                \item single dish
+                    \begin{itemize}
+                        \item ``single beam'': one spectrum per position
+                            $1\times1$ pixel!
+                        \item Multiple beam system: get 7 = 30 beams (``ish'')
+                        \item low angular resolution
+                        \item sensitive to all the flux
+                    \end{itemize}
+                    Make a map by many pointings. Point telescope, take spectra,
+                    repeat.
+                \item interferometer
+                One or $\sim$ few pointings per source. FOV is set by FWHM of beam
+                of \emph{one} telescope. Angular resolution set by the longest
+                baseline (FOV still the same, regardless of $D$). In one pointing,
+                can make a map of an area in the sky. $\theta = \cfrac{1.2\lambda}{D_{max}}$
+                \begin{itemize}
+                    \item High angular resolution
+                    \item Missing baselines in array
+                        \begin{itemize}
+                            \item No zero-m spacing $\rightarrow$ no net flux
+                            \item Missing short spacings $\rightarrow$ negative bowl
+                            \item Missing gaps in baselines $\rightarrow$ grating rings
+                        \end{itemize}
+                        Spectroscopic resolution is generally very good.
+                \end{itemize}
+            \end{itemize}
+    \end{enumerate}
+\end{framed}
 
-\mar{41}
 \subsection{HI emission and absorption}
-Distinguish two cases:
+\mar{41}Distinguish two cases:
 \begin{enumerate}
     \item Absorption by an HI cloud of an extended background source, usually
         a continuum source (e.g.\ AGN)
     \item HI self-absorption (enough of it at same velocity)
 \end{enumerate}
+\paragraph{Case 1:}
+Simple picture: the radio continuum source is usually a compact, distant
+(extragalactic) radio source (but this does not have to be the case).
 
-\mar{42}
+Reminder of radiative transfer: suppose that the HI layer has kinetic
+temperature $T_{s}$, uniform throughout. Then:
+\[
+    I_{\nu} = I_{\nu}(0)e^{-\tau_{\nu}}
+    + B_{\nu} (T_{s}) \left[ 1 - e^{-\tau_{\nu}} \right]
+    \]
+Rayleigh-Jeans law:
+\[
+    B_{\nu} (T_{s}) = \frac{2\nu^{2}kT_{s}}{c^{2}}, \quad h\nu \ll kT_{s}
+    \]
+Toward the source, we then get:
+\[
+    T_{b} = T_{bo} e^{-\tau_{\nu}} + T_{s} \left( 1 - e^{-\tau_{\nu}} \right)
+    \]
+where
 \begin{itemize}
-    \item $T_{b,\mathrm{off}} = T_{s}(1-\mathrm{e}^{-\tau_{\nu}})$
-        in the direction immediately next to the source
-    \item $T_{b,\mathrm{on}} = T_{bo}\mathrm{e}^{-\tau_{\nu}} +
-        T_{s}(1-\mathrm{e}^{-\tau_{\nu}})$
-        directly toward the source
+    \item $T_{b}$ = observed brightness temperature (as function of $\nu$)
+    \item $T_{bo}$ = brightness temperature of background source $\equiv$ $T_{c}$
+        (continuum), which is essentially independent of frequency across narrow
+        frequency range of 21 cm line. \mynotes{Constant, though technically still
+        function of frequency.}
+    \item $\tau_{\nu}$ = optical depth ghrough HI layer, at frequency $\nu$.
+        Only non-zero right around the 21 cm line; $\nu_{0}$ = 1420.4 MHz.
 \end{itemize}
+
+\mar{42}In the direction immediately next to the source we have:
+\[
+    T_{b, off} = T_{b} e^{-\tau_{\nu}} + T_{s} \left( 1 - e^{-\tau_{\nu}} \right)
+    \]
+The brightness temperature both on and off the source are for each
+individual frequency channel.
 
 \paragraph{Some practical points}
 \begin{enumerate}
-    \item Frequency \emph{band} in a number of channels, together spanning a
-        range in velocity
-    \item The assumption here is that the
-    \item A way to
-    \item Do we really have only \emph{one} HI cloud along the LOS, and is
-        its temperature uniform?
+    \item Observe in a \textit{frequency band} in a number of channels,
+        together spanning a range in velocity.
+        \[
+            \frac{\Delta{v}}{c} = \frac{\Delta\nu}{\nu}
+            \]
+        Total bandwidth is 100 - 1000 km s$^{-1}$, and the channel spacing,
+        $\Delta\nu$ is $\sim$ 1 - 5 km s$^{-1}$.
+    \item The assumption here is that the ``off source'' position, the HI
+        emission from the cloud is the same as in front of the continuum
+        source (so the cloud is rather uniform). Evidently, this assumption
+        works better if your radio telescope has high angular resolution.
+        $\rightarrow$ need a large (single) dish.
+    \item A way to potentially avoid this problem is to have a background
+        source that switches on and off (a pulsar). However, in practice,
+        pulsars are generally too weak.
+    \item Do we really have only one HI cloud along the LOS, and is
+        its temperature uniform? We really don't need only one cloud,
+        provided the clouds have different \emph{velocities}.
+        However, the uniform $T_{s}$ assumption is definitely a problem.
+        (More about that later.) We can minimize the complexity in terms of
+        many clouds along the LOS by observing clouds and background
+        sources at high galactic latitudes.
 \end{enumerate}
 
-\mar{43}
-We observe at each frequency
+\mar{43}We observe at each frequency for which there is HI.
+Let the
+observed brightness temperature at source position after subtraction of
+continuum be given by
+\[
+    T_{b, on} - T_{c} \equiv T_{b, obs}
+    \]
+We get
+\[
+    T_{b, off} - T_{b, on} = -T_{c} e^{-\tau_{\nu}}
+    \]
+\[
+    T_{b, off} - T_{b, obs} = T_{c} \left( 1 - e^{-\tau_{\nu}} \right)
+    \]
+\[
+    \left( 1 - e^{-\tau_{\nu}} \right) = \frac{T_{b, off} - T_{b, obs}}{T_{c}}
+    \]
+Measure (observe) $T_{b, off}$, $T_{b, on}$, and $T_{c}$. Then derive
+$\tau_{\nu}$.
 
-\textcolor{bred}{$T_{b,\mathrm{off}} \leq T_{s} $}
+Once $\tau_{\nu}$ is known, we can find $T_{s}$ because
+\[
+    T_{s} = \frac{T_{b,off}}{1 - e^{-\tau_{\nu}}}
+    \]
+the HI spin or kinetic temperature.
+
+\underline{Reminder of general point}:
+\begin{align*}
+    T_{b,off} &= T_{s} \left( e^{-\tau_{\nu}} \right)\\
+    &= \tau_{\nu}T_{s}\quad \mathrm{for}\; \tau_{\nu} \ll 1\\
+    &= T_{s}\quad \mathrm{for}\; \tau_{\nu} \gg 1\\
+    T_{b,off} &\leq T_{s}
+\end{align*}
+The last line is \emph{always} the case!
 
 \paragraph{Discussion of some results}
+Many recent references\footnote{
+    Dickey et al. ApJ 228, 465 (1979)}\footnote{
+    See also Dickey and Lockman, Ann Rev of A \& A 28 (1990)}
 
-\mar{44}
-Plots
+\mar{44}Plots
 
-\mar{45}Conclusions:
+\subsection{Conclusions}
+\mar{45}
 \begin{enumerate}
-    \item The absorption profile $(1-\mathrm{e}^{-\tau_{\nu}})$ is always
-    sharper and simpler in structure than the emission line profile.
-    \item \mar{46}The variation in spin temperature, $T_{s}$, makes one
-    wonder whether there is really only one temperature in the cloud.
+    \item The absorption profile $(1 - {e}^{-\tau_{\nu}})$ is always
+        sharper and simpler in structure than the emission line profile.
+        Follows from Gauss analysis of profiles (so fit Gaussians).
+        \[
+            T = \sum_{i=1}^{m}{
+                T_{i} \exp \left\{ -\frac{1}{2} \left(
+                    \frac{v - v_{i}}{\sigma_{i}} \right)^{2}
+                \right\}}
+            \]
+        $\sigma$'s are smaller for absorption profile. However, it is not
+        clear as to what extent this is significant, except to note that
+        absorption profiles are especially sensitive to cold cloud (cores)
+        which presumably are narrower in velocity width.
+        ``You have to realize you are comparing apples \& peas'' \mynotes{??}
+        Given an HI distribution of column density $N(HI)$ = constant, say
+        $\tau T_{s}$ = 20 K (note that $\tau T_{s} \propto N(HI)$).
+        Assume that $T_{s}$ = 50, 100, 200 K. Then:
+        \begin{center}
+            \begin{tabular}{c c c c c}
+                $\tau T_{s}$ & $T_{s}$ & $\tau$ & $1-e^{-\tau}$ & $T_{B}^{*}$\\
+                \hline
+                20 K & 50 K & .4 & 0.33 & 16.5\\
+                20 K & 100 K & .2 & 0.18 & 18.0\\
+                20 K & 200 K & .1 & 0.095 & 19.0\\
+            \end{tabular}
+        \end{center}
+        * from $T_{B} = T_{s} (1-e^{-\tau})$. So a variation of $\sim$
+        factor of 3 in absorption profile, $1-e^{-\tau}$ corresponds to
+        variation of only 16\% in $T_{B}$. (Note: what would shape of
+        $(1-e^{-\tau})$ and $T_{B}$ look like for single [layer cloud]?)
+
+        Warm HI will only appear in emission, since the optical depth is
+        too small to give significant absorption. Only recent deep
+        observations begin to see absorption in warm HI.\footnote{
+            Look for recent papers by Carl Heiles and by Jay Lockman.}
+    \item \mar{46}The variation in spin temperature, $T_{s}$, apparent in
+        Fig 3-29, makes onewonder whether there is really one temperature
+        in each cloud (there seems to be three in this profile).
+        wonder whether there is really only one temperature in the cloud.
     \item The range of $T_{s}$ one finds from absorption line studies is
         50 K $\leq T_{s} \leq$ 1000 K. However, the upper value is only
         a lower limit since we don't see absorption anymore for
-        $T_{s} >$ 1000 K.
-    \item One can compare
+        $T_{s} >$ 1000 K. So we have no handle on $T_{s}$ above that.
+    \item One can compare $T_{spin}$ with $T_{Doppler}$, the temperature
+        derived from the velocity width of each line. It turns out that
+        always $T_{spin} < T_{Doppler}$.
+
+        $\rightarrow$ Doppler motions that we see in a cloud
+        generally do not correspond to thermal velocities; this is probably due
+        to turbulence.
+
+        Analysis of emission and absorption line profiles of HI across our
+        Galaxy have led to a continuously evolving pictrue of the HI
+        distribution that we have. The early desire to attribute
+        all HI to ``clouds'' is understandable, but not always useful.\footnote{
+            Good summary of some of the main properties of MW HI
+            distribution is given by Mulkami \& Heiles in their 1988 review
+            in Gal. \& Extragal. radio astronomy}
 \end{enumerate}
 
-\mar{47}Some relevant results:
+\subsection{Some relevant results}
+\mar{47}
 \begin{enumerate}
     \item HI is \emph{not} concentrated in a small number of giant clouds,
         as H$_{2}$ is; estimates of filling factor range from 20-90\%?!
     \item HI occurs roughly 50/50 in two important forms:
         \begin{itemize}[itemsep=0.5mm]
             \item CNM = cold neutral medium $\sim$ 80 K
-            \item WNM\footnote{Mebold, 1972} = warm neutral medium $\lesssim$ 8000 K
+            \item WNM = warm neutral medium $\lesssim$ 8000 K\\
+                About half of all HI gas, whose emission line
+                profiles can be split into two components
+                %\footnote{Mebold, 1972}:
+                \begin{itemize}
+                    \item narrow ($\sigma < 5$ km s$^{-1}$)
+                    \item wide ($5 < \sigma < 17$ km s$^{-1}$)
+                \end{itemize}
+                WNM = \emph{wide} component
+                \begin{itemize}
+                    \item present in essentially all directions from solar neighborhood
+                    \item large vertical scale-geight, possibly up to 480 pc
+                \end{itemize}
         \end{itemize}
     \item Clouds are filaments and/or sheets, rather than spheres
     \item At low galactic latitudes, it is not possible to distinguish between
         WNM and CNM because there is too much material along the line of sight.
-    \item Problem with different temperatures along the line of sight.
-        \mar{48}Then:
+    \item \textbf{Problem with different temperatures along the line of sight:}
+        Illustration: consider just two isothermal clouds. For one cloud:
+        \[
+            T_{s} = \frac{T_{B}}{1 - e^{-\tau}}
+            \]
+        For two clouds, we have two spin temperature: $T_{s1} and T_{s2}$.
+        \mar{48}Then let $T_{n}(v)$ be the (naively determined) spin
+        temperature:
+        \[
+            T_{n}(v) = \frac
+                { T_{s1} ( 1 - e^{-\tau_{1}}) + T_{s2} ( 1 - e^{-\tau_{2}})e^{-\tau_{1}} }
+                { (1 - e^{-\tau_{1}-\tau_{2}}) }
+            \]
+        We see that $T_{n}$ depends on $v$ and ranges from $T_{s1}$ through
+        $T_{s2}$, depending on $\tau_{\nu}$. We would conclude that HI exists at
+        temperatures intermediate to $T_{s1}$ and $T_{s2}$.
 \end{enumerate}
 
-Special cases:
+Special cases: \mynotes{compare $\tau_{1}$ to $\tau_{2}$ over velocity range
+where $N(HI)$ peaks}:
 \begin{enumerate}
-    \item $\tau_{1}>>1$
-    \item $\tau_{1}<<1$
-    \item $\tau_{1}<<1, \tau_{2}<<1$
+    \item $\tau_{1} \gg 1$, $\tau_{2} \ll 1$ $\rightarrow$ $T_{n} \approx T_{s1}$
+    \item $\tau_{1} \ll 1$, $\tau_{2} \gg 1$ $\rightarrow$
+        $T_{n} \approx T_{s1}\tau_{1} + T_{s2}$. So we increased the cold
+        temperature $T_{s2}$ by a non-physical foreground temperature of warm
+        gas. Happens a lot in practice!
+    \item $\tau_{1} \ll 1$, $\tau_{2} \ll 1$ $\rightarrow$ $T_{n}$ is a
+        column density weighted harmonic mean temperature. Example: 80 K CNM +
+        8000 K WNM with equal column densities; then $T_{n} \approx$ 160 K,
+        so you \emph{overestimate} $T_{cool}$ and \emph{greatly underestimate}
+        $T_{warm}$.
 \end{enumerate}
 
-\mar{49}Some additional points on HI\footnote{Kulkami \& Heiles}
+\subsection{Some additional points on HI}
+\mar{49}
+%\footnote{Kulkami \& Heiles}
 \begin{itemize}
-    \item HI measurements toward Galactic continuum sources provide
-        (some) information on the distance to these sources,
-        using the velocity of the HI absorption feature to derive
-        a kinematical distance. The usual problem of distance
-        ambiguity may still be a problem here as well, although the
-        total HI column [density?] that is derived from the
-        absorption measurements helps a little in distinguishing
-        near and far distances.
+    \item HI absorption measurements toward Galactic continuum sources provide (some)
+        information on the distance to these sources, using the velocity of the HI
+        absorption feature to derive a kinematical distance. The usual problem of
+        distance ambiguity may still be a problem here as well, although the total
+        HI column [density?] that is derived from the absorption measurements helps
+        a little in distinguishing near and far distances.
     \item \textbf{Temperature of WNM}\ldots two methods:
         \begin{enumerate}
-            \item HI absorption
-            \item UV absorption lines
+            \item HI absorption: complicated because $\tau$ is small, plus stray
+                radiation. Also biases to low temperatures when cooler gas is
+                along the LOS\@.
+            \item UV absorption lines: local ($<$ 200 pc) stars give
+            $T \gtrsim$ 6000 K for WNM
         \end{enumerate}
         So far: data in agreement with 5000 K $\lesssim T \lesssim$ 8000 K,
         but needs more confirmation.
     \item \textbf{Temperature of CNM}\ldots from absorption spectra.
+        We already pointed out correlation of $T_{spin}$ with peaks in
+        absorption profile (see fig. in handout, page 44). Interpretation: HI
+        clouds are not isothermal blobs. Usually we derive what we call
+        $T_{spin}$ of the cloud at the center of the absorption profile, so this
+        is $T_{n, min}$
         \mar{50}The absorption lines are \emph{narrow}.
 \end{itemize}
 
@@ -1359,13 +1561,13 @@ resolve them:\\
 $\left(\cfrac{\lambda}{\Delta\lambda} > 3\!\times\!10^{5}\right) \Leftarrow$
 ideal, but rarely achieved. \mynotes{res: couple thousand}
 
-\begin{tcolorbox}[colback=darkpowderblue!5!white,colframe=darkpowderblue!75!black,title=Aside]
+\begin{framed}%[colback=darkpowderblue!5!white,colframe=darkpowderblue!75!black,title=Aside]
 Remember that $\cfrac{\Delta\lambda}{\lambda} = \cfrac{\Delta{v}}{c}$
 and for $\cfrac{\lambda}{\Delta\lambda} \ge 3\!\times\!10^{5}
 \rightarrow v \le 1$ km per second. Which implies
 $\Delta\lambda \sim 0.02$ \AA{} at 6000 \AA{} and
 $\Delta\lambda \sim 0.0033$ \AA{} at 1200 \AA{}
-\end{tcolorbox}
+\end{framed}
 
 \subsection{Theory of formation of (interstellar) absorption lines}
 \mynotes{Ideal background source: bright (especially UV), with a
@@ -1602,6 +1804,18 @@ is known. For example, the following is reddening free:
 \newpage
 \section{Molecular hydrogen and CO}
 \mar{124}
+
+\subsection{Molecular gas and CO as a tracer}
+\mar{128}
+
+\subsection{CO luminosity}
+\mar{130}
+
+\section{Collisional excitation and ionization}
+\mar{142}
+
+\subsection{Properties of hot ionized gas and spectrum}
+\mar{145}
 
 \newpage
 \section{Heating and cooling}\mar{151}

@@ -1,105 +1,113 @@
 \contentsline {section}{\numberline {1}Introduction}{4}{section.1}
-\contentsline {paragraph}{Dust grains}{4}{paragraph*.1}
-\contentsline {paragraph}{Ionized gas}{5}{paragraph*.2}
-\contentsline {paragraph}{Magnetic fields and cosmic rays}{5}{paragraph*.3}
+\contentsline {subsection}{\numberline {1.1}General viewpoint}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Dust grains}{4}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Ionized gas}{5}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Magnetic fields and cosmic rays}{5}{subsection.1.4}
 \contentsline {section}{\numberline {2}Validity of the laws of statistical physics in ISM conditions}{7}{section.2}
-\contentsline {paragraph}{Maxwellian}{7}{paragraph*.4}
-\contentsline {paragraph}{Boltzmann distribution}{8}{paragraph*.5}
-\contentsline {paragraph}{Saha equation}{8}{paragraph*.6}
-\contentsline {paragraph}{Planck function}{8}{paragraph*.7}
-\contentsline {section}{\numberline {3}Statistical equilibrium}{8}{section.3}
-\contentsline {paragraph}{1. Maxwell velocity distribution}{9}{paragraph*.8}
-\contentsline {paragraph}{2. Boltzmann distribution}{9}{paragraph*.9}
-\contentsline {paragraph}{3. Saha equation}{10}{paragraph*.10}
-\contentsline {section}{\numberline {4}Radiative Transfer}{11}{section.4}
-\contentsline {subsection}{\numberline {4.1}Energy density of radiation}{11}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Radiation pressure}{11}{subsection.4.2}
+\contentsline {paragraph}{Maxwellian}{7}{paragraph*.1}
+\contentsline {paragraph}{Boltzmann distribution}{8}{paragraph*.2}
+\contentsline {paragraph}{Saha equation}{8}{paragraph*.3}
+\contentsline {paragraph}{Planck function}{9}{paragraph*.4}
+\contentsline {section}{\numberline {3}Statistical equilibrium}{9}{section.3}
+\contentsline {paragraph}{1. Maxwell velocity distribution}{10}{paragraph*.5}
+\contentsline {paragraph}{2. Boltzmann distribution}{10}{paragraph*.6}
+\contentsline {paragraph}{3. Saha equation}{11}{paragraph*.7}
+\contentsline {section}{\numberline {4}Radiative Transfer}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Energy density of radiation}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Radiation pressure}{12}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Emission and absorption coefficients}{12}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}Emission}{12}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Absorption}{12}{subsubsection.4.3.2}
-\contentsline {paragraph}{mean free path: $\ell _{\nu }$}{12}{paragraph*.11}
-\contentsline {section}{\numberline {5}Radiative transfer equation}{12}{section.5}
-\contentsline {paragraph}{Formal solution:}{13}{paragraph*.12}
-\contentsline {paragraph}{Special cases}{13}{paragraph*.13}
-\contentsline {subsection}{\numberline {5.1}Einstein coefficients}{14}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Relations between the Einstein coefficients}{14}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Relations between Einstein coefficients and $\kappa _{\nu }$ and $j_{\nu }$}{14}{subsubsection.5.1.2}
-\contentsline {paragraph}{emission coefficient}{14}{paragraph*.14}
-\contentsline {paragraph}{absorption coefficient}{14}{paragraph*.15}
-\contentsline {subsection}{\numberline {5.2}Line profile function, $\phi (\nu )$}{14}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {4.3.2}Absorption}{13}{subsubsection.4.3.2}
+\contentsline {paragraph}{mean free path: $\ell _{\nu }$}{13}{paragraph*.8}
+\contentsline {section}{\numberline {5}Radiative transfer equation}{13}{section.5}
+\contentsline {paragraph}{Formal solution:}{14}{paragraph*.9}
+\contentsline {paragraph}{Special cases}{14}{paragraph*.10}
+\contentsline {subsection}{\numberline {5.1}Einstein coefficients}{15}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Relations between the Einstein coefficients}{15}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Relations between Einstein coefficients and $\kappa _{\nu }$ and $j_{\nu }$}{15}{subsubsection.5.1.2}
+\contentsline {paragraph}{emission coefficient}{15}{paragraph*.11}
+\contentsline {paragraph}{absorption coefficient}{15}{paragraph*.12}
+\contentsline {subsection}{\numberline {5.2}Line profile function, $\phi (\nu )$}{15}{subsection.5.2}
 \contentsline {subsubsection}{\numberline {5.2.1}Natural line width}{15}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Doppler broadening}{15}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Collisional broadening}{15}{subsubsection.5.2.3}
-\contentsline {section}{\numberline {6}Atomic H in the ISM}{15}{section.6}
-\contentsline {subsection}{\numberline {6.1}Excitation and radiative transport for the 21-cm line}{16}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Consider simple case of a single layer of gas}{18}{subsection.6.2}
-\contentsline {paragraph}{Consider two cases}{18}{paragraph*.16}
-\contentsline {subsection}{\numberline {6.3}Observing brightness temperature}{19}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}HI emission and absorption}{19}{subsection.6.4}
-\contentsline {paragraph}{Some practical points}{19}{paragraph*.17}
-\contentsline {paragraph}{Discussion of some results}{19}{paragraph*.18}
-\contentsline {section}{\numberline {7}Atomic structure}{21}{section.7}
-\contentsline {subsection}{\numberline {7.1}Introduction}{21}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Hydrogen atom \& hydrogen-like atoms (or ions)}{21}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Electron spin}{21}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Spin orbit coupling}{21}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}Atoms with multiple electrons}{22}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}Transition rules}{22}{subsection.7.6}
-\contentsline {subsection}{\numberline {7.7}X-ray emission}{22}{subsection.7.7}
-\contentsline {subsection}{\numberline {7.8}Zeeman effect}{22}{subsection.7.8}
-\contentsline {section}{\numberline {8}HII regions}{23}{section.8}
-\contentsline {subsection}{\numberline {8.1}Introductory remarks}{23}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Str\"{o}mgren Theory}{24}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Simple derivation}{24}{subsection.8.3}
-\contentsline {subsubsection}{\numberline {8.3.1}Description of photoionization equilibrium}{25}{subsubsection.8.3.1}
-\contentsline {paragraph}{Overview:}{25}{paragraph*.19}
-\contentsline {subsubsection}{\numberline {8.3.2}the recombination coefficient}{26}{subsubsection.8.3.2}
-\contentsline {subsection}{\numberline {8.4}The spectrum of an HII region}{28}{subsection.8.4}
-\contentsline {subsubsection}{\numberline {8.4.1}Continuum Radiation}{28}{subsubsection.8.4.1}
-\contentsline {paragraph}{Two-photon decay:}{28}{paragraph*.20}
-\contentsline {paragraph}{Free-free emission:}{28}{paragraph*.21}
-\contentsline {paragraph}{Free-bound emission}{29}{paragraph*.22}
-\contentsline {subsubsection}{\numberline {8.4.2}Line Radiation}{29}{subsubsection.8.4.2}
-\contentsline {paragraph}{Recombination lines:}{30}{paragraph*.23}
-\contentsline {paragraph}{Collisionally excited lines in heavy elements:}{30}{paragraph*.24}
-\contentsline {subsection}{\numberline {8.5}Types of HII Regions}{31}{subsection.8.5}
-\contentsline {section}{\numberline {9}Interstellar absorption lines in stellar and quasar spectra}{32}{section.9}
-\contentsline {subsection}{\numberline {9.1}Theory of formation of (interstellar) absorption lines}{33}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}The Curve of Growth}{35}{subsection.9.2}
-\contentsline {subsubsection}{\numberline {9.2.1}Turnover points in the curve of growth}{35}{subsubsection.9.2.1}
-\contentsline {subsubsection}{\numberline {9.2.2}Growth curves in practice}{35}{subsubsection.9.2.2}
-\contentsline {subsection}{\numberline {9.3}UV absorption lines from H and H$_{2}$}{35}{subsection.9.3}
-\contentsline {section}{\numberline {10}Dust}{36}{section.10}
-\contentsline {subsection}{\numberline {10.1}Far infrared emission from dust}{36}{subsection.10.1}
-\contentsline {subsubsection}{\numberline {10.1.1}General properties of dust}{36}{subsubsection.10.1.1}
-\contentsline {subsubsection}{\numberline {10.1.2}Absorption efficiency: the Q parameter}{36}{subsubsection.10.1.2}
-\contentsline {subsubsection}{\numberline {10.1.3}Calculating dust mass from FIR fluxes}{36}{subsubsection.10.1.3}
-\contentsline {subsubsection}{\numberline {10.1.4}Dust temperatures}{36}{subsubsection.10.1.4}
-\contentsline {subsection}{\numberline {10.2}Interstellar extinction}{36}{subsection.10.2}
-\contentsline {subsubsection}{\numberline {10.2.1}The extinction law}{36}{subsubsection.10.2.1}
-\contentsline {paragraph}{Dependence on Galactic latitude:}{37}{paragraph*.25}
-\contentsline {subsection}{\numberline {10.3}Interstellar reddening}{38}{subsection.10.3}
-\contentsline {section}{\numberline {11}Molecular hydrogen and CO}{39}{section.11}
-\contentsline {section}{\numberline {12}Heating and cooling}{40}{section.12}
-\contentsline {subsection}{\numberline {12.1}General}{41}{subsection.12.1}
-\contentsline {subsubsection}{\numberline {12.1.1}Primary heat source}{41}{subsubsection.12.1.1}
-\contentsline {paragraph}{Main point:}{41}{paragraph*.26}
-\contentsline {subsubsection}{\numberline {12.1.2}Primary cooling source}{42}{subsubsection.12.1.2}
-\contentsline {subsection}{\numberline {12.2}HII Regions}{42}{subsection.12.2}
-\contentsline {subsubsection}{\numberline {12.2.1}Heating}{43}{subsubsection.12.2.1}
-\contentsline {subsubsection}{\numberline {12.2.2}Cooling}{44}{subsubsection.12.2.2}
-\contentsline {subsubsection}{\numberline {12.2.3}Results}{44}{subsubsection.12.2.3}
-\contentsline {paragraph}{Some main points:}{44}{paragraph*.27}
-\contentsline {paragraph}{Note:}{45}{paragraph*.28}
-\contentsline {paragraph}{Net effective heating rate}{45}{paragraph*.29}
-\contentsline {paragraph}{The intersection between heating and cooling gives $T_{E}$}{45}{paragraph*.30}
-\contentsline {paragraph}{Optical depth $\tau _{0}$}{45}{paragraph*.31}
-\contentsline {paragraph}{Outer parts of nebula are hotter!}{45}{paragraph*.32}
-\contentsline {paragraph}{How fast does T change when $T \not =T_{E}$?}{45}{paragraph*.33}
-\contentsline {subsection}{\numberline {12.3}HI gas}{47}{subsection.12.3}
-\contentsline {paragraph}{Simple considerations}{47}{paragraph*.34}
-\contentsline {paragraph}{Problem:}{47}{paragraph*.35}
-\contentsline {subsubsection}{\numberline {12.3.1}Cooling function}{47}{subsubsection.12.3.1}
-\contentsline {subsubsection}{\numberline {12.3.2}Heating function}{48}{subsubsection.12.3.2}
-\contentsline {paragraph}{Other potential players}{48}{paragraph*.36}
-\contentsline {subsection}{\numberline {12.4}Few comments/additions from Spitzer}{49}{subsection.12.4}
+\contentsline {subsubsection}{\numberline {5.2.2}Doppler broadening}{16}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Collisional broadening}{16}{subsubsection.5.2.3}
+\contentsline {section}{\numberline {6}Atomic H in the ISM}{16}{section.6}
+\contentsline {subsection}{\numberline {6.1}Possible tracers of HI gas}{17}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Excitation and radiative transport for the 21-cm line}{17}{subsubsection.6.1.1}
+\contentsline {paragraph}{Spontaneous emission:}{17}{paragraph*.13}
+\contentsline {paragraph}{Collisions:}{17}{paragraph*.14}
+\contentsline {subsection}{\numberline {6.2}Simple case of a single layer of gas}{19}{subsection.6.2}
+\contentsline {paragraph}{Consider two cases}{19}{paragraph*.15}
+\contentsline {subsection}{\numberline {6.3}Observing brightness temperature}{20}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}HI emission and absorption}{20}{subsection.6.4}
+\contentsline {paragraph}{Case 1:}{21}{paragraph*.16}
+\contentsline {paragraph}{Some practical points}{21}{paragraph*.17}
+\contentsline {paragraph}{Discussion of some results}{23}{paragraph*.18}
+\contentsline {subsection}{\numberline {6.5}Conclusions}{23}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Some relevant results}{24}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Some additional points on HI}{25}{subsection.6.7}
+\contentsline {section}{\numberline {7}Atomic structure}{26}{section.7}
+\contentsline {subsection}{\numberline {7.1}Introduction}{26}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Hydrogen atom \& hydrogen-like atoms (or ions)}{26}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Electron spin}{26}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Spin orbit coupling}{27}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}Atoms with multiple electrons}{27}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.6}Transition rules}{27}{subsection.7.6}
+\contentsline {subsection}{\numberline {7.7}X-ray emission}{27}{subsection.7.7}
+\contentsline {subsection}{\numberline {7.8}Zeeman effect}{27}{subsection.7.8}
+\contentsline {section}{\numberline {8}HII regions}{28}{section.8}
+\contentsline {subsection}{\numberline {8.1}Introductory remarks}{28}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Str\"{o}mgren Theory}{29}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Simple derivation}{29}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Description of photoionization equilibrium}{30}{subsubsection.8.3.1}
+\contentsline {paragraph}{Overview:}{30}{paragraph*.19}
+\contentsline {subsubsection}{\numberline {8.3.2}the recombination coefficient}{31}{subsubsection.8.3.2}
+\contentsline {subsection}{\numberline {8.4}The spectrum of an HII region}{33}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}Continuum Radiation}{33}{subsubsection.8.4.1}
+\contentsline {paragraph}{Two-photon decay:}{34}{paragraph*.20}
+\contentsline {paragraph}{Free-free emission:}{34}{paragraph*.21}
+\contentsline {paragraph}{Free-bound emission}{35}{paragraph*.22}
+\contentsline {subsubsection}{\numberline {8.4.2}Line Radiation}{35}{subsubsection.8.4.2}
+\contentsline {paragraph}{Recombination lines:}{35}{paragraph*.23}
+\contentsline {paragraph}{Collisionally excited lines in heavy elements:}{35}{paragraph*.24}
+\contentsline {subsection}{\numberline {8.5}Types of HII Regions}{36}{subsection.8.5}
+\contentsline {section}{\numberline {9}Interstellar absorption lines in stellar and quasar spectra}{38}{section.9}
+\contentsline {subsection}{\numberline {9.1}Theory of formation of (interstellar) absorption lines}{39}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}The Curve of Growth}{41}{subsection.9.2}
+\contentsline {subsubsection}{\numberline {9.2.1}Turnover points in the curve of growth}{41}{subsubsection.9.2.1}
+\contentsline {subsubsection}{\numberline {9.2.2}Growth curves in practice}{41}{subsubsection.9.2.2}
+\contentsline {subsection}{\numberline {9.3}UV absorption lines from H and H$_{2}$}{41}{subsection.9.3}
+\contentsline {section}{\numberline {10}Dust}{42}{section.10}
+\contentsline {subsection}{\numberline {10.1}Far infrared emission from dust}{42}{subsection.10.1}
+\contentsline {subsubsection}{\numberline {10.1.1}General properties of dust}{42}{subsubsection.10.1.1}
+\contentsline {subsubsection}{\numberline {10.1.2}Absorption efficiency: the Q parameter}{42}{subsubsection.10.1.2}
+\contentsline {subsubsection}{\numberline {10.1.3}Calculating dust mass from FIR fluxes}{42}{subsubsection.10.1.3}
+\contentsline {subsubsection}{\numberline {10.1.4}Dust temperatures}{42}{subsubsection.10.1.4}
+\contentsline {subsection}{\numberline {10.2}Interstellar extinction}{42}{subsection.10.2}
+\contentsline {subsubsection}{\numberline {10.2.1}The extinction law}{43}{subsubsection.10.2.1}
+\contentsline {paragraph}{Dependence on Galactic latitude:}{43}{paragraph*.25}
+\contentsline {subsection}{\numberline {10.3}Interstellar reddening}{44}{subsection.10.3}
+\contentsline {section}{\numberline {11}Molecular hydrogen and CO}{45}{section.11}
+\contentsline {section}{\numberline {12}Heating and cooling}{46}{section.12}
+\contentsline {subsection}{\numberline {12.1}General}{47}{subsection.12.1}
+\contentsline {subsubsection}{\numberline {12.1.1}Primary heat source}{47}{subsubsection.12.1.1}
+\contentsline {paragraph}{Main point:}{48}{paragraph*.26}
+\contentsline {subsubsection}{\numberline {12.1.2}Primary cooling source}{48}{subsubsection.12.1.2}
+\contentsline {subsection}{\numberline {12.2}HII Regions}{48}{subsection.12.2}
+\contentsline {subsubsection}{\numberline {12.2.1}Heating}{49}{subsubsection.12.2.1}
+\contentsline {subsubsection}{\numberline {12.2.2}Cooling}{50}{subsubsection.12.2.2}
+\contentsline {subsubsection}{\numberline {12.2.3}Results}{50}{subsubsection.12.2.3}
+\contentsline {paragraph}{Some main points:}{51}{paragraph*.27}
+\contentsline {paragraph}{Note:}{51}{paragraph*.28}
+\contentsline {paragraph}{Net effective heating rate}{51}{paragraph*.29}
+\contentsline {paragraph}{The intersection between heating and cooling gives $T_{E}$}{51}{paragraph*.30}
+\contentsline {paragraph}{Optical depth $\tau _{0}$}{51}{paragraph*.31}
+\contentsline {paragraph}{Outer parts of nebula are hotter!}{51}{paragraph*.32}
+\contentsline {paragraph}{How fast does T change when $T \not =T_{E}$?}{52}{paragraph*.33}
+\contentsline {subsection}{\numberline {12.3}HI gas}{53}{subsection.12.3}
+\contentsline {paragraph}{Simple considerations}{53}{paragraph*.34}
+\contentsline {paragraph}{Problem:}{53}{paragraph*.35}
+\contentsline {subsubsection}{\numberline {12.3.1}Cooling function}{53}{subsubsection.12.3.1}
+\contentsline {subsubsection}{\numberline {12.3.2}Heating function}{54}{subsubsection.12.3.2}
+\contentsline {paragraph}{Other potential players}{54}{paragraph*.36}
+\contentsline {subsection}{\numberline {12.4}Few comments/additions from Spitzer}{55}{subsection.12.4}

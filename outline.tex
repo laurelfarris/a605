@@ -1,10 +1,11 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage{enumerate}
+\usepackage{enumitem}
 
-
+\setitemize{noitemsep}
 \begin{document}
-\begin{enumerate}[I.]
+\begin{enumerate}[label=\Roman*.]
 
 \item Introduction
 \begin{itemize}
@@ -24,7 +25,7 @@
 \item Statistical physics in the ISM -16-
 \begin{itemize}
     \item The ``Big Four''
-    \begin{enumerate}[1.]
+    \begin{enumerate}[label=\arabic*]
         \item Maxwell distribution -16-
         \item Boltzmann distribution of energy levels in atoms and molecules
         \item Saha equation for ionization equilibrium
@@ -65,20 +66,7 @@
     \item absorption of external background source (BGS)
   \end{enumerate}
   \item Conclusions -45-
-  \begin{enumerate}
-    \item 1
-    \item 2
-    \item 3
-    \item 4
-  \end{enumerate}
   \item Relevant Results -47-
-  \begin{enumerate}
-    \item 1
-    \item 2
-    \item 3
-    \item 4
-    \item 5 Problem with Different Temperatures along LOS
-  \end{enumerate}
   \item Special Cases -48-
   \item Additional Points on HI -49-
 \end{enumerate}
@@ -92,6 +80,7 @@
   \item x-ray emission, Zeeman effect -I20-
 \end{itemize}
 
+\newpage
 \item HII Regions -51-
 \begin{itemize}
     \item Stromgren Theory -52-
