@@ -1,16 +1,21 @@
 \relax 
-\ifx\hyper@anchor\@undefined
-\global \let \oldcontentsline\contentsline
-\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global \let \oldnewlabel\newlabel
-\gdef \newlabel#1#2{\newlabelxx{#1}#2}
-\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\let \contentsline\oldcontentsline
-\let \newlabel\oldnewlabel}
-\else
-\global \let \hyper@last\relax 
-\fi
-
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{4}{section.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}General viewpoint}{4}{subsection.1.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Dust grains}{4}{subsection.1.2}}
@@ -98,7 +103,7 @@
 \@writefile{toc}{\contentsline {paragraph}{Overview:}{30}{paragraph*.19}}
 \pp@pagectr{footnote}{23}{31}{31}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {8.3.2}the recombination coefficient}{31}{subsubsection.8.3.2}}
-\newlabel{alpha}{{8.3.2}{31}{the recombination coefficient\relax }{subsubsection.8.3.2}{}}
+\newlabel{alpha}{{8.3.2}{31}{the recombination coefficient}{subsubsection.8.3.2}{}}
 \pp@pagectr{footnote}{24}{32}{32}
 \pp@pagectr{footnote}{25}{32}{32}
 \pp@pagectr{footnote}{26}{32}{32}
@@ -136,33 +141,40 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {10.2.1}The extinction law}{43}{subsubsection.10.2.1}}
 \@writefile{toc}{\contentsline {paragraph}{Dependence on Galactic latitude:}{43}{paragraph*.25}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Interstellar reddening}{44}{subsection.10.3}}
-\newlabel{reddening}{{10.3}{44}{Interstellar reddening\relax }{subsection.10.3}{}}
+\newlabel{reddening}{{10.3}{44}{Interstellar reddening}{subsection.10.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {11}Molecular hydrogen and CO}{45}{section.11}}
-\@writefile{toc}{\contentsline {section}{\numberline {12}Heating and cooling}{46}{section.12}}
-\pp@pagectr{footnote}{36}{46}{46}
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}General}{47}{subsection.12.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.1.1}Primary heat source}{47}{subsubsection.12.1.1}}
-\@writefile{toc}{\contentsline {paragraph}{Main point:}{48}{paragraph*.26}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.1.2}Primary cooling source}{48}{subsubsection.12.1.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}HII Regions}{48}{subsection.12.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.1}Heating}{49}{subsubsection.12.2.1}}
-\pp@pagectr{footnote}{37}{49}{49}
-\pp@pagectr{footnote}{38}{50}{50}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.2}Cooling}{50}{subsubsection.12.2.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.3}Results}{50}{subsubsection.12.2.3}}
-\@writefile{toc}{\contentsline {paragraph}{Some main points:}{51}{paragraph*.27}}
-\@writefile{toc}{\contentsline {paragraph}{Note:}{51}{paragraph*.28}}
-\@writefile{toc}{\contentsline {paragraph}{Net effective heating rate}{51}{paragraph*.29}}
-\@writefile{toc}{\contentsline {paragraph}{The intersection between heating and cooling gives $T_{E}$}{51}{paragraph*.30}}
-\@writefile{toc}{\contentsline {paragraph}{Optical depth $\tau _{0}$}{51}{paragraph*.31}}
-\@writefile{toc}{\contentsline {paragraph}{Outer parts of nebula are hotter!}{51}{paragraph*.32}}
-\@writefile{toc}{\contentsline {paragraph}{How fast does T change when $T \not =T_{E}$?}{52}{paragraph*.33}}
-\pp@pagectr{footnote}{39}{52}{52}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Molecular gas and CO as a tracer}{45}{subsection.11.1}}
+\pp@pagectr{footnote}{36}{45}{45}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}CO luminosity}{46}{subsection.11.2}}
+\pp@pagectr{footnote}{37}{46}{46}
+\@writefile{toc}{\contentsline {section}{\numberline {12}Hot ionized gas}{47}{section.12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}Collisional excitation and ionization}{47}{subsection.12.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}Properties of hot ionized gas and spectrum}{47}{subsection.12.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {13}Heating and cooling}{48}{section.13}}
+\pp@pagectr{footnote}{38}{48}{48}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.1}General}{49}{subsection.13.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.1.1}Primary heat source}{49}{subsubsection.13.1.1}}
+\@writefile{toc}{\contentsline {paragraph}{Main point:}{50}{paragraph*.26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.1.2}Primary cooling source}{50}{subsubsection.13.1.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.2}HII Regions}{50}{subsection.13.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.2.1}Heating}{51}{subsubsection.13.2.1}}
+\pp@pagectr{footnote}{39}{51}{51}
 \pp@pagectr{footnote}{40}{52}{52}
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}HI gas}{53}{subsection.12.3}}
-\@writefile{toc}{\contentsline {paragraph}{Simple considerations}{53}{paragraph*.34}}
-\@writefile{toc}{\contentsline {paragraph}{Problem:}{53}{paragraph*.35}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.3.1}Cooling function}{53}{subsubsection.12.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.3.2}Heating function}{54}{subsubsection.12.3.2}}
-\@writefile{toc}{\contentsline {paragraph}{Other potential players}{54}{paragraph*.36}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.4}Few comments/additions from Spitzer}{55}{subsection.12.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.2.2}Cooling}{52}{subsubsection.13.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.2.3}Results}{52}{subsubsection.13.2.3}}
+\@writefile{toc}{\contentsline {paragraph}{Some main points:}{53}{paragraph*.27}}
+\@writefile{toc}{\contentsline {paragraph}{Note:}{53}{paragraph*.28}}
+\@writefile{toc}{\contentsline {paragraph}{Net effective heating rate}{53}{paragraph*.29}}
+\@writefile{toc}{\contentsline {paragraph}{The intersection between heating and cooling gives $T_{E}$}{53}{paragraph*.30}}
+\@writefile{toc}{\contentsline {paragraph}{Optical depth $\tau _{0}$}{53}{paragraph*.31}}
+\@writefile{toc}{\contentsline {paragraph}{Outer parts of nebula are hotter!}{53}{paragraph*.32}}
+\@writefile{toc}{\contentsline {paragraph}{How fast does T change when $T \not =T_{E}$?}{54}{paragraph*.33}}
+\pp@pagectr{footnote}{41}{54}{54}
+\pp@pagectr{footnote}{42}{54}{54}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.3}HI gas}{55}{subsection.13.3}}
+\@writefile{toc}{\contentsline {paragraph}{Simple considerations}{55}{paragraph*.34}}
+\@writefile{toc}{\contentsline {paragraph}{Problem:}{55}{paragraph*.35}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.3.1}Cooling function}{55}{subsubsection.13.3.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.3.2}Heating function}{56}{subsubsection.13.3.2}}
+\@writefile{toc}{\contentsline {paragraph}{Other potential players}{56}{paragraph*.36}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.4}Few comments/additions from Spitzer}{57}{subsection.13.4}}

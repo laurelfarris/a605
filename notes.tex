@@ -47,6 +47,11 @@
 \definecolor{mygreen}{rgb}{0.0, 0.26, 0.15}
 \newcommand{\mynotes}[1]{\textcolor{mygreen}{#1}}
 
+\newcommand{\mydate}[1]{
+    \rule{\textwidth}{0.4pt}
+
+    {\vspace{-1ex}\small\hfill\textit{#1}}}
+
 \usepackage{titlesec}
 %\titleformat{<command>}
 %   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
@@ -620,9 +625,8 @@ Can be written in terms of a \emph{Voigt function}:
 while the wings are much stronger than expected in a Gaussian profile,
 due to the intrinsic line width.
 
-\section{Atomic H in the ISM}
+\section{Neutral hydrogen (HI gas) in the ISM}
 \footnote{Draine Ch 8, 29; Ch 17.1, 17.3}
-(Aka HI, or neutral hydrogen).
 Wherever HI dominates the ISM, all atoms are found in the \textbf{ground state}
 ($^{2}$S)(n=1). The next excited level ($^{2}$P) is about 10 eV above the
 ground-level. This excitation is very rare and and quickly falls back to the
@@ -1589,17 +1593,20 @@ is always defined relative to $I_{o}$; we \emph{divide} by $I_{o}$.
 \mar{91}Note also that if we decrease the resolving power of the
 spectrograph, EW does not change.
 
-\underline{Theoretical expression for EW}:$${
+\underline{Theoretical expression for EW}:
+\[
     \tau_{\nu} = \int_{0}^{\infty}{\kappa_{\nu}\mathrm{d}r};\quad
     \kappa_{\nu} = h\nu_{u\ell}
     \frac{n_{\ell}B_{\ell{u}}-n_{u}B_{u\ell}}{c}\phi(\nu)
-}$$(using ``energy density'' definition of $B$ coefficients).
+    \]
+(using ``energy density'' definition of $B$ coefficients).
 $u$ = upper level and $\ell$ = lower level.
 
-If stimulated emission can be neglected, we have:$${
+If stimulated emission can be neglected, we have:
+\[
     \kappa_{\nu} = \frac{h\nu_{u\ell}B_{\ell{u}}}{c}n_{\ell}\phi(\nu) \equiv
     \frac{\pi\mathrm{e}^{2}}{m_{e}c}f_{\ell{u}}n_{\ell}\phi(\nu)
-}$$
+    \]
 where $f_{\ell{u}}$ = \emph{oscillator strength}
 \mynotes{(historical terminology)},
 and $\frac{\pi\mathrm{e}^{2}}{m_{e}c}$ = ``classical cross-section''\footnote{
@@ -1803,15 +1810,106 @@ is known. For example, the following is reddening free:
 
 \newpage
 \section{Molecular hydrogen and CO}
-\mar{124}
+\mar{124}Molecular gas is, with HI, the dominant phase of the ISM in galaxies,
+in its contribution to the total gas mass. The distribution of H$_{2}$, however,
+is very different from HI gas. The gas is much colder and denser, and as a
+result, fills only a small part of the volume of the Galactic disk. The gas
+is heavily concentrated to the midplane of the galaxy (scale height $\sim$ 60
+pc) and is mostly found in Giant Molecular Clouds (GMCs), complexes of small
+clumps of molecular gas, gravitationally bound, with overall sizes $\sim$ 50
+pc and masses of 10$^{4}$ - 10$^{6}$ M$_{\odot}$. All available evidencee
+indicates that stars form from molecular gas. There is some diffuse
+molecular gas locally at higher latitude, so the scale height cited refers
+to the main GMC layer, not all molecular gas.
+\mynotes{Forming molecules is not trivial; dust grains may act as a catalyst.}
+
+Since H2 molecule is not
+easily observable (see later), we need a tracer. CO is the most abundant
+($\sim$ one CO molecule for every 10$^{4}$ H2 molecules). In terms of
+observational techniques, the predominant tracer of molecular gas is the
+CO molecule, through rotational transitions in the mm wavelength range.
+\mynotes{(2.6 mm, to be exact.)}
+This sets a very different set of observational challenges compared to the
+21-cm line: smoother telescope surfaces, different receivers/noise demands,
+smaller primary beams, larger short spacings, problems in interferometer
+maps. \mynotes{CO maps are harder to make than HI.}
 
 \subsection{Molecular gas and CO as a tracer}
-\mar{128}
+\mar{128}H$_{2}$ molecule has no permanent dipole moment (because the
+center of mass and center of charge coincide). Electronic transitions in the
+UV (Lyman and Werner bands) have been detected in absorption, and
+rotational-vibrational transitions in IR (H$_{2}$ gas that is warm due to shocks)
+but these do not allow general maping of this component.
+$\Rightarrow$ Need a different tracer. CO has J=1-0 rotational transition
+at 2.6 mm (115.3 GHz) which is \emph{easily excited by collisions with
+H$_{2}$} ($h\nu/k$ = 5.5 K) even in cold gas. Critical density for
+significant excitation of the 2.6 mm line:
+$n_{H_{2}} \geq$ 3000 cm$^{-3}$ if there is a balance between CO-H$_{2}$
+collisions and spontaneous decay. However, since lines are optically thick
+in reality, the critical density is reduced by $1/\tau$ (where $\tau$ is the
+optical depth)\footnote{
+    See Draine 19.3.1, 19.3.2}
+The result is that $T_{x} = T_{k}$ for $n_{H_{2}} \geq 300$ cm$^{-3}$
+(the levels are ``thermalized''). $T_{x}$ is the excitation temperature and
+$T_{k}$ is the kinetic temperature.
 
 \subsection{CO luminosity}
 \mar{130}
+\[
+    L_{CO} = 4{\pi}D^{2} \int{ I \mathrm{d}\Omega }
+    \]
+Cloud of surface area ${\pi}R^{2}$ occupies
+\[
+    \mathrm{d}\Omega = \cfrac{{\pi}R^{2}}{4{\pi}D^{2}}
+    \]
+so $L_{CO} \propto {\pi}R^{2} T_{CO} {\Delta}v$
+(assumes $T_{CO} \simeq T_{A}^{*}$ \ldots).
+For gravitationally bound clouds:
+\[
+    {\Delta}v = \sqrt{ \frac{GM_{H_{2}}}{R} }
+    \]
+\[
+    \Longrightarrow \quad
+    M_{H_{2}} = L_{CO} \sqrt{ \frac{4}{3{\pi}G} } \frac{\sqrt{\rho}}{T_{CO}}
+    \]
+so
+\[
+    M_{H_{2}} \propto L_{CO} \frac{\sqrt{\rho}}{T_{CO}}
+    \]
+$L_{CO}$ is measured (need to know distance). $T_{CO}$ is not necessarily
+physical.\footnote{
+    See Draine 19.6 and figure on reverse side of handwritten notes.}
 
-\section{Collisional excitation and ionization}
+\underline{Potential problems}:
+How constant is the proportionality? For example, metallicity -
+abundance of H$_{2}$ over CO may differ. This is especially a problem
+for dwarf galaxies. Note: H$_{2}$ molecules mainly form on grains.
+Dissociation energy of H$_{2}$ and CO: 4.48 eV and 11.1 eV.
+
+\underline{CO $\rightarrow$ H$_{2}$ conversion calibration methods}:
+\begin{itemize}
+    \item optical extinction for Galactic clouds $\leftrightarrow L_{CO}$
+        ($A_{V}$).
+    \item $\gamma$-ray emission at ``soft $\gamma$-ray energies'' probes
+        total gas column.
+    \item The famous x-factor! Calibration of $L_{CO}$ to $M_{H_{2}}$.
+        Canonical value $x$ (see below).
+        Assuming gas-to-dust ratio of 1\%.
+    \item virial mass of molecular clouds
+\end{itemize}
+
+\underline{Results}:
+\[
+    \frac{N(H_{2})}{I_{CO}} = 2\!-\!3 \times 10^{20}\quad
+    \mathrm{cm}^{-2}\
+    (\mathrm{km\ s}^{-1})^{-1}
+    \]
+
+\mynotes{Good info about molecular lines and transitions on pages
+135 - 141 (photocopy from book)}
+
+\section{Hot ionized gas}
+\subsection{Collisional excitation and ionization}
 \mar{142}
 
 \subsection{Properties of hot ionized gas and spectrum}
