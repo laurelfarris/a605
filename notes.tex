@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 %\usepackage[left=1in, top=1in, right=1in, bottom=1in]{geometry}
-\usepackage[textwidth=5.5in]{geometry}
+\usepackage[textwidth=6.0in]{geometry}
 %\renewcommand\familydefault{\sfdefault}
 \setlength{\marginparwidth}{0.5in}
 \setlength{\parindent}{0em}
@@ -12,6 +12,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{xcolor}
+\usepackage{setspace} % Vertical spacing between items (toc, arrays, etc.)
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -54,26 +55,26 @@
 
     {\vspace{-1ex}\small\hfill\textit{#1}}}
 
+\definecolor{mypur}{rgb}{0.57, 0.36, 0.51}
 
 \usepackage{titlesec}
 %\titleformat{<command>}
 %   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
-\titleformat{\section}%
-    [hang]
-  {\filcenter\fontsize{16}{18}\selectfont\bfseries} %\filcenter\bfseries\LARGE
-  {\hspace{-0.25in}\arabic{section}.\;} %   {\thesection} %{<label>}
-  {1em}
-  {}
-\titleformat{\subsection}%
-  {\filcenter\fontsize{14}{16}\selectfont\bfseries} %\filcenter\bfseries\LARGE
-  {\arabic{section}.\arabic{subsection}\;}
-  {1em}     % sep
-  {}        % before code
-\titleformat{\subsubsection}%
-  {\filcenter\fontsize{13}{15}\selectfont\bfseries\itshape} %\filcenter\bfseries\LARGE
-  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}% label% {\thesection} %{<label>}
-  {1em}     % sep
-  {}        % before code
+%\titleformat{\section}%
+%  {\filcenter\fontsize{18}{20}\selectfont\bfseries}
+%  {\hspace{-0.25in}\arabic{section}.\;} %   {\thesection} %{<label>}
+%  {1em}
+%  {}
+%\titleformat{\subsection}%
+%  {\filcenter\fontsize{16}{18}\selectfont\bfseries}
+%  {\arabic{section}.\arabic{subsection}\;}
+%  {1em}     % sep
+%  {}        % before code
+%\titleformat{\subsubsection}%
+%  {\filcenter\fontsize{14}{16}\selectfont\bfseries\itshape}
+%  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}
+%  {1em}     % sep
+%  {}        % before code
 \titleformat{\paragraph}%
   {\fontsize{12}{13}\selectfont\bfseries}
   {$\Rightarrow$}{}{}
@@ -96,8 +97,11 @@
 
 %\setcounter{secnumdepth}{1}
 
-\setlist[itemize]{noitemsep, topsep=0ex}
-\setlist[enumerate]{noitemsep, topsep=0ex}
+%\setlist[itemize]{noitemsep, topsep=0ex}
+%\setlist[enumerate]{noitemsep, topsep=0ex}
+\setitemize{noitemsep, topsep=0ex}
+\setenumerate{noitemsep, topsep=0ex}
+\setdescription{noitemsep, topsep=0ex, labelindent=0.25in}
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\scriptsize$\bullet$}}$}
 \renewcommand{\labelitemii}{$\vcenter{\hbox{\scriptsize$\circ$}}$}
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
@@ -115,7 +119,6 @@
     showstringspaces=false % no special string spaces
     }
 
-%\usepackage{setspace} % spacing between toc items
 %\usepackage[toc]{multitoc}
 %\renewcommand*{\multicolumntoc}{2}
 %\setlength{\columnseprule}{0.5pt}
@@ -129,12 +132,10 @@
 \setlength{\parskip}{0ex}
 \tableofcontents\newpage
 \setlength{\parskip}{2ex}
-
 \reversemarginpar
-\section{Introduction}
-\subsection{Overview of ISM components and processes}
-\mar{6}What can happen to an atom or molecule or dust
-grain sitting in the ISM?
+
+\section{Overview of ISM components and processes}
+\mar{6}What can happen to an atom or molecule or dust grain sitting in the ISM?
 \begin{itemize}
     \item Can it absorb a photon? Energy levels $\leftrightarrow$ $h\nu$
         (Need cross-sections for dust grains)
@@ -152,7 +153,35 @@ Three possible sources of ionization (and excitation):
 Typical collisional energies: kinetic energy.
 Translate $mv^{2} \rightarrow kT \rightarrow h\nu \rightarrow eV$.
 
-\subsection{Dust grains}
+\subsection{Neutral gas}
+\mar{7}Overall, in the solar neighborhood, $n(HI) \simeq 1$ cm$^{-3}$.
+The \textit{effective thickness} of the HI layer is defined as
+\[
+    \frac{N_{\perp}(HI)}{n(HI, z=0)}
+    = \frac{\int_{-\infty}^{\infty} n(HI)\;\mathrm{d}z}{n(HI, z=0)}
+    \sim 250 \;\mathrm{pc}
+    \]
+He will also be neutral in this medium, and makes up about 30\% of the mass.
+
+Spitzer discusses the existence of HI clouds with certain typicl properties;
+it is not clear how realistic the description is. For one, ``spherical clouds''
+appear not to exist, but filamentary structures dominate. But his discussion
+does illustrate some of the basics of a clumpy medium embedded in a more diffuse
+substrate.
+
+The typical temperature of HI gas is 50 - 150 K in ``clouds'', and up to
+$\sim$ 6000 K in warm neutral medium (WNM). WNM has low average density,
+in the range 0.05 - 0.2 cm$^{-3}$
+
+\subsection{Molecular gas}
+Molecular gas is typically much cooler ($T < 40$ K), as low as 10 K.
+Perhaps there is even a colder component, with $T \sim 3$ K, the microwave
+background temperature. This component would be very difficult to detect
+in emission (why?), but may have been seen in absorption (need reference).
+The molecular gas is warmer close to regions of star formation. Typical
+densities of the molecular gas are in the range $10^{3} - 10^{6}$ cm$^{-3}$.
+
+\subsection{Dust}
 \mar{8}Dust grains also occur in the neutral medium, and
 probably also in the (warm) ionized medium. Dust grains play an important
 role in various processes:
@@ -164,98 +193,149 @@ role in various processes:
         (reducing amount of ionizing radiation)
     \item heating of HI gas by \emph{photoelectric} emission
 \end{itemize}
-Composition: carbon and silicates. Typical sizes: 0.01 - 0.1 $\mu$m
-(How do we know? $\rightarrow$ shape of extinction curve). Grains as small
-as $\sim$ 60 atoms across discovered; evidence from emission lines in NIR
-and excess emission at 5 - 40 $\mu$m over what is expected from dust in the ISM\@.
-The larger dust grains have temperatures between 10 and 40 K, while the small
-ones can be heated to higher temps due to the absorption of even a single
-photon (smaller heat capacity, as volume $\propto r^{3}$). A promising
-candidate for small dust grains: polycyclic aromatic hydrocarbons
-($\sim$ car soot!)
+The composition of dust grains is still a matter of debate, although certainly
+carbon and silicates (i.e.\ ``sand grains''.) Typical sizes are in the range
+0.01 - 0.1 $\mu$m (How do we know? $\rightarrow$ shape of extinction curve).
+Grains as small as $\sim$ 60 atoms across discovered; evidence comes from
+emission lines in NIR and excess emission at 5 - 40 $\mu$m from dust in the ISM
+(excess over what is expected from the larger dust grains). While the larger
+dust grains have temperatures between 10 and 40 K, the small ones can be heated
+to higher temperatures due to the absorption of even a single UV photon. A
+promising candidate for small dust grains are so-called polycyclic aromatic
+hydrocarbons A good closely related analog is car soot!
 
-In hot environments, dust grains may be destroyed by \textit{sputtering}, where
-collisiosn of grains with other atoms, electrons, or molecules knock molecules
-off the grains. \mar{9}At low temperatures, molecules stick to dust grains,
-causing depletion of heavy elements along certain lines of sight (most dust in
-the plane). Dust contributes about 1\% of the mass of the ISM in the solar
-neighborhood, mostly in the form of large grains.
+It is not clear how well dust grains survive in hot environments: they may be
+destroyed by \textit{sputtering}, where collisions of grains with other atoms,
+electrons, or molecules knock molecules off the grains.
+\mar{9}Since atoms and molecules stick to dust grains at low temperatures,
+grains can deplete the heavy elements
+of the ISM, producing apparently anomalously low abundances of these elements
+along certain lines of sight.
+
+Dust contributes about 1\% of the mass of the ISM in the solar neighborhood,
+mostly in the form of large grains.
 
 \subsection{Ionized gas}
+Three processes can ionize gas in the ISM:
 \begin{enumerate}[label=\alph*)]
-    \item Photoionization: especially effective near hot stars. Shock
-        ionization
-    \item Cosmic rays: can occur throughout most of the ISM, so can also
-        produce a small amount of ionization in denser gas (though
-        recombination happens quickly, so not much of gas is in an
-        ionized state at any given time).
-    \item \mar{11}Collisions: Hot ($\sim 10^{7}$ K) expanding bubble
-        sweeps up shell of warm ($\sim 10^{4}$ K) ionized gas, which shows
-        a different optical spectrum than HII regions. The hot gas shows
-        up by:
-        \begin{itemize}
-            \item Free-free and line x-rays
-            \item absorption lines of highly ionized species toward
-                bright UV sources
-        \end{itemize}
-        Kirchoff's law: apparently can still see absorption lines when looking
-        through a gas that is hotter than the source behind it!
+    \item Photoionization
+    \item Collisions with other particles
+    \item Cosmic rays
 \end{enumerate}
+Photoionizatin is especially effective near hot stars, i.e.\ central stars
+in planetary nebulae, or white dwarfs in general, and massive OB stars in
+HII regions.
+
+Shock ionization occurs due to expanding stellar winds, supernova explosions,
+and collisions among gas clouds.
+
+\underline{Question}: what collisionsal speeds are required to ionize hydrogen?
+What temperatures does this correspond to?
+
+Planetary nebulae are similar to HII regions, except their central stars are
+typically hotter than those in HII regions, resulting in emission lines from
+more highly inized elements.
+\mar{10}The central stars, however, are usually much \emph{less luminous} than
+OB stars, producing much smaller, less lumnious nebulae.
+
+Typical densities in HII regions are 10 - 10$^{4}$ cm$^{-3}$. In \textit{compact}
+HII regions, densities can be even higher. Temperatures are in the range
+5000 - 10,000 K, as we will see.
+
+In addition to planetary nebulae and HII regions, we also recognize a much more
+diffuse ionized medium, which seems to fill a substantial portion of interstellar
+space. Most likely, this gas is also photo-ionized, although shocks are likely
+important in certain locations. Tracers/probes of this medium include pulsar
+dispersion measurements and H$\alpha$ (and other Balmer emission lines).
+
+Cosmic ray ionization can occur throughout most of the ISM, so cosmic rays can
+also produce a small amount of ionization in denser gas (recombination happens
+quickly, so not much of the gas is in ionized state at any given time).
+
+\mar{11}A typical example is the heating and resulting ionization produced by
+supernova explosions. The explosion creates a hot expanding bubble, initially
+$\sim 10^{7}$ K, which generally sweeps up a cooler shell of warm ($\sim
+10^{4}$ K) ionized gas. The warm shell is largely ionized by shocks and shows a
+different optical spectrum than HII regions.
+
+The hot gas shows up by:
+\begin{itemize}
+    \item emission of free-free and line x-rays
+    \item absorption lines of highly ionized species toward bright UV sources
+\end{itemize}
+
+\underline{Question}: Kirchoff's laws tell us that absorption lines arise when
+we look through a cool gas toward a hotter source. The collisionally ionized gas
+showing up in OVI ($\lambda 1031.9 + \lambda 1037.6$ \AA{}) is inferred to be
+several hundred thousand K, much hotter than the O star tward which these lines
+are seen in absorption. How can it be that we see this gas in absorption?
+
+Typical densities of hot gas: 0.001 - 0.0001 cm$^{-3}$
+
+The following table (page -12-) summarizes our knowledge of the local ISM, and
+is taken from Knapp (1989, Wyoming conference).
 
 \subsection{Magnetic fields and cosmic rays}
-\mar{13}In the solar neighborhood, $\mathbf{B} \sim 2-5\times10^{6}$ Gauss.
+\mar{13}Typically, in the solar neighborhood,
+$\mathbf{B} = 2\!-\!5\times10^{-6}$ Gauss.
 This follows from measurements of \textit{Faraday rotation}, giving
-$<n_{e}B_{||}>$ toward pulsars and radio sources. The random component of
-the $B$ field is probably as large as the uniform component. In clouds,
-the $B$ field can be much higher, $\sim 70 \mu$G (from Zeeman effect splitting
-measurements).
+$\langle n_{e}B_{\parallel} \rangle$
+toward pulsars and radio sources. The random component of the $B$ field is
+probably as large as the uniform component. In clouds, the $B$ field can be
+much higher, $\sim 70 \mu$G (from Zeeman effect splitting measurements).
 
 The magnetic field is important for several reasons:
 \begin{enumerate}
     \item It aligns elongated grains, giving rise to polarization
         of starlight
-    \item Causes relativisitic electrons to emit synchrotron radiation,
-        and most likely plays a role in accelerating electrons to
+    \item It causes relativisitic electrons to emit synchrotron radiation,
+        and almost certainly plays a role in accelerating electrons to
         relativistic velocities (``magnetic bottle'', Fermi acceleration).
-    \item Provides pressure support against gravitational collapse of matter
+    \item It provides pressure support against gravitational collapse of matter
         since it is frozen into the matter due to ionization heavy elements.
-        It also seems to play animportant role in solving the angular momentum
+        It also seems to play an important role in solving the angular momentum
         problem in star formation.\footnote{Shu et al.}
 \end{enumerate}
-
-Total energy density of cosmic rays in solar neighborhood:
+The cosmic rays that reach the Earth are mainly protons. At 1 GeV the number
+density ratio of protons to electrons is about 100. However, the electrons
+are more affected by energy loss mechanisms and it is not clear that this
+ratio holds in the ISM. The total energy density (or pressure) of cosmic
+rays in the solar neighborhood is
 $U_{R} \sim 1.3\times10^{-12}$ erg cm$^{-3}$.
+
 \mar{14}Why are cosmic rays important?
 \begin{itemize}
     \item They produce $\gamma$-rays through collisions with atoms and
-        molecules. The observed $\gamma$-ray intensity from the ISM forms
+        molecules. In fact, the observed $\gamma$-ray intensity from the ISM forms
         an excellent independent measure of the total amount of matter
-        between stars. For example, calibrating the conversion factor of
-        CO line intensity to H$_{2}$ mass.
-    \item Provide pressure against gravitational collapse
+        between stars. For example, $\gamma$-ray data have been used to calibrate
+        the conversion factor of CO line intensity to H$_{2}$ mass.
+        (\mynotes{the X-factor?!?})
+    \item They also provide pressure against gravitational collapse
 \end{itemize}
-Five pressures that play an important role in supporting the ISM against
-gravitational collapse:
+
+So we have five pressures that play an important role in supporting the ISM
+against gravitational collapse:
 \begin{enumerate}
-    \item thermal $P=nkT$
-    \item magnetic $P=\cfrac{B^{2}}{8\pi}$
-    \item turbulent (bulk motion)*
-    \item cosmic ray
+    \item thermal: $P=nkT$
+    \item magnetic: $P=\cfrac{B^{2}}{8\pi}$
+    \item turbulent (bulk motion) \textcolor{mypur}{$\bigstar$}
+    \item cosmic rays
     \item radiation
 \end{enumerate}
-* The cloud to cloud velocity dispersion due to turbulence on various
-scales increases line widths [over?] thermal widths. From the table
-on page -12-, you will note rough thermal pressure euqilibrium between
-the components. This is not a coincidence; in fact, some of this
-information was inferred by assuming pressure equilibrium. The
-argument is that if there were no equilibrium, the resulting
-perturbations would be wiped out on sound-crossing time scales, which
-are short compared to\mar{15} the time scales we wouuld
-consider the ISM to evolve over.
+\textcolor{mypur}{$\bigstar$}
+There is a pressure associated with turbulent velocities in the ISM. The cloud
+to cloud velocity dispersion due to turbulence on various scales increases line
+widths [over?] thermal widths. From the table on page -12-, you will note rough
+thermal pressure euqilibrium between the components. This is not a coincidence;
+in fact, some of this information was inferred by \emph{assuming} pressure
+equilibrium. The argument is that if there were no equilibrium, the resulting
+perturbations would be wiped out on sound-crossing time scales, which are short
+compared \mar{15}to the time scales we wouuld consider the ISM to evolve over.
 
 However, the actual evidence for equilibrium in the thermal pressure
 is scarse, and there are claims that it is not true in the very local
-ISM\footnote{\href{http://www.nature.com/nature/journal/v375/n6528/abs/375212a0.html}
+ISM\footnote{See, e.g.\ \href{http://www.nature.com/nature/journal/v375/n6528/abs/375212a0.html}
 {Bowyer et al. \textit{Nature} 1905}}.
 
 There seems to be a ``cosmic conspiracy'': the estimates for the
@@ -266,32 +346,30 @@ measured with much certainty). Interestingly, the magnetic pressure
 number is also very similar to the energy density of the CMB\@.
 \footnote{Draine discusses possible reasons in section 1.3}
 \footnote{Supplemental info in Draine chapter 1.}
+Note that pressure and energy density have the same units if you convert them!
 
-Next\mar{16} section is sort of a shortened condensation of Draine's chapters
-2 and 3. We may come back to specific topics discussed there in more
-detail.
+\mar{16}Next section is sort of a shortened condensation of Draine's chapters 2
+and 3. We may come back to specific topics discussed there in more detail.
 
 \newpage
 \section{Statistical physics in the ISM}
-\subsection{The big four}
-The four major laws of statistical physics are:
-\begin{enumerate}
-    \item \textbf{Maxwellian} velocity distribution
-    \item \textbf{Boltzmann distribution} of energy levels in atoms and molecules
-    \item \textbf{Saha equation} for ionization equilibrium
-    \item \textbf{Planck function} for radiation
-\end{enumerate}
-\mynotes{These apply to stars, but not always to the ISM.}
+\subsection{The ``big four'' major laws of statistical physics}
+\begin{description}
+    \item [Maxwellian] velocity distribution
+    \item [Boltzmann distribution] of energy levels in atoms and molecules
+    \item [Saha equation] for ionization equilibrium
+    \item [Planck function] for radiation
+\end{description}
 
-\subsubsection{Maxwellian}
-\mynotes{$T$ is defined by motion of particles}.
-($\vec{\omega}$ = velocity = $\vec{v}$ in Draine).
+\subsubsection{Maxwell's velocity distribution}
+\mynotes{Temperature is defined by the motion of the particles}.
+Velocity is given by $\vec{\omega}$ (or $\vec{v}$ in Draine).
 
-$f(\vec{\omega})\mathrm{d}\vec{\omega}$ =
+$f(\vec{\omega})\;\mathrm{d}\vec{\omega}$ =
 fractional number of particles whose velocity, $\vec{\omega}$, lies within the
 three-dimensional volume element
-$\mathrm{d}\vec{\omega} =
-\mathrm{d}\omega_{x}\mathrm{d}\omega_{y}\mathrm{d}\omega_{z}$,
+$\;\mathrm{d}\vec{\omega} =
+\;\mathrm{d}\omega_{x}\;\mathrm{d}\omega_{y}\;\mathrm{d}\omega_{z}$,
 centered at $\vec{\omega}$.
 
 In thermodynamic equilibrium, $f(\vec{\omega})$ is isotropic, so
@@ -308,7 +386,7 @@ $\vec{\omega} \rightarrow \omega$.
 For two groups of particles with different masses, we replace $\omega$
 by $u$, the relative velocity between the two groups, and $m$ by the
 reduced mass $m_{r} = \cfrac{m_{1}m_{2}}{m_{1}+m_{2}}$.
-For\mar{17} H atoms colliding with particles of mass $Am_{H}$,
+\mar{17}For H atoms colliding with particles of mass $Am_{H}$,
 Spitzer derives:
 \[
     \langle u \rangle
@@ -321,7 +399,7 @@ Spitzer derives:
     numerical constant.
 \end{framed}
 Note that there is a difference between the \emph{speed} and
-\emph{velocity} distribution. Verify that $\langle \omega \rangle$ = 0.
+\emph{velocity} distribution. (Verify that $\langle \omega \rangle$ = 0.)
 But evidently, the mean \emph{speed} is not 0. The speed distribution is
 given by:
 \[
@@ -339,58 +417,61 @@ and $\omega' = | \omega |$.
 The Maxwell velocity distribution is characterized by several speeds:
 \begin{itemize}[itemsep=1ex]
     \item Most probable speed: $\omega_{o} = \sqrt{\cfrac{2kT}{m}}$
-    \item RMS speed: $<\omega^{2}>^{1/2} = \sqrt{\cfrac{3kT}{m}}$
+    \item RMS speed: $ \langle \omega^{2} \rangle ^{1/2} = \sqrt{\cfrac{3kT}{m}}$
     \item RMS velocity in one direction:
-        $<\omega_{x}^{2}>^{1/2} = \sqrt{\cfrac{kT}{m}}$
+        $\langle \omega_{x}^{2} \rangle ^{1/2} = \sqrt{\cfrac{kT}{m}}$
 \end{itemize}
 
 \subsubsection{Boltzmann distribution}
-\mar{18}The Boltzmann distribution gives the population of energy levels in
-an atom or molecule:
+\mar{18}The \textit{population of energy levels} in
+an atom or molecule is given by the Boltzmann distribution:
 \[
-    \frac{n_{u}}{n_{l}} =
-    \frac{g_{u}}{g_{l}}\exp\left[- \left( E_{u}-E_{l} \right) /kT\right] =
-    \frac{g_{u}}{g_{l}}\exp\left[-h\nu_{o}/kT\right]
+    \frac{n_{u}}{n_{l}}
+    = \frac{g_{u}}{g_{l}} e^{ - \left( E_{u} - E_{l} \right) /kT }
+    = \frac{g_{u}}{g_{l}} e^{ - \Delta{E} /kT }
     \]
-where
 \begin{itemize}
-    \item $n_{u,l}$ are the number densities
-    \item $g_{u,l}$ are the statistical weights
-    \item $E_{u,l}$ are the energies of the levels
+    \item $n_{u,l}$ = number densities
+    \item $g_{u,l}$ = statistical weights
+    \item $E_{u,l}$ = energies of the levels
 \end{itemize}
-\mynotes{(Partition function: summing over all energy levels\ldots chemical
-term).}
 
 \subsubsection{Saha equation}
-The Saha equation describes ionization equilibrium:
+The \textit{ionization equilibrium} is described by the Saha equation:
 \[
     \frac{n_{i+1}}{n_{i}} = \frac{g_{i+1}g_{e}}{g_{i}}
     \left( \frac{2\pi m_{e}kT}{h^{2}} \right) ^{3/2}
     \exp \left( -I/kt \right)
     \]
-where $I$ is the ionization potential for an ion in the ground state
-and initial ionization state $i$ (aka, the energy required to ionize
-from $i$ to $i+1$). $g_{e} = 2$ (two spin conditions).
-\mynotes{Electrons affect whether and how easily atoms can be ionized.}
+\begin{itemize}
+    \item $I$ = ionization potential for an ion in the ground state
+        and initial ionization state $i$ (aka, the energy required to ionize
+        from $i$ to $i+1$)
+    \item $g_{e} = 2$ (two spin conditions)
+\end{itemize}
 
-\subsubsection{Planck function} specifies the radiation field:
+\subsubsection{Planck function}
+The \textit{radiation field} is specified by the Planck function:
 \footnote{
     $e^{x} \approx 1 + x$ for $x \ll 1$\\
     $e^{h\nu/kT}-1 \approx 1$ for $h\nu \ll kT$\\
     $e^{h\nu/kT}-1 \approx e^{h\nu/kT}$ for $h\nu \gg kT$}
-\begin{align*}
-    B(\nu) &= \;\frac{2h\nu^{3}}{c^{2}}\frac{1}{\exp[h\nu/kT]-1}\\
-    &= \;\sim \frac{2\nu^{2}}{c^{2}}kT\quad \mathrm{for}\;h\nu \ll kT\;
-    (\mathrm{Rayleigh-Jeans})\\
-    &= \;\sim \frac{2h\nu^{3}}{c^{2}}\exp[-h\nu/kT]\quad\mathrm{for}\;h\nu \gg kT
-    (\mathrm{Wien})
-\end{align*}
+\begin{equation*}
+    \setstretch{2.5}
+    B(\nu) = \;\frac{2h\nu^{3}}{c^{2}}\frac{1}{\exp[h\nu/kT]-1}
+    \left\{ \begin{array}{l l}
+        \approx \dfrac{2\nu^{2}}{c^{2}}kT
+        & \mathrm{for}\;h\nu \ll kT\; (\mathrm{Rayleigh-Jeans})\\
+        \approx \dfrac{2h\nu^{3}}{c^{2}}\exp[-h\nu/kT]
+        & \mathrm{for}\;h\nu \gg kT (\mathrm{Wien})\\
+    \end{array}\right.
+\end{equation*}
 
 \subsection{Validity of the four laws}
 \mar{19}The four laws discussed above hold under thermodynamic equilibrium
 (TE). However, TE is not often the case for the ISM, for two reasons:
 
-\begin{enumerate}
+\begin{enumerate}[itemsep=1ex]
     \item TE requires \textbf{detailed balancing},
         i.e.\ each process is as likely to occur as its inverse. For
         example, consider the 3727 \AA{} emission from O$^{+}$. This is a
@@ -429,12 +510,13 @@ from $i$ to $i+1$). $g_{e} = 2$ (two spin conditions).
 \end{enumerate}
 What about the other laws?
 
-\paragraph{1. Maxwell velocity distribution} Good news! It is generally
+\paragraph{1. Maxwell velocity distribution}
+Good news! It is generally
 valid. Detailed balancing is possible for the elastic collisions that are
 generally occurring.\footnote{
     See Draine section 2.3.3 for an analysis of ``deflection times''; they
     tend to be short. (In dynamics, we speak of a ``relaxation time''.)}
-Because the maxwellian distribution is a good
+Because the Maxwellian distribution is a good
 description of the motions of the particles, we can define a \textit{kinetic
 temperature} which describes the physical condition of the gas. Often,
 for a plasma, the kinetic temperature is equal to the electron temperature:
@@ -455,11 +537,12 @@ b-factors (Draine calls them ``departure coefficients'').
     b_{j} \equiv
     \frac{n_{j}(\mathrm{true\; distribution}}{n_{j}(\mathrm{LTE\; distribution})}
     \]
-Example: in an HII region, the hightest excited levels of HI have $b_{j} \sim 1$.
-Some radiation does escape (producing radio recombination lines) but collisions
-dominate the level populations. Since motions of particles \emph{are} described
-by a Maxwellian velocity distribution, whenever collisions dominate the level
-population they will closely follow a Boltzmann law.
+\underline{Example}: in an HII region, the hightest excited levels of HI have
+$b_{j} \sim 1$. Some radiation does escape (producing radio recombination
+lines) but collisions dominate the level populations. Since motions of
+particles \emph{are} described by a Maxwellian velocity distribution, whenever
+collisions dominate the level population they will closely follow a Boltzmann
+law.
 
 \mar{22}In general, a Maxwellian velocity distribution tends to set up a
 Boltzmann population for energy levels in the atoms/particles \emph{if}
@@ -496,7 +579,7 @@ $R_{ji}n_{j}$ [s$^{-1}$] = \# transitions from level $j$ to level $i$\\
     \sum_{j}\left(-R_{ij}n_{i} + R_{ji}n_{j}\right);\quad i=1,2,\ldots
     \]
 \mar{23}In statistical equilibrium,
-$\cfrac{\mathrm{d}n_{i}}{\mathrm{d}t} = 0$. The rate factor $R_{ij}$
+$\mathrm{d}n_{i}/\mathrm{d}t = 0$. The rate factor $R_{ij}$
 includes \emph{all} possible processes that would take the atom or
 molecule from level $i$ to $j$.
 For example, if you consider excitation of an electron in an atom,
@@ -516,8 +599,14 @@ some basic radiative transfer.\footnote{RL Ch 1, Draine Ch 6, 7}
 \newpage
 \section{Radiative Transfer}
 \mar{24}(See Draine chapter 7)
-\begin{description}[align=right, labelwidth=10em, labelsep=3em, leftmargin=13em,
-        itemsep=1ex, topsep=1ex]
+\begin{description}[
+    style=nextline,
+    itemsep=1ex,
+    topsep=1ex,
+    labelwidth=12em,
+    leftmargin=15em,
+    align=right,
+    ]
     \item [Planck function (an intensity)]
         $ B_{\nu}(T) \equiv
         \cfrac{2h{\nu}^{3}}{c^{2}} \cfrac{1}{e^{h{\nu}/kT}-1} \;
@@ -544,8 +633,8 @@ some basic radiative transfer.\footnote{RL Ch 1, Draine Ch 6, 7}
 \mar{25}The above are \textit{monochromatic}: integration over frequency
 yields the total flux, etc.
 \[
-    I = \int_{r=0}^{\infty} I_{\nu} \mathrm{d}\nu \quad
-    F = \int_{\nu=0}^{\infty} F_{\nu} \mathrm{d}\nu \;\mathrm{etc\ldots}
+    I = \int_{r=0}^{\infty} I_{\nu} \mathrm{d}\nu; \quad
+    F = \int_{\nu=0}^{\infty} F_{\nu} \mathrm{d}\nu; \;\mathrm{etc\ldots}
     \]
 
 Energy density:
@@ -602,12 +691,16 @@ so for condition $\tau=1 \longrightarrow \ell_{\nu} = \cfrac{1}{\kappa_{\nu}} =
 
 \newpage
 \subsection{Radiative transfer equation}
-\begin{align*}
-    \frac{\mathrm{d}I_{\nu}}{\mathrm{d}s} &= -\kappa_{\nu}I_{\nu} + j_{\nu}\\
-    \mathrm{d}\tau_{\nu} &= \kappa_{\nu}\mathrm{d}s\\
-    \frac{\mathrm{d}I_{\nu}}{\mathrm{d}\tau_{\nu}} &=
+\[
+    \frac{\mathrm{d}I_{\nu}}{\mathrm{d}s} = -\kappa_{\nu}I_{\nu} + j_{\nu}
+    \]
+\[
+    \mathrm{d}\tau_{\nu} = \kappa_{\nu}\mathrm{d}s
+    \]
+\[
+    \frac{\mathrm{d}I_{\nu}}{\mathrm{d}\tau_{\nu}} =
     -I_{\nu} + \frac{j_{\nu}}{\kappa_{\nu}} = -I_{\nu} + S_{\nu}
-\end{align*}
+    \]
 where $S_{\nu} \equiv$ \underline{source function}
 
 \paragraph{Formal solution:}
@@ -623,7 +716,7 @@ where $S_{\nu} \equiv$ \underline{source function}
     \item Source function is constant throughout source:
         \[
             I_{\nu}(\tau_{\nu}) =
-            I_{\nu}(o)\mathrm{e}^{\tau_{\nu}}
+            I_{\nu}(o)\mathrm{e}^{-\tau_{\nu}}
             + S_{\nu}(1-\mathrm{e}^{-\tau_{\nu}})
             \]
         \begin{itemize}[itemsep=1ex]
@@ -665,19 +758,27 @@ Solution of the transfer equation in terms of $T_{b}$:
         temperature of the layer)
     \item $T_{b}$ = brightness temperature of the incident radiation
 \end{itemize}
-\textcolor{bred}{$T_{b}$ is never greater than $T$!}
+\mynotes{$T_{b}$ is never greater than $T$!}
 
 \subsection{Einstein coefficients}
 At the macroscopic level, Kirchoff's law gives $ j_{\nu} = \kappa_{\nu}
 B_{\nu}(T) $. Einstein coefficients\footnote{Draine, section 6.1} describe
-reasons for this on a microscopic level. They give the transition
-\emph{probabilities} (per unit time). Three possible processes:
+reasons for this on a microscopic level.
+\mynotes{They give the transition \emph{probabilities} (per unit time).}
+
+Consider a system with two energy levels:
+
+Three possible processes:
 \begin{enumerate}[noitemsep]
     \item \underline{Spontaneous emission}: Einstein $A$ coefficient.
         $A_{21} \equiv$ transition probability for spontaneous emission
         per unit time per ``system''.
-    \item Absorption
-    \item \mar{29}Stimulated emission
+    \item \underline{Absorption}: requires photon of energy $\sim h\nu_{0}$
+        The mean intensity, $J_{\nu}$ is given by:
+        \[
+            J_{\nu} \equiv \frac{1}{4\pi} \int{ I_{\nu} \;\mathrm{d}\Omega }
+            \]
+    \item \mar{29}\underline{Stimulated emission}
 \end{enumerate}
 
 \subsubsection{Relations between the Einstein coefficients}
@@ -686,13 +787,13 @@ Valid under all conditions since they only refer to \emph{atomic} principles
 TE: rate of transitions out of state 1 = rate of transitions into state 1
 (per unit volume).
 
-In\mar{30} TE, apply the Boltzmann law.
+\mar{30}In TE, apply the Boltzmann law.
 
 \subsubsection{Relations between Einstein coefficients and $\kappa_{\nu}$ and $j_{\nu}$}
 \paragraph{emission coefficient}
 \paragraph{absorption coefficient}
 
-The\mar{31} second term here for $\kappa_{\nu}$ corresponds to
+\mar{31}The second term here for $\kappa_{\nu}$ corresponds to
 \emph{stimulated emission}.
 
 \subsection{Line profile function, $\phi(\nu)$}
