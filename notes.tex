@@ -4,7 +4,13 @@
 %\renewcommand\familydefault{\sfdefault}
 \setlength{\marginparwidth}{0.5in}
 \setlength{\parindent}{0em}
-\usepackage{mathpazo}
+
+% fonts
+%\usepackage{mathpazo}
+\usepackage[sfdefault,scaled=.85]{FiraSans}
+\usepackage{newtxsf}
+\usepackage[T1]{fontenc}
+
 \usepackage{graphicx}
 \usepackage{framed}
 \usepackage{lipsum}
@@ -30,7 +36,16 @@
     \parbox{\ubwidth}{\scriptsize\centering#2}}\endgroup
 }
 
-\usepackage[symbol]{footmisc}
+\usepackage{soul}
+% \setul{<depth>}{<thickness>}
+% \setulcolor{<color>}
+%\renewcommand{\underline}[1]{\underline{\smash{#1}}}
+
+
+% Footnotes in section titles??
+%\usepackage[stable]{footmisc}
+
+\usepackage[stable, symbol]{footmisc}
 \usepackage{perpage}
 \MakePerPage{footnote}
 %\renewcommand\footnoterule{\rule{\textwidth}{0.4pt}}
@@ -39,7 +54,6 @@
   \hrule width \textwidth height 0.4pt
   \kern 2pt
 }
-
 \usepackage{marginnote}
 %\renewcommand*{\raggedrightmarginnote}{\centering}
 \renewcommand*{\raggedleftmarginnote}{\centering}
@@ -57,31 +71,30 @@
 
 \definecolor{mypur}{rgb}{0.57, 0.36, 0.51}
 
+\usepackage{wasysym}  % package needed for \RHD symbol in subsection
 \usepackage{titlesec}
 %\titleformat{<command>}
 %   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
-%\titleformat{\section}%
-%  {\filcenter\fontsize{18}{20}\selectfont\bfseries}
-%  {\hspace{-0.25in}\arabic{section}.\;} %   {\thesection} %{<label>}
-%  {1em}
-%  {}
-%\titleformat{\subsection}%
-%  {\filcenter\fontsize{16}{18}\selectfont\bfseries}
-%  {\arabic{section}.\arabic{subsection}\;}
-%  {1em}     % sep
-%  {}        % before code
-%\titleformat{\subsubsection}%
-%  {\filcenter\fontsize{14}{16}\selectfont\bfseries\itshape}
-%  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}
-%  {1em}     % sep
-%  {}        % before code
-\titleformat{\paragraph}%
-  {\fontsize{12}{13}\selectfont\bfseries}
-  {$\Rightarrow$}{}{}
+\titleformat{\section}{
+    \filcenter\fontsize{16}{18}\selectfont\bfseries}{
+    \hspace{-0.25in}\arabic{section}.\;}{
+    1em}{}
+\titleformat{\subsection}[display]{
+    \fontsize{14}{16}\selectfont\bfseries}{
+    $\RHD$ \arabic{section}.\arabic{subsection}}{
+    -2ex}{}
+\titleformat{\subsubsection}[display]{
+    \fontsize{13}{14}\selectfont\bfseries\itshape}{
+    $\rhd$ \arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;} {
+    -2ex}{}
+\titleformat{\paragraph}{
+    \fontsize{12}{13}\selectfont\bfseries}{}{}{}
+\titleformat{\paragraph}{
+    \fontsize{12}{13}\selectfont\bfseries}{}{}{}
 
 \titlespacing*{\section}{0pt}{0pt}{12pt}
-\titlespacing*{\subsection}{0pt}{10pt}{2pt}
-\titlespacing*{\subsubsection}{0pt}{10pt}{2pt}
+\titlespacing*{\subsection}{-0.25in}{10pt}{2pt}
+\titlespacing*{\subsubsection}{-0.10in}{10pt}{2pt}
 \titlespacing*{\paragraph}{0pt}{1ex}{-2ex}
 
 % Start new page for every section
@@ -104,6 +117,7 @@
 \setdescription{noitemsep, topsep=0ex, labelindent=0.25in}
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\scriptsize$\bullet$}}$}
 \renewcommand{\labelitemii}{$\vcenter{\hbox{\scriptsize$\circ$}}$}
+\renewcommand{\labelitemiii}{$\vcenter{\hbox{\scriptsize$\star$}}$}
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
 \definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
@@ -599,14 +613,7 @@ some basic radiative transfer.\footnote{RL Ch 1, Draine Ch 6, 7}
 \newpage
 \section{Radiative Transfer}
 \mar{24}(See Draine chapter 7)
-\begin{description}[
-    style=nextline,
-    itemsep=1ex,
-    topsep=1ex,
-    labelwidth=12em,
-    leftmargin=15em,
-    align=right,
-    ]
+\begin{description}%[ style=nextline, itemsep=1ex, topsep=1ex, labelwidth=12em, leftmargin=15em, align=right, ]
     \item [Planck function (an intensity)]
         $ B_{\nu}(T) \equiv
         \cfrac{2h{\nu}^{3}}{c^{2}} \cfrac{1}{e^{h{\nu}/kT}-1} \;
@@ -769,58 +776,158 @@ reasons for this on a microscopic level.
 Consider a system with two energy levels:
 
 Three possible processes:
-\begin{enumerate}[noitemsep]
-    \item \underline{Spontaneous emission}: Einstein $A$ coefficient.
+\begin{enumerate}[itemsep=1ex, parsep=1ex]
+    \item \textbf{Spontaneous emission}: Einstein $A$ coefficient.
         $A_{21} \equiv$ transition probability for spontaneous emission
         per unit time per ``system''.
-    \item \underline{Absorption}: requires photon of energy $\sim h\nu_{0}$
+    \item \textbf{Absorption}: requires photon of energy $\sim h\nu_{0}$
         The mean intensity, $J_{\nu}$ is given by:
         \[
             J_{\nu} \equiv \frac{1}{4\pi} \int{ I_{\nu} \;\mathrm{d}\Omega }
             \]
-    \item \mar{29}\underline{Stimulated emission}
+    \item \mar{29}\textbf{Stimulated emission:}
+        $ B_{21} \overline{J} $ = transition probability per unit
+        time for stimulated emission. Process: incoming photon stimulates
+        emission of another photon of exactly the same frequency and in
+        the same direction (so the emitted photon is coherent with the
+        photon that stimulated the emission).
+
+        Note: if $\phi(\nu)$ is sufficiently sharp (approaches $\delta$
+        function), then
+        $B_{21}J_{\nu_{0}}$ and $B_{12}J_{\nu_{0}}$ [etc.?]
+        instead of $B_{21}J$ and $B_{12}J$
 \end{enumerate}
+The Einstein coefficients are sometimes defined using energy density
+($u_{\nu}$) instead of intensity. This introduces factors $c/4\pi$
+in the definition of $B$ components.\footnote{Spitzer's notation}
 
 \subsubsection{Relations between the Einstein coefficients}
-Valid under all conditions since they only refer to \emph{atomic} principles
-(no collisions, just radiation).
-TE: rate of transitions out of state 1 = rate of transitions into state 1
-(per unit volume).
+The Einstein coefficients are derived from two-energy state system in
+thermodynamic equilibrium (TE), but prove to be
+valid under all conditions since they only refer to \emph{atomic} properties.
 
-\mar{30}In TE, apply the Boltzmann law.
+In TE, the rate of transitions out of state 1 = rate of transitions into state
+1 (both per unit volume). So if $n_{1}, n_{2}$ are number densities of atoms
+in levels 1 and 2, then:
+\[
+    n_{1} B_{12} \overline{J}
+    = n_{2} A_{21} + n_{2} B_{21} \overline{J}
+    \]
+\[
+    \Longrightarrow \overline{J} = \frac{A_{21}/B_{21}} {
+        \left( \frac{n_{1}}{n_{2}} \right)
+        \left( \frac{B_{12}}{B_{21}} \right) - 1 }
+    \]
 
-\subsubsection{Relations between Einstein coefficients and $\kappa_{\nu}$ and $j_{\nu}$}
-\paragraph{emission coefficient}
-\paragraph{absorption coefficient}
+\mar{30}In TE, apply the Boltzmann law:
+\[
+    \frac{n_{1}}{n_{2}} = \frac{g_{1}}{g_{2}} e^{h\nu_{0} / kT}
+    \]
+where $h\nu_{0} = \Delta{E} = E_{2} - E_{1}$.
+Use this and the fact that $J_{\nu} = B_{\nu}(T)$ in TE, and that
+$\overline{J} = \int J_{\nu} \phi(\nu)\; \mathrm{d}\nu = B_{\nu}(T)$
+\ldots true if $\phi(\nu)$ is narrow. This results in\footnote{
+    Note: See Draine equations 6.9 and 6.10; he defines B coefficients
+    in terms of energy density, so differs by a factor of $4\pi/c$.}
+\[
+    g_{1} B_{12} = g_{2} B_{21}; \quad
+    A_{21} = \frac{2h\nu^{3}}{c^{2}} B_{21}
+    \]
+So knowledge of one of the Einstein coefficients is enough to know
+them all!
 
-\mar{31}The second term here for $\kappa_{\nu}$ corresponds to
-\emph{stimulated emission}.
+\subsubsection{Relations between Einstein coefficients and
+$\kappa_{\nu}$ \& $j_{\nu}$}
+Assumption: $\phi(\nu)$ is the same for emission and absorption.
+
+\[
+    j_{\nu} \;\mathrm{d}V \;\mathrm{d}\Omega \;\mathrm{d}\nu \;\mathrm{d}t
+    = \frac{h\nu_{21}}{4\pi} n_{2} A_{21} \phi(\nu) \;
+    \mathrm{d}V \;\mathrm{d}\Omega \;\mathrm{d}\nu \;\mathrm{d}t
+    \]
+= amount of energy emitted in volume d$V$, solid angle d$\Omega$,
+frequency range d$\nu$, and time d$t$.
+Each atom contributes energy $h\nu$; many atoms emit isotropically, so
+Hence, in general:
+\[
+    \boxed{ j_{\nu} = \frac{h\nu_{kj}}{4\pi}\; (n_{k}\; A_{kj})\; \phi(\nu) }
+    \]
+
+Similar reasoning leads to:
+\[
+    \boxed{ \kappa_{\nu} = \frac{h\nu_{kj}}{4\pi}\;
+        (n_{j} B_{jk} - n_{k} B_{kj})\; \phi(\nu) }
+    \]
+where $ k > j $ for both. \mar{31}The second term here for $\kappa_{\nu}$
+corresponds to \textit{stimulated emission}.
 
 \subsection{Line profile function, $\phi(\nu)$}
-See RL chapter 10.6 and Draine 6.4. In particluar, comments in Draine about
-the actual line width in some practical cases are useful!
+(See RL chapter 10.6 and Draine 6.4. In particluar, comments in Draine about
+the actual line width in some practical cases are useful!)
 
 \subsubsection{Natural line width}
 \mynotes{Atom not moving, but still quantum effects.}
-Determined by lifetime of an excited state. Described by Lorentz profile,
-whose key feature is a narrow core and broad wings (not a Gaussian).
+The natural line width is determined by lifetime of an excited state.
+It is described by a Lorentz profile, whose key feature is a narrow core and
+broad wings (not a Gaussian).
 \[
     \phi(\nu)
     = \frac{4\gamma_{u\ell}}{16\pi^{2} (\nu - \nu_{u\ell})^{2} +
     \gamma_{u\ell}^{2} }
+    \]
+\begin{itemize}
+    \item $\gamma_{u\ell}$ = damping constant = $1/\tau$\\
+        ($\tau$ = lifetime of level)
+    \item $\nu_{0}$ = rest frequency
+\end{itemize}
+
+\underline{Example}:
+if collisions are unimportant, and there is no stiumlated emission, then
+\[
+    \gamma_{u\ell} \equiv \gamma_{{\ell}u}
+    = \sum_{E_{j} < E_{u}} A_{uj}
+    + \sum_{E_{j} < E_{\ell}} A_{{\ell}j}
     \]
 \underline{Key point}: A small Einstein coefficient $A$ results
 in a \emph{narrow} line.
 
 The natural line width of most transitions is quite small, and broadening
 due to other effects is more important.
+
 \subsubsection{Doppler broadening}
 \begin{itemize}
     \item Thermal velocities
     \item Bulk motion (turbulence)
 \end{itemize}
-
-and\mar{32} the profile function is
+Thermal velocities:
+\[
+    \nu - \nu_{0} = \frac{\nu_{0}}{c} v_{z}
+    \]
+Maxwell's distribution:
+\[
+    f(v) \;\mathrm{d}v_{z} \propto e^{-m_{a}v_{z}^{2} / 2kT }
+    \;\mathrm{d}v_{z}
+    \]
+\[
+    v_{z} = c \left( \frac{\nu - \nu_{0}}{\nu_{0}} \right); \quad
+    \mathrm{d}v_{z} = c \frac{\mathrm{d}\nu}{\nu_{0}}
+    \]
+\[
+    \Rightarrow
+    f(v) \;\mathrm{d}v_{z} \propto
+    e^{-m_{a}c^{2}(\nu-\nu_{0})^{2} / 2\nu_{0}^{2}kT }
+    \;\mathrm{d}\nu
+    \]
+\mar{32}and the profile function is
+\[
+    \phi(\nu) = \frac{1}{{\Delta}\nu_{D}\sqrt{\pi}}
+    e^{-(\nu-\nu_{0})^{2} / {\Delta}\nu_{D}^{2}}
+    \]
+where
+\[
+    {\Delta}\nu_{D} \equiv \frac{\nu_{0}}{c}
+    \sqrt{ \frac{2kT}{m_{a}} }
+    \]
 
 \subsubsection{Collisional broadening}
 $\sim$ Pressure broadening, which is not generally important in the ISM because
@@ -829,15 +936,52 @@ This still produces a Lorenzian profile, but with:
 \[
     \phi(\nu) = \frac{4\Gamma^{2}}{16\pi^{2}(v-v_{o})^{2} + \Gamma^{2}}
     \]
-Can be written in terms of a \emph{Voigt function}:
+\begin{itemize}
+    \item $\Gamma = \gamma + \nu_{coll}/4\pi^{2}$
+    \item $\nu_{coll}$ = frequency of collisions
+\end{itemize}
+
+\paragraph{Combined Doppler and Lorentz profile}
+\[
+    \phi(\nu)
+    = \frac{4\gamma_{u\ell}}{16\pi^{2}} \int_{-\infty}^{\infty}{
+        \frac{\frac{m}{2{\pi}kT}^{1/2} e^{-mv_{t}^{2} / 2kT } }
+        { \left( \nu - \nu_{0} - \frac{\nu_{0}}{c} v_{t} \right) ^{2}
+        + \gamma_{u\ell}^{2} } \;\mathrm{d}v_{z}}
+    \]
+(includes everything).
+This can be written in terms of a \textit{Voigt function}:
+\[
+    \phi(\nu)
+    = \frac{1}{\Delta\nu_{D}} \frac{1}{\sqrt{\pi}} H(a,u)
+    \]
+\[
+    H(a,u) \equiv \frac{a}{\pi} \int_{-\infty}^{\infty}{
+        \frac{e^{-y^{2}}}{a^{2}+(u-y)^{2}}\quad\mathrm{d}y }
+    \]
+\[
+    a \equiv \frac{\gamma}{4\pi\Delta\nu_{D}} \qquad
+    u = \frac{\nu-\nu_{0}}{\Delta\nu_{D}} \qquad
+    \Delta\nu_{D} = \frac{\nu_{0}}{c} \sqrt{\frac{2kT}{m}}
+    \]
+Note: in ISM, always $\Delta\nu_{0} \gg \gamma$, so $a \ll 1$.
+In that case:
+\[
+    \begin{array}{l l}
+    \phi(\nu) \propto \left( e^{-u^{2}} + \cfrac{a}{\sqrt{\pi} u^{2}}
+        \right) & \mathrm{for}\ u \gg 1 (non-Gaussian wings)\\
+        \phi(\nu) \propto e^{-u^{2}} & \mathrm{for}\ u \ll 1 (Gaussian core)
+    \end{array}
+    \]
 
 \mar{33}So the core of the profile is Gaussian due to Doppler broadening,
 while the wings are much stronger than expected in a Gaussian profile,
 due to the intrinsic line width.
 
 \newpage
-\section{Neutral hydrogen (HI gas) in the ISM}
-\footnote{Draine Ch 8, 29; Ch 17.1, 17.3}
+\section{Neutral hydrogen (HI gas) in the ISM\footnote{
+    (See Draine Ch 8, 29; Ch 17.1, 17.3.)}}
+
 Wherever HI dominates the ISM, all atoms are found in the ground state
 ($^{2}$S)(n=1). The next excited level ($^{2}$P) is about 10 eV above the
 ground-level. This excitation is very rare and and quickly falls back to the
@@ -850,10 +994,8 @@ $\rightarrow$ $^{2}S$ is 10$^{8}$ s$^{-1}$. Hence, this excitation process
 results in relative population of $^{2}P$ level of $10^{-8}/10^{17} =
 10^{-25}$.
 
-ISM is too cool for collisions to happen often and cosmic rays are rare.
-
 \subsection{Possible tracers of HI gas}
-\begin{enumerate}[noitemsep]
+\begin{enumerate}[topsep=-1ex]
     \item 21 cm HI transition (=hyperfine transition) in emission or absorption.
     \item Lyman absorption lines against hot background stars.
 \end{enumerate}
@@ -863,13 +1005,13 @@ momentum.\footnote{
     See Draine Ch 4 (\& 5) on notation of energy levels and
     atomic structure.}
 
-\newpage
 \subsubsection{Excitation and radiative transport for the 21-cm line}
 \mar{34}Spin of proton and electron:
-\begin{itemize}
+\begin{itemize}[topsep=-1ex]
     \item Parallel (upper energy)
     \item Anti-parallel (lower energy)
 \end{itemize}
+
 (Spin is around particle's own axis, not to be confused with angular
 momentum). Motions specified by maxwellian velocity distribution, and
 collisions dominate the level populations (excite and de-excite).
@@ -881,20 +1023,21 @@ Energy difference (very small):
     \lambda &= 21.11\:\mathrm{cm}
 \end{align*}
 
-\paragraph{Spontaneous emission:} probability is \emph{very} small:
+
+The probability for \emph{spontaneous} emission to occur is \emph{very} small:
 \[
     A_{kj} = 2.86\times10^{-15}\:\mathrm{sec}^{-1}
     \]
 \[
     \rightarrow \mathrm{lifetime} = 1.10\times10^{7}\:\mathrm{years}
     \]
-\paragraph{Collisions:}
-are more likely to dominate transitions and cause the atoms to flip energy states.
+
+More frequently atoms will flip energy states by \emph{collisions}.
 \begin{center}
-    H + H $\rightarrow$ H$_{2}^{*}$ $\rightarrow$ H + H
+    H + H $\rightarrow$ H$_{2}^{*}$ $\rightarrow$ H + H\\
 \end{center}
-(excited H$_{2}$ molecule - not stable). Chance for collisional excitation
-per second: $\gamma n(H)$ [s$^{-1}$].
+(H$^{*}$ = excited H$_{2}$ molecule; not stable).
+Chance for collisional excitation per second: $\gamma n(H)$ [s$^{-1}$].
 
 \begin{center}
     \begin{tabular}{c c}
@@ -907,33 +1050,39 @@ per second: $\gamma n(H)$ [s$^{-1}$].
         25 & 1000
     \end{tabular}
 \end{center}
-As long as $n(H^{o}) > 10^{-2}$ cm$^{-3}$, $\gamma n_{H} >> A$, so
-collisions determine excitation and de-excitation\ldots implies
-detailed balancing, so Boltzmann distribution is valid for level
-populations.
+As long as $n(H^{o}) > 10^{-2}$ cm$^{-3}$, $\gamma n_{H} \gg A$, so
+collisions determine excitation \emph{and} de-excitation
+$\longrightarrow$ implies detailed balancing, so Boltzmann distribution is
+valid for level populations.
 \[
-    \frac{n_{1}}{n_{o}} = \frac{g_{1}}{g_{o}}\exp(-h\nu/kT_{k})
-    \approx \frac{g_{1}}{g_{o}}(1-\frac{h\nu}{kT_{k}}) \approx \frac{g_{1}}{g_{o}}
+    \frac{n_{1}}{n_{o}}
+    = \frac{g_{1}}{g_{o}}\exp(-h\nu/kT_{k})
+    \approx \frac{g_{1}}{g_{o}} \left( 1 - \frac{h\nu}{kT_{k}} \right)
     \]
-where $T_{k}$ = kinetic gas temperature.
+$T_{k}$ = kinetic gas temperature.
 
+\mar{35}\underline{Derivation of stats, coefficients, and radiative transfer}:
+Use ``energy density'' definition of Einstein $B$ coefficients.
+\footnote{Draine section 17.1}
 
-\underline{Derivation}:\mar{35}
+Statistical equilibrium:
 
-Now\mar{36} assume that\ldots
+\ldots
+
+\mar{36}\ldots
 
 In general, in situations where stimulated emission and absorption can
 be neglected, we would obtain
 \[
-    \frac{b_{1}}{b_{o}} = \frac{1}{1 + \frac{A_{10}}{n_{H}\gamma_{10}}}
+    \frac{b_{1}}{b_{o}} = \frac{1}{1 + \dfrac{A_{10}}{n_{H}\gamma_{10}}}
     \approx 1
     \]
-Note: Potential other excitation process of upper level for HI:
+
+\underline{Note}: A potential other excitation process of upper level for HI
+is so-called \textit{photon pumping}\footnote{D 17.3}:
 HI + Ly$\alpha$ photon $\rightarrow$ n=2 level ($^{2}P$). $^{2}P$ level might cascade
 down to upper $^{2}S$ hyperfine level.
-
-In principle, one might selectively populate the upper level with this
-so-called \textit{photon pumping}\footnote{D 17.3}.
+In principle, one might selectively populate the upper level this way.
 It turns out that, due to thermilization of the photons this anomalous
 population of the levels does \emph{not} generally occur. (Ly$\alpha$ photons
 frequently scatter off A-atom again = LTE situation).\footnote{
@@ -947,56 +1096,118 @@ is that
     = \frac{g_{1}}{g_{0}} \left( 1 - \frac{h\nu}{kT_{k}} \right)
     \approx \frac{g_{1}}{g_{0}} = 3
     \]
-(since $h\nu \ll kT$). So $n_{0} = (1/4)n(H^{o}$, $n_{1} = (3/4)n(H^{o}$
+($h\nu \ll kT$). So $n_{0} = (1/4)n(H^{o})$, $n_{1} = (3/4)n(H^{o})$
 
-Are the HI levels always populated mainly by collisions? No, if $n(H^{o})$ drops
-low enough, and if the HI is warm it doesn't work as well.
-
-The warm HI in our Galaxy has $n_{H}\sim0.4$ cm $^{-3}$ and $T_{k} \approx$ 8000 K.
-But $T_{s}$ = spin temperature, of order $T_{k}$/5, if it weren't for
-excitation by Ly$\alpha$ photons.
-
-But it is true that the 3K background radiation field does \emph{not}
-significantly disturb the equilibrium set up by collisions, as we
-discussed above.
-
-If $n_{H}$ drops to very low values, collisional excitation is ineffective.
-But even in that case, $T_{s} \approx T_{k}$ because of the above mentioned
-Ly$\alpha$ excitation.
+Are the HI levels always populated mainly by collisions?
+The following scenarios can cause this to not work as well:
+\begin{description}
+    \item [HI gas is too warm] The warm HI in our Galaxy has $n_{H}\sim0.4$ cm
+        $^{-3}$ and $T_{k} \approx$ 8000 K. But $T_{s}$ = spin temperature, of
+        order $T_{k}$/5, if it weren't for excitation by Ly$\alpha$ photons.
+        But it is true that the 3K background radiation field does \emph{not}
+        significantly disturb the equilibrium set up by collisions, as we
+        discussed above.
+    \item [n(H$^{0}$) drops too low]
+        If $n_{H}$ drops to very low values, collisional excitation is
+        ineffective. But even in that case, $T_{s} \approx T_{k}$ because of
+        the above mentioned Ly$\alpha$ excitation.\footnote{Kulkami \& Heiles p. 100}
+\end{description}
 
 In any case, in general we now obtain for the emission coefficient:
 \[
-    j_{\nu} = \frac{3}{4} A \frac{h\nu}{4\pi} n(H^{o}) \phi(\nu)
+    j_{\nu} = \frac{3}{4}\; A\; \frac{h\nu}{4\pi}\; n(H^{o})\; \phi(\nu)
     \]
-which is independent of temperature in most circumstances.
-\mynotes{So we don't need temp to know how much HI there is!}
+which is \emph{independent of temperature} in most circumstances.
 And for the absorption coefficient:
 \[
-    \kappa_{\nu} = \frac{h\nu}{c} \left[
-        n_{0}B_{01} - n_{1}B_{10} \right]
+    \kappa_{\nu} = \frac{h\nu}{c}\; \left[
+        n_{0}B_{01} - n_{1}B_{10} \right]\;
         \phi(\nu)
     \]
 
 \mar{38}
 Using the relation between Einstein coefficients:
-
-\textcolor{bred}{Important result:} high $T_{k}$ (and $T_{s}$) and/or
-broad $\phi_{\nu}$ both = less absorption. \mynotes{Warm HI has less optical
-depth than cold HI for the same column density.}
+\[
+    B_{10} = \frac{g_{0}}{g_{1}} B_{01}
+    \]
+\[
+    n_{1} = n_{0} \frac{g_{1}}{g_{0}} \left( 1 - \frac{h\nu}{kT_{k}} \right)
+    \]
+now we \emph{do} have to include this [$1^{e}$ ?]
+order correction or $\kappa_{\nu} = 0$! So
+\begin{align*}
+    \kappa_{\nu}
+    &= \frac{h\nu}{c} \left[
+        n_{0}B_{01} - n_{0} \left( 1 - \frac{h\nu}{kT_{k}} \right) B_{01} \right]
+    \\ &= \frac{h\nu}{c} \phi(\nu) n_{0}B_{01} \frac{h\nu}{kT_{k}} B_{01}
+    \\ &= \frac{(h\nu)^{2}}{c} \frac{n_{0}B_{01}}{kT_{k}} \phi(\nu)
+    \\ &\propto \frac{n (H^{0})}{T_{k}} \phi(\nu)
+    \\ &\propto \textcolor{bred}{ \frac{1}{T_{k}} \phi(\nu)}
+\end{align*}
+Verify that $\cfrac{j_{\nu}}{\kappa_{\nu}} = B_{\nu}(T_{k})$ as in
+thermal emission.
 
 \subsection{Simple case of a single layer of gas}
+Assume $\phi(\nu)$ = Gaussian profile
+\begin{align*}
+    I_{\nu} (A)
+    &= \int_{A}^{B}{
+        j_{\nu} (x) e^{-\int_{A}^{x} \kappa_{\nu} (s) \;\mathrm{d}s}\;\mathrm{d}x}
+    \\ &= j_{0} n(H^{0}) \phi(\nu) \int_{A}^{B}{
+        e^{-\tau_{\nu}(x)}\;\mathrm{d}x}
+    \\ &= \frac{j_{0}}{\kappa_{0}} T_{k} \left[ 1 - e^{-\tau_{\nu}(L)} \right]
+\end{align*}
+\[
+    j_{0} \equiv \frac{3}{4} A \frac{h\nu}{4\pi}
+    \qquad
+    \kappa_{0} \equiv \frac{(h\nu)^{2}}{c} \frac{B_{01}}{\kappa} \frac{1}{4}
+    \qquad
+    \tau_{\nu}(x) \equiv (x - x_{A}) \kappa_{0} n(H^{0}) \frac{\phi(\nu)}{T_{k}}
+    \]
+\[
+    \]
+$\tau_{\nu}$ is max for $\nu = \nu_{0}$ because $\phi(\nu)$ is max there.
 
-\mar{39}
-\paragraph{Consider two cases}
-\begin{enumerate}[label={(\roman*)}]
-    \item $\tau_{\nu_{o}}(L) >> 1$ Optically thick
-    \item $\tau_{\nu_{o}}(L) << 1$ Optically thin
-\end{enumerate}
-In general, the line profile of HI emission is entirely determined by the velocity
-of the atoms, so the assumption of a Gaussian profile is correct.
+\mar{39}Consider two cases:
+\begin{description}[itemsep=1ex, style=nextline] % label={(\roman*)}]
+    \item [(i) Optically thick: $\tau_{\nu_{o}}(L) \gg 1$]
+        For the center of the line, we have:
+        \[
+            I_{\nu} = \frac{j_{0}}{\kappa_{0}} T_{k}
+            \]
+        The wings will be Gaussian, because $\tau_{\nu}$ is still low there.
 
-\mar{40}
-\subsection{Observing brightness temperature}
+        In general, the line profile of HI emission is entirely determined by the
+        velocity of the atoms, so the assumption of a Gaussian profile is correct.
+        In particular, Spitzer (page 43) presents the HI optical depth in practical
+        terms: (yuck!)
+
+        \mar{40}We had before:
+        \[
+            T_{b} = T_{b0} e^{-\tau_{\nu}} + T (1 - e^{-\tau_{\nu}} )
+            = 0 + T (1 - e^{-\tau_{\nu}} )
+            \]
+        (no background source). Then
+        \[
+            N(HI) = 1.823 \times 10^{13} \int{ T_{b} (\omega) \left[
+                \frac{\tau_{\nu}}{1 - e^{-\tau_{\nu}}} \right]
+            \;\mathrm{d}\omega}
+            \]
+        $\omega$ = velocity in cm s$^{-1}$.
+    \item [(ii) Optically thin: $\tau_{\nu_{o}}(L) \ll 1$]
+        In this case, we will always have
+        \[
+            I_{\nu} = \frac{j_{0}}{\kappa_{0}} T_{k} \tau_{\nu}(L)
+            \]
+        and since $\tau_{\nu}$ has shape of $\phi(\nu)$, the line profile will
+        look Gaussian.
+        \[
+            N(HI) = 1.823 \times 10^{13} \int{ T_{b} (\omega)
+            \;\mathrm{d}\omega}
+            \]
+        for uniform temperature $T$ along the LOS! But generally true
+        as long as total LOS is optically thin.
+\end{description}
 
 \begin{framed}
     Aside: \textbf{How do we observe HI?}
@@ -1039,8 +1250,9 @@ of the atoms, so the assumption of a Gaussian profile is correct.
         a continuum source (e.g.\ AGN)
     \item HI self-absorption (enough of it at same velocity)
 \end{enumerate}
-\paragraph{Case 1:}
-Simple picture: the radio continuum source is usually a compact, distant
+
+In the case of an extended background source,
+the radio continuum source is usually a compact, distant
 (extragalactic) radio source (but this does not have to be the case).
 
 Reminder of radiative transfer: suppose that the HI layer has kinetic
@@ -1053,32 +1265,27 @@ Rayleigh-Jeans law:
 \[
     B_{\nu} (T_{s}) = \frac{2\nu^{2}kT_{s}}{c^{2}}, \quad h\nu \ll kT_{s}
     \]
-Toward the source, we then get:
-\[
-    T_{b} = T_{bo} e^{-\tau_{\nu}} + T_{s} \left( 1 - e^{-\tau_{\nu}} \right)
-    \]
-where
+\mar{42}So in the direction toward the source ($T_{b,on}$) and immediately next
+to the source ($T_{b, off}$), we have
+\begin{align*}
+    T_{b, on} &= T_{bo} e^{-\tau_{\nu}} + T_{s} \left( 1 - e^{-\tau_{\nu}} \right)\\
+    T_{b, off} &= T_{s} \left( 1 - e^{-\tau_{\nu}} \right)
+\end{align*}
 \begin{itemize}
     \item $T_{b}$ = observed brightness temperature (as function of $\nu$)
     \item $T_{bo}$ = brightness temperature of background source $\equiv$ $T_{c}$
         (continuum), which is essentially independent of frequency across narrow
-        frequency range of 21 cm line. \mynotes{Constant, though technically still
-        function of frequency.}
-    \item $\tau_{\nu}$ = optical depth ghrough HI layer, at frequency $\nu$.
-        Only non-zero right around the 21 cm line; $\nu_{0}$ = 1420.4 MHz.
+        frequency range of 21 cm line.
+    \item $\tau_{\nu}$ = optical depth through HI layer, at frequency $\nu$.
+        $\tau_{\nu} \neq 0$ only right around the 21 cm line,
+        where $\nu_{0}$ = 1420.4 MHz.
 \end{itemize}
+(both for each individual frequency channel).
 
-\mar{42}In the direction immediately next to the source we have:
-\[
-    T_{b, off} = T_{b} e^{-\tau_{\nu}} + T_{s} \left( 1 - e^{-\tau_{\nu}} \right)
-    \]
-The brightness temperature both on and off the source are for each
-individual frequency channel.
-
-\paragraph{Some practical points}
+Some practical points:
 \begin{enumerate}
-    \item Observe in a \textit{frequency band} in a number of channels,
-        together spanning a range in velocity.
+    \item Observe in a frequency \textit{band} in a number of channels,
+        together spanning a range in \textit{velocity}.
         \[
             \frac{\Delta{v}}{c} = \frac{\Delta\nu}{\nu}
             \]
@@ -1087,7 +1294,7 @@ individual frequency channel.
     \item The assumption here is that the ``off source'' position, the HI
         emission from the cloud is the same as in front of the continuum
         source (so the cloud is rather uniform). Evidently, this assumption
-        works better if your radio telescope has high angular resolution.
+        works better if your radio telescope has high angular resolution
         $\rightarrow$ need a large (single) dish.
     \item A way to potentially avoid this problem is to have a background
         source that switches on and off (a pulsar). However, in practice,
@@ -1102,8 +1309,7 @@ individual frequency channel.
 \end{enumerate}
 
 \mar{43}We observe at each frequency for which there is HI.
-Let the
-observed brightness temperature at source position after subtraction of
+Let the observed brightness temperature at source position after subtraction of
 continuum be given by
 \[
     T_{b, on} - T_{c} \equiv T_{b, obs}
@@ -1118,34 +1324,34 @@ We get
 \[
     \left( 1 - e^{-\tau_{\nu}} \right) = \frac{T_{b, off} - T_{b, obs}}{T_{c}}
     \]
-Measure (observe) $T_{b, off}$, $T_{b, on}$, and $T_{c}$. Then derive
-$\tau_{\nu}$.
-
-Once $\tau_{\nu}$ is known, we can find $T_{s}$ because
+Measure (observe) $T_{b, off}$, $T_{b, on}$, and $T_{c}$, then derive
+$\tau_{\nu}$. Once $\tau_{\nu}$ is known, we can find $T_{s}$
+(the HI spin or kinetic temperature) because
 \[
     T_{s} = \frac{T_{b,off}}{1 - e^{-\tau_{\nu}}}
     \]
-the HI spin or kinetic temperature.
+
 
 \underline{Reminder of general point}:
-\begin{align*}
-    T_{b,off} &= T_{s} \left( e^{-\tau_{\nu}} \right)\\
-    &= \tau_{\nu}T_{s}\quad \mathrm{for}\; \tau_{\nu} \ll 1\\
-    &= T_{s}\quad \mathrm{for}\; \tau_{\nu} \gg 1\\
-    T_{b,off} &\leq T_{s}
-\end{align*}
-The last line is \emph{always} the case!
+\[
+    T_{b,off} = T_{s} \left( e^{-\tau_{\nu}} \right) = \left\{
+    \begin{array}{c l}
+        \tau_{\nu}T_{s} & \mathrm{for}\; \tau_{\nu} \ll 1\\
+        T_{s} & \mathrm{for}\; \tau_{\nu} \gg 1\\
+    \end{array}\right.
+    \]
+\textcolor{bred}{$T_{b,off} \leq T_{s}$} always!
 
-\paragraph{Discussion of some results}
-Many recent references\footnote{
-    Dickey et al. ApJ 228, 465 (1979)}\footnote{
-    See also Dickey and Lockman, Ann Rev of A \& A 28 (1990)}
+There are many recent references that demonstrate the principles
+involved here; see, e.g.\
+Dickey et al. ApJ 228, 465 (1979) and also
+Dickey and Lockman, Ann Rev of A \& A 28 (1990).
 
 \mar{44}Plots
 
 \subsection{Conclusions}
 \mar{45}
-\begin{enumerate}
+\begin{enumerate}[itemsep=1ex, parsep=0.5ex]
     \item The absorption profile $(1 - {e}^{-\tau_{\nu}})$ is always
         sharper and simpler in structure than the emission line profile.
         Follows from Gauss analysis of profiles (so fit Gaussians).
@@ -1165,14 +1371,15 @@ Many recent references\footnote{
         Assume that $T_{s}$ = 50, 100, 200 K. Then:
         \begin{center}
             \begin{tabular}{c c c c c}
-                $\tau T_{s}$ & $T_{s}$ & $\tau$ & $1-e^{-\tau}$ & $T_{B}^{*}$\\
+                $\tau T_{s}$ & $T_{s}$ & $\tau$ & $1-e^{-\tau}$
+                & $T_{B}^{\bigstar}$\\
                 \hline
                 20 K & 50 K & .4 & 0.33 & 16.5\\
                 20 K & 100 K & .2 & 0.18 & 18.0\\
                 20 K & 200 K & .1 & 0.095 & 19.0\\
             \end{tabular}
         \end{center}
-        * from $T_{B} = T_{s} (1-e^{-\tau})$. So a variation of $\sim$
+        $^{\bigstar}$ from $T_{B} = T_{s} (1-e^{-\tau})$. So a variation of $\sim$
         factor of 3 in absorption profile, $1-e^{-\tau}$ corresponds to
         variation of only 16\% in $T_{B}$. (Note: what would shape of
         $(1-e^{-\tau})$ and $T_{B}$ look like for single [layer cloud]?)
@@ -1207,38 +1414,44 @@ Many recent references\footnote{
 \end{enumerate}
 
 \subsection{Some relevant results}
-\mar{47}
-\begin{enumerate}
-    \item HI is \emph{not} concentrated in a small number of giant clouds,
-        as H$_{2}$ is; estimates of filling factor range from 20-90\%?!
+\begin{enumerate}[itemsep=1ex]
+    \item \mar{47}HI is \emph{not} concentrated in a small number of giant
+        clouds, as H$_{2}$ is; estimates of filling factor range from 20-90\%?!
     \item HI occurs roughly 50/50 in two important forms:
         \begin{itemize}[itemsep=0.5mm]
             \item CNM = cold neutral medium $\sim$ 80 K
-            \item WNM = warm neutral medium $\lesssim$ 8000 K\\
-                About half of all HI gas, whose emission line
-                profiles can be split into two components
-                %\footnote{Mebold, 1972}:
+            \item WNM = warm neutral medium $\lesssim$ 8000 K.
+                About half of all HI gas is in the WNM phase. whose emission
+                line profiles can be split into two components
+                \footnote{Mebold, 1972}:
                 \begin{itemize}
                     \item narrow ($\sigma < 5$ km s$^{-1}$)
                     \item wide ($5 < \sigma < 17$ km s$^{-1}$)
+                        \begin{itemize}
+                            \item present in essentially all directions from
+                                solar neighborhood
+                            \item large vertical scale-geight, possibly up to
+                                480 pc
+                        \end{itemize}
                 \end{itemize}
-                WNM = \emph{wide} component
-                \begin{itemize}
-                    \item present in essentially all directions from solar neighborhood
-                    \item large vertical scale-geight, possibly up to 480 pc
-                \end{itemize}
+%                \begin{tabular}{r l r}
+%                    $\circ$ & narrow & $\sigma < 5$ km s$^{-1}$ \\
+%                    $\circ$ & wide & $5 < \sigma < 17$ km s$^{-1}$ \\
+%                \end{tabular}
         \end{itemize}
     \item Clouds are filaments and/or sheets, rather than spheres
     \item At low galactic latitudes, it is not possible to distinguish between
         WNM and CNM because there is too much material along the line of sight.
-    \item \textbf{Problem with different temperatures along the line of sight:}
-        Illustration: consider just two isothermal clouds. For one cloud:
+    \item \textbf{Problem with different temperatures along the line of sight!}
+        \underline{Illustration}: For one isothermal cloud:
         \[
             T_{s} = \frac{T_{B}}{1 - e^{-\tau}}
             \]
-        For two clouds, we have two spin temperature: $T_{s1} and T_{s2}$.
-        \mar{48}Then let $T_{n}(v)$ be the (naively determined) spin
-        temperature:
+        For two isothermal clouds, we have two spin temperatures:
+        $T_{s1}$ and $T_{s2}$.
+
+        \mar{48}Let $T_{n}(v)$ be the (naively determined) spin
+        temperature for $n$ layers:
         \[
             T_{n}(v) = \frac
                 { T_{s1} ( 1 - e^{-\tau_{1}}) + T_{s2} ( 1 - e^{-\tau_{2}})e^{-\tau_{1}} }
@@ -1246,53 +1459,26 @@ Many recent references\footnote{
             \]
         We see that $T_{n}$ depends on $v$ and ranges from $T_{s1}$ through
         $T_{s2}$, depending on $\tau_{\nu}$. We would conclude that HI exists at
-        temperatures intermediate to $T_{s1}$ and $T_{s2}$.
+        temperatures intermediate to $T_{s1}$ and $T_{s2}$!
 \end{enumerate}
 
-Special cases: \mynotes{compare $\tau_{1}$ to $\tau_{2}$ over velocity range
-where $N(HI)$ peaks}:
+Special cases:
+Over velocity range where $N(HI)$ peaks:
 \begin{enumerate}
-    \item $\tau_{1} \gg 1$, $\tau_{2} \ll 1$ $\rightarrow$ $T_{n} \approx T_{s1}$
-    \item $\tau_{1} \ll 1$, $\tau_{2} \gg 1$ $\rightarrow$
-        $T_{n} \approx T_{s1}\tau_{1} + T_{s2}$. So we increased the cold
-        temperature $T_{s2}$ by a non-physical foreground temperature of warm
-        gas. Happens a lot in practice!
-    \item $\tau_{1} \ll 1$, $\tau_{2} \ll 1$ $\rightarrow$ $T_{n}$ is a
-        column density weighted harmonic mean temperature. Example: 80 K CNM +
-        8000 K WNM with equal column densities; then $T_{n} \approx$ 160 K,
-        so you \emph{overestimate} $T_{cool}$ and \emph{greatly underestimate}
-        $T_{warm}$.
+    \item $\tau_{1} \gg 1$, $\tau_{2} \ll 1$ $\longrightarrow$
+        $T_{n} \approx T_{s1}$
+    \item $\tau_{1} \ll 1$, $\tau_{2} \gg 1$ $\longrightarrow$
+        $T_{n} \approx T_{s1}\tau_{1} + T_{s2}$.
+        So we increased the cold temperature $T_{s2}$ by a non-physical
+        foreground temperature of warm gas. Happens a lot in practice!
+    \item $\tau_{1} \ll 1$, $\tau_{2} \ll 1$ $\longrightarrow$
+        $T_{n}$ is a column density weighted \emph{harmonic mean} temperature.
+        Example: 80 K CNM + 8000 K WNM with equal column densities; then $T_{n}
+        \approx$ 160 K, so you \emph{overestimate} $T_{cool}$ and \emph{greatly
+        underestimate} $T_{warm}$.
 \end{enumerate}
 
-\subsection{Some additional points on HI}
-\mar{49}
-%\footnote{Kulkami \& Heiles}
-\begin{itemize}
-    \item HI absorption measurements toward Galactic continuum sources provide (some)
-        information on the distance to these sources, using the velocity of the HI
-        absorption feature to derive a kinematical distance. The usual problem of
-        distance ambiguity may still be a problem here as well, although the total
-        HI column [density?] that is derived from the absorption measurements helps
-        a little in distinguishing near and far distances.
-    \item \textbf{Temperature of WNM}\ldots two methods:
-        \begin{enumerate}
-            \item HI absorption: complicated because $\tau$ is small, plus stray
-                radiation. Also biases to low temperatures when cooler gas is
-                along the LOS\@.
-            \item UV absorption lines: local ($<$ 200 pc) stars give
-            $T \gtrsim$ 6000 K for WNM
-        \end{enumerate}
-        So far: data in agreement with 5000 K $\lesssim T \lesssim$ 8000 K,
-        but needs more confirmation.
-    \item \textbf{Temperature of CNM}\ldots from absorption spectra.
-        We already pointed out correlation of $T_{spin}$ with peaks in
-        absorption profile (see fig. in handout, page 44). Interpretation: HI
-        clouds are not isothermal blobs. Usually we derive what we call
-        $T_{spin}$ of the cloud at the center of the absorption profile, so this
-        is $T_{n, min}$
-        \mar{50}The absorption lines are \emph{narrow}.
-\end{itemize}
-
+\subsection{Some additional points on HI\footnote{Kulkami \& Heiles}}
 Present research on Milky Way HI concentrates on:
 \begin{enumerate}
     \item Origin of high velocity clouds
@@ -1300,68 +1486,200 @@ Present research on Milky Way HI concentrates on:
     \item Search for HI clouds that may contain dark matter, but no stars
 \end{enumerate}
 
-\mar{50a, 50b, 50c}
-Images and plots.
+\subsubsection{Determining distances}
+\mar{49}HI absorption measurements toward Galactic continuum sources provide
+(some) information on the distance to these sources, using the velocity of the
+HI absorption feature to derive a kinematical distance. The usual problem of
+distance ambiguity may still be a problem here as well, although the total HI
+column [density?] that is derived from the absorption measurements helps a
+little in distinguishing near and far distances.
 
-\mar{I1}
+\subsubsection{Determining temperatures}
+\begin{itemize}
+    \item WNM (two methods):
+        \begin{enumerate}%[itemsep=1ex]
+            \item HI absorption: complicated because $\tau$ is small, plus
+                stray radiation. Also biases to low temperatures when cooler
+                gas is along the LOS\@.
+            \item UV absorption lines: local ($<$ 200 pc) stars give $T
+                \gtrsim$ 6000 K for WNM
+        \end{enumerate}
+        So far, data are in agreement with 5000 K $\lesssim T \lesssim$
+        8000 K, but more confirmation is needed.
+    \item CNM: absorption spectra. We already pointed out correlation of
+        $T_{spin}$ with peaks in absorption profile (see fig. in handout, page
+        44). The interpretation is that HI clouds are \emph{not} isothermal
+        blobs. Usually we derive what we call $T_{spin}$ of the cloud at the
+        \emph{center} of the absorption profile, so this is $T_{n, min}$.
+        \mar{50}The absorption lines are \emph{narrow}; for the
+        velocity distribution/dispersion:
+        \begin{itemize}
+            \item Mode($\sigma_{v}$) $\sim$ 0.75 km s$^{-1}$
+            \item Mean($\sigma_{v}$) $\sim$ 1.7 km s$^{-1}$
+        \end{itemize}
+        with a tail to higher velocities.
+
+        Cause of widths:
+        \begin{itemize}
+            \item Thermal motions:
+                $\sigma_{v}(T) = \sqrt{T/212}$ km s$^{-1}$
+            \item Turbulence
+        \end{itemize}
+        Emission lines typically show larger widths (not surprising, since
+        absorption is most sensitive to the coldest cloud cores). Range in
+        $T_{n,min}$: 20-250 K.
+\end{itemize}
+There seems to be a real distinction between the CNM and the WNM
+(although recent evidence may dispute this somewhat).
+
+\newpage
 \section{Atomic structure}
+\mar{I 1}Purpose here is to give an overview of notation and the way
+atoms are built up, with structure of shells, transitions, etc.
+
 \subsection{Introduction}
+
 \subsection{Hydrogen atom \& hydrogen-like atoms (or ions)}
-\mar{I2}\underline{Example}: energy of ground states:
+\mar{I 2}\underline{Example}: energy of ground states:
 \begin{itemize}
     \item H = 13.6 eV
     \item He$^{+}$ = 54.4 eV
     \item Li$^{2+}$ = 122.5 eV
 \end{itemize}
 
-\mar{I3}
-\mar{I4}
-\mar{I5}
-\mar{I6}
-\subsection{Electron spin}
+\mar{I 3}We talked about the use of the reduced mass, $\mu$, in the energy
+levels; this also produces a slight shift in the frquency of spectral lines
+of the same elements, but a different isotope.
+$\rightarrow$ \textit{isotope effect} (ex: H, D, Tritium isotopes).
 
-\mar{I7}But, since $\vec{J}_{1}$ and $\vec{J}_{2}$ can have different directions,
+\subsubsection{Hydrogen spectrum}
+\underline{Complications}: Quantization of orbital angular momentum.
+
+\mar{I 4}\underline{Note}: if central force field $\neq$ Coulomb force,
+then values of $\ell$ of each $n$ are different, depending on the situation.
+
+\mar{I 5}For single electron atoms, these levels all have the same energy,
+but this is not exactly true because of relativistic corrections
+(which are very small).
+
+\underline{Selection rules} limit possible transitions. For electric
+dipole transitions: $\Delta\ell = \pm 1, \Delta{m} = 0, \pm 1$
+has to be obeyed (follow from conservations of angular momentum).
+
+\subsection{Electron spin}
+\mar{I 6}$\vec{J} = \vec{L} + \vec{S}$ = orbital angular momentum + electron
+spin angular momentum.
+
+\mar{I 7}But, since $\vec{J}_{1}$ and $\vec{J}_{2}$ can have different directions,
 there are different possible values of $\vec{J}$.
 
-\mar{I8}
 \subsection{Spin orbit coupling}
-Two possible orientations of electron spin with respect to orbital angular momentum
-lead to a doubling of energy levels of H-like atoms (except $s$-levels, where
-$\ell=0$).
+\mar{I 8}Two possible orientations of electron spin with respect to orbital
+angular momentum lead to a doubling of energy levels of H-like atoms (except
+$s$-levels, where $\ell=0$), also leading to doubling in the number of spectral
+lines.
 
-Lines appear in pairs, close together, called doublets.
-Example: for Na D lines, $\lambda$ = 5890\AA{}, 5896\AA{}. (Question: are
-atoms with filled shells + one electron also hydrogen-like? Doubling is due
-to spin-orbit coupling.)
+Lines appear in pairs, close together, called \textit{doublets}.
+\underline{Example}: for Na D lines, $\lambda$ = 5890\AA{}, 5896\AA{}.
+(Question: are atoms with filled shells + one electron also hydrogen-like?
+Doubling is due to spin-orbit coupling.)
 
 Physically, the spin-orbit coupling produces an extra energy term for the
 electron, proportioned to $\vec{S}\cdot\vec{L}$.
 
-\mar{I10}
+We already discussed that $\vec{S}$ can have only two orientations with respect
+to $\vec{L}$, hence the doubling of the energy levels corresponding to
+$\vec{L}$ and $\vec{S}$ ``parallel'' (spin up) or ``antiparallel'' (spin down).
+
+With spin-orbit coupling, we have quantum numbers $\ell, j, m$, where $m$
+relates to $J_{z}$. Selection rules are:
+$\Delta\ell = \pm 1, \Delta{j} 0, \pm 1, \Delta{m} = 0, \pm 1$
+($\Delta{j} = 0$ are very weak since they require a reversal of spin to
+orbital angular momentum).
+
+\mar{I 9(a)}\underline{Question}: what is the difference in energy levels
+``up'' and ``down''? ($=W_{SL}$).
+
+Real life is yet more complicated; including a relativistic criteria, we
+would obtain:
+\[
+    W = W_{n} + \frac{ |W_{n}| Z^{2} \alpha^{2}}{n}
+    \left( \frac{3}{4n} - \frac{1}{j + \frac{1}{2}} \right)
+    \]
+\mar{I 9(b)}which implies that levels with equal $n$ and $j$ coincide:
+$n=2$ $S_{\frac{1}{2}}$ and $P_{\frac{1}{2}}$ would coincide.
+
+So the fine structure for H would look like:
+
 \subsection{Atoms with multiple electrons}
+\mar{I 10}Since each electron influences the potential energy and ``motions''
+of every other electron, we cannot talk about ``the energy of this or that
+electron'', but only about the energy of the entire atom.
 
-\mar{I11}
-\mar{I12}
-\mar{I13}
-\mar{I14}
-\mar{I15}
-\mar{I16}
-\mar{I17}
-\mar{I18}
-\mar{I19}
+\subsubsection{He-(like) atoms: two electrons}
+Already the Schr\"{o}dinger equation is no longer exactly solvable.
+
+\mar{I 11}(Diagrams)
+
+\mar{I 12}
+
+\mar{I 13}
+
+\subsection{Electron configuration of atoms}
+
+\mar{I 14}
+
+\subsection{Some more words about $LS$ coupling}
+
+\mar{I 15}(Table)
+
+\mar{I 16}Each term has a (slightly) different energy.
+
+\mar{I 17}Explanation for handouts:
+
+\mar{I 18}(printouts)
+
 \subsection{Transition rules}
+\mar{I 19}Aka ``selection rules''.
 
-\mar{I20}
 \subsection{X-ray emission}
-\subsection{Zeeman effect}
+\mar{I 20}What if one were to excite an electron from the \emph{closed} shell,
+instead of a valence electron? $\Rightarrow$ High energy transitions
+produce X-ray radiation. This does not typically occur in the ISM!
+Material would be ionized to high levels.
 
-\mar{I21}
+\subsection{Zeeman effect}
+In a magnetic field, every spectral line of an atom with a single electron
+turns into a \textit{triplet}, with three closely spaced components.
+For such atoms, the separation in frequency between the three lines
+is the same for all atoms and lines and is proportional to the magnetic
+field strength.
+
+\mar{I 21}This continues to be correct quantum-mechanically, implying
+also a quantization in the $z$-direction.
+
+\mar{I 22}Frequency difference\ldots
+
+\mar{I 23}Parallel to the $\vec{B}$-field, only the two $w_{+}$ %s/r with \omega later
+components are visible.\ldots
+
+\mar{I 24}But, as we saw, as long as one only deals with spin, or orbital
+angular momentum of a single electron, it also applies.
+
+\mar{I 25}where $M_{J} = J_{z}$.
+
+\mar{I 26}A complete listing of such effects is given by\ldots
+
+\mar{I 27}(Handout\ldots)
+
+\mar{I 28}\ldots
+
+\mar{I 29}\ldots
 
 \newpage
-\mar{51}
 \section{HII regions}
 \subsection{Introductory remarks}
-\underline{Process}: hot OB stars emit UV photons that can ionize the
+\mar{51}\underline{Process}: hot OB stars emit UV photons that can ionize the
 surrounding neutral H (and He) medium. In practice, this requires stars hotter
 than $\sim$ 30,000 K, aka.\ spectral type B0 or earlier.
 The physics for planetary nebulae (PN) is similar to that of HII regions,
@@ -1515,9 +1833,9 @@ typically penetrate further into the nebula before being absorbed.
 \subsubsection{The recombination coefficient}\label{alpha}
 $\alpha_{n}(H,T)$ = recombination coefficient for \emph{direct} recombination
 to level $n$.
-$${
+\[
     \alpha^{(n)} \equiv \sum_{m=n}^{\infty}{\alpha_{m}}
-}$$
+    \]
 where $m$ = other levels the electron cascades through to get to $n$.
 
 \mynotes{Note: Ouside of level 1, higher energy not necessarily better
@@ -1533,15 +1851,15 @@ which the electron recombines.
 
 For a distribution $f(v)\mathrm{d}v$, $n_{e}f(v)v$ = number of electrons
 with velocity $v$ passing through a unit area per second. Thus
-$${
+\[
     \alpha_{n} = \int_{o}^{\infty}{v\sigma_{n}(H,v)f(v)\mathrm{d}v}
-}$$
+    \]
 where $\sigma_{n}(H,v) \propto v^{-2}$ = recombination cross-section to the level
 $n$ for electrons with velocity $v$.
-$${
+\[
     f(v) = \frac{4}{\sqrt{\pi}}\left(\frac{m}{2kT}
     \right)^{3/2}v^{2}\mathrm{e}^{-mv^{2}/2kT}
-}$$
+    \]
 (Maxwellian). Hence, $\alpha_{n} \propto \cfrac{1}{\sqrt{T}}$\footnote{see e.g.\
 Spitzer, Table 5.2}
 
@@ -1554,9 +1872,10 @@ $\alpha^{(2)} \equiv \alpha_{B}$\footnote{see Draine section 14.2}
 emission. Almost always here! Most common situation. Case A: very low
 density gas.}
 
-\mar{56}Neutral fraction \emph{inside} HII region\footnote{see Draine
-section 15.3}: Consider pure H nebula, and case B recombination (see
-later).
+\paragraph{Neutral fraction \emph{inside} HII region\footnote{see Draine
+section 15.3}}
+\mar{56}Consider pure H nebula, and ``case B'' (optically thick)
+recombination (see later).
 \begin{itemize}
     \item $h\nu$ = \emph{Mean energy} of stellar ionization photons
     \item $\sigma_{pi}$ = photoionization corss-section at freqeuncy $\nu$
@@ -1566,18 +1885,53 @@ later).
 In steady state:
 \[
     Q(r)
-    = Q_{0} - \int_{0}^{r}{
-        n_{H}^{2} \alpha_{B} x^{2} 4\pi(r')^{2} \mathrm{d}r'}
-    = Q_{0} \left[ 1 - 3\int_{0}^{r/R_{SO}}{
-        x^{2}y^{2} \mathrm{d}y} \right]
+    = Q_{0} - \int_{0}^{r}{\!
+        n_{H}^{2} \alpha_{B} x^{2} 4\pi(r')^{2} \;\mathrm{d}r'}
+    = Q_{0} \left[ 1 - 3\int_{0}^{r/R_{SO}}{\!
+        x^{2}y^{2} \;\mathrm{d}y} \right]
+    \qquad (\textcolor{mypur}{\bigstar})
     \]
-here:
-
-\ldots
+\begin{itemize}[itemsep=1ex]
+    \item $\alpha_{B}$ = recombination rate for case B
+    \item $x(r) \equiv \cfrac{n(H^{+})}{n_{H}}$ = fractional ionization level
+        = $\cfrac{n_{e}}{n_{H}}$ ($x$ is a function of $r$).
+    \item $y \equiv \cfrac{r}{R_{SO}}$ = radius in terms of the
+        Str\"{o}mgren radius.
+\end{itemize}
+At each point we need to balance recombinations per unit volume with rate of
+photoionizations per unit volume:
+\[
+    n_{H}^{2} \alpha_{B} x^{2}
+    =\; \frac{Q(r)}{4{\pi}r^{2}}\; n_{H}\; (1-x)\; \sigma_{pi}
+    \]
 
 \mar{57}Rewrite latter as:
+\[
+    \frac{x^{2}}{1-x^{2}}\;
+    =\; \frac{Q(r)}{Q(0)}\; \frac{n_{H} \sigma_{pi} R_{SO}}{3y^{2}}
+    =\; \frac{Q(r)}{Q(0)}\; \frac{\tau_{SO}}{3y^{2}}
+    \]
 
+where $\tau_{S0} = n_{H}\sigma_{pi}R_{SO}$
+= 2880 $(Q_{0,49})^{1/3}\; n_{2}^{1/3}\; T_{4}^{0.28}$
+for $\sigma_{pi} = 2.95 \times 10^{-18}$ cm$^{2}$.
+Since $\tau_{SO} \gg 1$, $1-x \ll 1$,
 so neutral fraction $x$ is small and hence $x^{2} \approx 1$.
+\[
+    1 - x \approx
+    \]
+For $x \approx 1$ in (\textcolor{mypur}{$\bigstar$}) on page -56- then:
+\[
+    \]
+and
+\[
+    \]
+At center of HII region:
+\[
+    \]
+At boundary of HII region:
+\[
+    \]
 
 HII regions have sharp boundaries (concept of Stromgren radius is useful!)
 Solving the equations iteratively actually shows that $Q(r)$ approaches 0
@@ -1586,7 +1940,7 @@ near $ y \sim 1 $ in exponential decay.\footnote{
 This is also solved by iteration.
 
 \mar{58}Comments:
-\begin{enumerate}
+\begin{enumerate}[itemsep=1ex]
     \item Reality: include He, include diffuse radiation field generated
         from direct recombination to $n=1$ (which can ionize an atom again!),
         realistic stellar energy spectrum below $\lambda = 912$\AA{};
@@ -1598,12 +1952,13 @@ This is also solved by iteration.
         slowly, $v \propto 1-2$ km s$^{-1}$, dynamical timescale.
         $\cfrac{R_{SO}}{v} \sim 10^{7}$ years, of order liftime of HII region.
         So ionization equilibrium does hold.
-    \item Recombination time scale = ionization time scale:$${
-            t_{ionization} \equiv \frac{\frac{4}{3}(R_{SO})^{3}n_{H}}{Q_{o}} =
-            \frac{1}{\alpha_{B}n_{H}} =
-            \frac{1.22\times10^{3}}{n_{2}}\;\mathrm{years} =
-            t_{recombination}
-        }$$
+    \item Recombination time scale = ionization time scale:
+        \[
+            t_{ionization} \equiv \frac{\frac{4}{3}(R_{SO})^{3}n_{H}}{Q_{o}}
+            = \frac{1}{\alpha_{B}n_{H}}
+            = \frac{1.22\times10^{3}}{n_{2}}\;\mathrm{years}
+            = t_{recombination}
+            \]
         ($n_{2} = n_{H}$ in units of 100). The two are identical! So
         $t_{recombination} \propto \frac{1}{n_{e}}$
         Key: for $n_{H} > 0.03\;\mathrm{cm}^{-3}\;t_{recombination} <$
@@ -1613,38 +1968,50 @@ This is also solved by iteration.
         recombination equilibrium.
     \item Next: influence of dust on $R_{SO}$
 \end{enumerate}
+\mar{59}(plots)
+
+\mar{60}(printout)
+
+\mar{61}\ldots
+
+\mar{62}\ldots
 
 \subsection{The spectrum of an HII region}
-\mar{63}
-\subsubsection{Continuum Radiation}
-Sources:
+
+\subsubsection{Sources of continuum Radiation}
+\begin{itemize}
+    \item \mar{63}Two-photon decay
+    \item Free-free emission:
+    \item Free-bound emission
+    \item Dust particles
+\end{itemize}
+
 \paragraph{Two-photon decay:}
-Transition from $n=2 \rightarrow n=1$ ($\ell=0 \rightarrow \ell=0$) is
-strictly forbidden ($\Delta\ell \neq 0$).
-The actual process happens in two steps, with a virtual intermediate
-phase. Two photons are emitted whose joint energy adds up to the energy
-of a Ly$\alpha$ photon = 3/4 ionization energy of H. The two-photon
-continuum is symmetric about $\nu_{12}/2$ if expressed in photons
+Transition from $n=2 \rightarrow n=1$ ($\ell=0 \rightarrow \ell=0$) is strictly
+forbidden ($\Delta\ell \neq 0$). The actual process happens in two steps, with
+a virtual intermediate phase. Two photons are emitted whose joint energy adds
+up to the energy of a Ly$\alpha$ photon = 3/4 ionization energy of H. The
+two-photon continuum is symmetric about $\nu_{12}/2$ if expressed in photons
 per unit frequency instead.\footnote{See Osterbrock, pp 89-93 for more info.}
 
 \paragraph{Free-free emission:}
-Thermal Bremsstrahlung\footnote{
-    \S{3.5} Spitzer, Drane ch. 10}:
-continuous emission and absoprtion by thermal (Maxwellian velocity
-distribution) electrons due to encounters between electrons and positive ions.
+Thermal Bremsstrahlung\footnote{ \S{3.5}
+Spitzer, Drane ch. 10}= continuous emission and absoprtion by thermal
+(Maxwellian velocity distribution) electrons due to encounters between
+electrons and positive ions.
 
-\mynotes{Acceleration/deceleration $\longrightarrow$ photons.}
+\underline{\smash{Classical theory}}: electron emits a single narrow Em pulse
+in time, with no oscillation in E. $\rightarrow$ FT is broad, almost
+the FT of a $\delta$ function. $\rightarrow$ Emission coefficient
+$j_{\nu}$ is nearly independent of frequency, up to a \emph{cutoff}
+frequency, which corresponds to the Maxwellian velocity distribution of
+electrons. \mar{64}So cutoff frequency is given roughly by $h\nu \sim
+kT_{e}$. (HII regions: $T_{e} \sim 10^{4}$ K, so $h\nu \approx 0.87$ eV
+and $\lambda \approx 1.4 \mu$m). In practice, dust emission dominates at
+IR wavelengths, so it is unlikely to observe the free-free spectrum
+this far.
 
-\underline{Classical theory}: electron emits a single narrow Em pulse in time,
-with no oscillation in E. $\rightarrow$ FT is broad, almost the FT of a
-$\delta$ function. $\rightarrow$ Emission coefficient $j_{\nu}$ is nearly
-independent of frequency, up to a \emph{cutoff} frequency, which corresponds to
-the Maxwellian velocity distribution of electrons.
-\mar{64}So cutoff frequency
-is given roughly by $h\nu \sim kT_{e}$. (HII regions: $T_{e} \sim 10^{4}$ K, so
-$h\nu \approx 0.87$ eV and $\lambda \approx 1.4 \mu$m).
-
-\underline{Emission coefficient}:
+\underline{\smash{Emission coefficient}}:
 \begin{align*}
     j_{\nu} &= \frac{8}{3}\left(\frac{2\pi}{3}\right)^{1/2}
     \frac{Z_{i}^{2}\mathrm{e}^{6}}{m_{e}^{3/2}c^{3}(kT)^{1/2}}
@@ -1659,23 +2026,29 @@ Draine, figure 10.1}.
 
 Total amount of energy radiated in free-free transitions per cm$^{3}$
 per second:
-$${
-    \epsilon_{ff} = 4\pi\int{j_{\nu}\mathrm{d}\nu}
-}$$
-\ldots (long-ass equation)
+\begin{align*}
+    \epsilon_{ff} &= 4\pi \int{ j_{\nu} \;\mathrm{d}\nu }
+    \\&= \left( \frac{2{\pi}kT}{3m_{e}} \right)^{1/2}\;
+    \frac{2^{5} \pi e^{6}}{3hm_{e}c^{3}}\;
+    Z_{i}^{2}\; n_{e}n_{i}\; \langle g_{ff} \rangle
+    \\&= 1.426 \times 10^{-27}\; Z_{i}^{2}\; n_{e}n_{i}\; \sqrt{T}\;
+    \langle g_{ff} \rangle
+    \qquad \left[ \mathrm{erg}\; \mathrm{cm}^{-3}\; \mathrm{s}^{-1} \right]
+\end{align*}
 
 Remember that the corresponding absorption coefficient $\kappa_{\nu}$ is
 related to $j_{\nu}$ by Kirchoff's law, since we deal with \emph{thermal}
 emission (\emph{not} blackbody though!) $j_{\nu} = \kappa_{\nu}B_{\nu}(T)$
-which leads to [anther long-ass equation].
+which leads to
+\begin{align*}
+    \kappa_{\nu} &= \frac{4}{3} \left( \frac{2\pi}{3} \right)^{1/2}
+    \frac{ Z_{i}^{2}\; e^{6}\; n_{e}n_{i}\; g_{ff} }{ c\; m_{e}^{3/2}\; (kT)^{3/2}\; \nu^{2} }
+    \\&= 0.1731 \left[ \left( 1 + 0.130 \log{\frac{T^{3/2}}{\nu}} \right) \right]
+    \frac{ Z_{i}^{2}\; n_{e}n_{i}\; }{ T^{3/2}\; \nu^{2} }
+    \qquad \left[ \mathrm{cm}^{-1} \right]
+\end{align*}
 
-\paragraph{emission by dust particles}
-In practice, dust emission dominates at IR wavelengths, so it is
-unlikely to observe the free-free spectrum this far.
-
-\mar{65}
-
-\underline{Important in practical situations}
+\mar{65}\underline{Important in practical situations:}
 \begin{enumerate}
     \item Free-free emission is generally observed in the \emph{radio} regime
         for HII regions
@@ -1692,57 +2065,170 @@ unlikely to observe the free-free spectrum this far.
         And if $T_{e}$ is independent of path length, then
         \[
             \tau_{\nu}
-            \sim \int n_{e}n_{i} \mathrm{d}s
-            \approx \int n_{e}^{2} \mathrm{d}s
-            = EM
+            \sim \int{\! n_{e}n_{i} \;\mathrm{d}s }
+            \approx \int{\! n_{e}^{2} \;\mathrm{d}s }
+            = EM \qquad \left[ \mathrm{pc}\; \mathrm{cm}^{-6} \right]
             \]
-        also $\tau_{\nu} \propto \nu^{-2.1} $ (the 0.1 is due to the log term).
+        where $EM$ = emission measure.
+        Also $\tau_{\nu} \propto \nu^{-2.1} $ (the 0.1 is due to the log term).
 \end{enumerate}
 
-\underline{Optically thin emission}
+\subparagraph{Optically thin emission}
+\[
+    I_{\nu} = \tau_{\nu} S_{\nu} \propto \nu^{2.1} B_{\nu}(T_{e})
+    \]
+\[
+    B_{\nu}(T_{e}) = \frac{2\nu^{2}kT}{c^{2}}
+    \]
+\[
+    \boxed{ I_{\nu} \propto \nu^{-0.1} }
+\]
+Almost \emph{flat} spectrum.
 
-\underline{Optically thick emission}
+\subparagraph{Optically thick emission}
+Since $\tau_{\nu} \propto \nu^{-2.1}$, the source will become optically
+thick at some low frequency:
+\[
+    I_{\nu} = S_{\nu} = B_{\nu}(T_{e}) \quad
+    \mathrm{for}\; \tau_{\nu} \rightarrow \infty
+    \]
+\[
+    \boxed{ I_{\nu} \propto \nu^{+2} }
+    \]
+
+\underline{See enclosed handout}. The turnover frequency for HII regions is
+$\sim$ few GHz, depending on $n_{e}$ and $T_{e}$.
 
 \mar{66}(Plots)
 
-\mar{67}
+\mar{67}We can derive the turnover frequency as follows:
+$\tau_{\nu} = \int{\kappa_{\nu}\;\mathrm{d}s}$.
+We had already derived an expression for
+\[
+    \kappa_{\nu} = 0.1731 \{\ldots\} \frac{Z^{2}n_{e}n_{i}}{T^{3/2}\nu^{2}}
+    \quad [\mathrm{cm}^{-1}]
+    \]
+this can be rewritten as
+\[
+    \kappa_{\nu} \approx 0.21 a(\nu,T_{e}) T_{e}^{-1.35} \nu^{-2.1}
+    n_{e}n(H^{+}+H^{+}
+    \]
+for practical interesting cases in the ISM. This leads to
+\[
+    \tau{\nu} = 6.5 \times 10^{17} a(\nu,T_{e}) T_{e}^{-1.35} \nu^{-2.1} (EM)
+    \]
+\begin{itemize}
+    \item $EM$ = emission measure = $\int{ n_{e}^{2} \;\mathrm{d}s }$
+    \item $a(\nu,T_{e})$ = slowly varying factor, $\leq 10\%$ from unity
+\end{itemize}
+The turnover frequency is defined where
+\[
+    \tau_{\nu,to} \equiv 1
+    \]
+\[
+    \rightarrow EM = 1.5 \times 10^{-18} \frac{1}{a} T_{e}^{1.35} \nu_{to}^{2.1}
+    \]
+So we can measure $\nu_{to}$ and $EM$, and then \emph{derive}
+$\langle n_{e} \rangle$.
 
-\paragraph{Free-bound emission}
-\mar{68}
+Also note that in case the emission is optically thick, the observed $T_{b}$
+is a direct measure of $T_{e}$! (See handout.)
+
+At higher temperatures, Bremsstrahlung produces X-ray continuum emission.
+
+\paragraph{Free-bound continuum radiation}
+\mar{68}Produces source of (weak) continuum radiation in optical wavelength
+region (also in IR and radio, but free-free is much stronger there).
+Most important: free-bound emission from recombination of H and He$^{+}$.
+
+HI free-bound continuum recombination of free electrons with velocity $v$
+to levels with $n \geq n_{1}$;
+\[
+    h\nu = \frac{1}{2}mv^{2} + X_{n}; \qquad
+    h\nu \geq X_{n_{1}} = \frac{h\nu_{0}}{n_{1}^{2}}
+    \]
+$X_{n}$ = ionization potential of level $n$. The emission coefficient
+is given by
+\[
+    j_{\nu} = \frac{1}{4\pi} n_{p}n_{e} \sum_{n=n_{1}}^{\infty} {
+        \sum_{L=0}^{n-1} {
+            v \sigma_{nL} (H^{0}, v) f(v) h\nu \frac{\mathrm{d}v}{\mathrm{d}\nu}
+        }
+    }
+    \]
+$\sigma_{nL}$ = recombination cross section.
+
+This is fully discussed in Osterbrock, pages 86-88, who lumps free-free
+and free-bound optical continuum together in one function (which he
+confusingly also refers to as the emission coefficient),
+$ \gamma_{\nu}(H^{0}, T) $ such that
+\[
+    j_{\nu} \equiv \frac{1}{4\pi} n_{p}n_{e} \gamma_{\nu} (H^{0},T)
+    \]
+This optical continuum is quite weak, although the shape of $\gamma_{\nu}$
+is interesting; look it up!\footnote{Figure 4.1 in Osterbrock
+(page 68-A in notes) and figure 10.2 in Draine}
 
 \subsubsection{Line Radiation}
 \mar{69}Two types:
 \begin{enumerate}
     \item Recombination lines, predominantly from H and He
-        \begin{itemize}
-            \item optical
-            \item radio
-            \item forbidden
-        \end{itemize}
-    \item Collisionally excited lines in heavy elements; these are find-structure
-        lines, often forbidden, yet strong. There are recombination lines from
-        heavy elements as well, but they are too weak to observe.
+        (which don't produce collisionally excited lines)
+    \item Collisionally excited lines in heavy elements.
+        These are fine-structure lines, often forbidden, yet strong.
+        (Recombination line spectra from heavy elements do exist, but are too weak)
 \end{enumerate}
 
+Handout: spectra of M31, M33, M101 HII regions, with same
+telescope and instrument.
+
 \paragraph{Recombination lines:}
-\begin{itemize}
+\begin{itemize}[itemsep=1ex]
     \item emission coefficient:
         $ j_{\nu} = \cfrac{A_{mn'} N_{n} h\nu_{nn'}}{4\pi} \phi(\nu) $
     \item absorption coefficient:
-        $ \kappa_{\nu} = \ldots $
+        $ \kappa_{\nu} = \cfrac{h\nu_{nn'}}{c} \left[
+            N_{n'} B_{n'n} - N_{n} B_{nn'} \right] \phi(\nu)$
 \end{itemize}
+\underline{Question}: what are the level populations $N_{n}$ and $N_{n'}$?
+Using the $b$-factors we can compare $N_{n}$ with $N_{n}^{*}$, the level
+population in LTE, etc. We get:
+\[
+    b_{n} \equiv \frac{N_{n}}{N_{n}^{*}}
+    \]
+\[
+    N_{n}^{*}
+    = \left( \frac{h^{2}}{2{\pi}mkT_{e}}
+    \right)^{3/2} n^{2} \exp \left( \frac{\chi_{n}}{kT_{e}}
+    \right) N_{e} N_{p}
+    \]
+for H ( = Saha equation). $\chi_{n}$ = ionization potential for level $n$.
+
+To find the values of $N_{n}$ for all $n$ we again use statistical equilibrium.
+
+(I) Population that disappears from level $n$ per second per cm$^{3}$:
+\[
+    \]
+(II) Population that appears in level $n$ per second per cm$^{3}$:
+\[
+    \]
+
+As you see, it can get quite complicated. By equating (I) and (II), we
+get an equation for each level $n$ which is linear in the vector
+$\{ N_{n} \}$
+
 
 \mar{71}The calculation is still highly complicated. We can, however,
 derive some general properties of $\{N_{n}\}$
 
-\paragraph{Radio recombination lines}
+\subparagraph{Radio recombination lines}
 Not very common, lines tend to be very faint.
 
 \mar{72}So:
 \[
     \]
 
-\paragraph{Optical and IR recombination lines}
+\subparagraph{Optical and IR recombination lines}
 For small $n$, $|E_{n+1} - E_{n}|$ is larger, so collisions become
 less important while the $A$ coefficients get bigger.
 
