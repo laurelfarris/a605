@@ -41,11 +41,8 @@
 % \setulcolor{<color>}
 %\renewcommand{\underline}[1]{\underline{\smash{#1}}}
 
-
-% Footnotes in section titles??
-%\usepackage[stable]{footmisc}
-
-\usepackage[stable, symbol]{footmisc}
+\usepackage[bottom, hang, stable, symbol]{footmisc}
+\setlength{\footnotemargin}{10pt}
 \usepackage{perpage}
 \MakePerPage{footnote}
 %\renewcommand\footnoterule{\rule{\textwidth}{0.4pt}}
@@ -54,6 +51,7 @@
   \hrule width \textwidth height 0.4pt
   \kern 2pt
 }
+
 \usepackage{marginnote}
 %\renewcommand*{\raggedrightmarginnote}{\centering}
 \renewcommand*{\raggedleftmarginnote}{\centering}
@@ -73,6 +71,7 @@
 
 \usepackage{wasysym}  % package needed for \RHD symbol in subsection
 \usepackage{titlesec}
+%\setcounter{secnumdepth}{4}
 %\titleformat{<command>}
 %   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
 \titleformat{\section}{
@@ -89,7 +88,7 @@
     -2ex}{}
 \titleformat{\paragraph}{
     \fontsize{12}{13}\selectfont\bfseries}{}{}{}
-\titleformat{\paragraph}{
+\titleformat{\subparagraph}{
     \fontsize{12}{13}\selectfont\bfseries}{}{}{}
 
 \titlespacing*{\section}{0pt}{0pt}{12pt}
@@ -97,18 +96,13 @@
 \titlespacing*{\subsubsection}{-0.10in}{10pt}{2pt}
 \titlespacing*{\paragraph}{0pt}{1ex}{-2ex}
 
-% Start new page for every section
-%\let\stdsection\section
-%\renewcommand\section{\newpage\stdsection}
-\let\oldsection\section
-\renewcommand\section{\clearpage\oldsection}
-
 % Section references
 %\renewcommand{\thesection}{}
 %\renewcommand{\thesubsection}{\arabic{subsection}}
 %\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+%\renewcommand{\theparagraph}{\S{paragraph}}
+%    $\rhd$ \arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}\;}{
 
-%\setcounter{secnumdepth}{1}
 
 %\setlist[itemize]{noitemsep, topsep=0ex}
 %\setlist[enumerate]{noitemsep, topsep=0ex}
@@ -1181,6 +1175,17 @@ $\tau_{\nu}$ is max for $\nu = \nu_{0}$ because $\phi(\nu)$ is max there.
         velocity of the atoms, so the assumption of a Gaussian profile is correct.
         In particular, Spitzer (page 43) presents the HI optical depth in practical
         terms: (yuck!)
+        \[
+            \tau_{\nu} = \int{ \kappa_{\nu} \;\mathrm{d}s }
+            = 5.49 \times 10^{-14} \frac{H(HI) P(\omega)}{T_{k}}
+            \]
+        \[
+            \kappa_{\nu} \propto \frac{n(H_{0})}{T_{k}} \phi(\nu)
+            \]
+        \[
+            \phi(\nu) \propto P(\omega)
+            \]
+        $P(\omega)$ = Maxwellian velocity distribution
 
         \mar{40}We had before:
         \[
@@ -1532,6 +1537,23 @@ little in distinguishing near and far distances.
 There seems to be a real distinction between the CNM and the WNM
 (although recent evidence may dispute this somewhat).
 
+When does HI become opaque? Gaussian HI line profile, at center:
+\[
+    \tau = 5.2 \times 10^{-19} \frac{N_{HI}}{\Delta v T_{s}}
+    \]
+where $\Delta v = FWHM$ in km s$^{-1}$. Typically
+\begin{itemize}
+    \item $T_{s} \gtrsim 50$ K, $\Delta v \sim 10$ km s$^{-1}$
+    \item $\rightarrow N(HI) > 10^{21}$ cm$^{-2}$ before $\tau > 1$
+\end{itemize}
+
+Present reasearch on MW HI concentrates on:
+\begin{enumerate}
+    \item Origin of High Velocity Clouds
+    \item Properties of smalest clouds/features
+    \item Search for HI clouds that may contain DM but no stars
+\end{enumerate}
+
 \newpage
 \section{Atomic structure}
 \mar{I 1}Purpose here is to give an overview of notation and the way
@@ -1726,9 +1748,10 @@ Factor of 100 from O 9.5V to O 3V (luminosity classes).}
 
 \subsection{Str\"{o}mgren Theory}
 \mar{52}``It's only a model.''
-Classical paper\footnote{Str\"{o}mgren 1939 ApJ 89, 526}
+Classical paper:%\href{}
+{Str\"{o}mgren 1939 ApJ 89, 526}
 
-\underline{Basic result}:
+Basic result:
 \begin{itemize}
     \item Hot star in a uniform medium will ionize a spherical volume
         out to a certain radius, whose size is determined by:
@@ -1799,12 +1822,12 @@ where
 \end{itemize}
 To first order, not including radiative transfer effects:
 \[
-    4\pi{J_{\nu}} = \frac{R^{2}}{r^{2}}\pi{F_{\nu}}(0) =
+    4\pi{J_{\nu}} \;=\; \frac{R^{2}}{r^{2}}\pi{F_{\nu}}(0) \;=\;
     \frac{L_{\nu}}{4\pi{r^{2}}}
     \]
 (where the far right term is the local radiation field). Order of magnitudes:
 \[
-    N_{Lyc} = \int_{\nu_{1}}^{\infty}{\frac{L_{\nu}}{h\nu}\mathrm{d}\nu}
+    N_{Lyc} \;=\; \int_{\nu_{1}}^{\infty}{\frac{L_{\nu}}{h\nu}\;\mathrm{d}\nu}
     \]
 \begin{itemize}
     \item $N_{Lyc} \approx 5\times10^{48}\;\mathrm{sec}^{-1}$ for O6 star
@@ -1819,10 +1842,10 @@ emission of photons.
 The \emph{photoionization cross-section} ($\sigma \propto \nu^{-3}$) is actually
 rather complicated to calcualte. Spitzer (who calls this erroneously the
 ``absorption coefficient'') gives:
-$${
+\[
     \sigma_{f\nu} = \frac{7.9\times10^{-18}}{Z^{2}}
     \left(\frac{\nu_{1}}{\nu}\right)^{3}g_{1}f
-}$$
+    \]
 where $g_{1}f$ = Gaunt factor (from level 1 to free)\footnote{see, e.g.\
 Table 5.1 Spitzer (Draine Ch. 10); see also Fig 13.1 in Draine and Fig. 2.2
 in handout (from Osterbrock).}
@@ -1832,7 +1855,7 @@ typically penetrate further into the nebula before being absorbed.
 
 \subsubsection{The recombination coefficient}\label{alpha}
 $\alpha_{n}(H,T)$ = recombination coefficient for \emph{direct} recombination
-to level $n$.
+to level $n$ (for hydrogen, H, at temperature $T$).
 \[
     \alpha^{(n)} \equiv \sum_{m=n}^{\infty}{\alpha_{m}}
     \]
@@ -1843,7 +1866,7 @@ for ionization. OIII is not necessarily from the same place as OII.
 Free electrons: there is a recombination coefficient for every level,
 depends on velocity of the electron.}
 
-\mar{55}The summed recombination coefficient ($\alpha$) is the relevant
+\mar{55}The \emph{summed} recombination coefficient ($\alpha$) is the relevant
 quantity because every recombination counts, regardless of the level $n$ to
 which the electron recombines.
 
@@ -2215,7 +2238,8 @@ To find the values of $N_{n}$ for all $n$ we again use statistical equilibrium.
 
 As you see, it can get quite complicated. By equating (I) and (II), we
 get an equation for each level $n$ which is linear in the vector
-$\{ N_{n} \}$
+$\{ N_{n} \}$. However, we need to solve for all levels at the same time,
+which leads to $\infty$ many equations.
 
 
 \mar{71}The calculation is still highly complicated. We can, however,
@@ -2584,8 +2608,71 @@ Examples of such cases:
 
 \subsection{UV absorption lines from H and H$_{2}$}
 \mar{96}
+H: $^{2}S_{1/2}$ ground level. Lyman $\alpha$ is the strongest line,
+1216 \AA{}. The center is ``burned out'' ($e^{-\tau_{\nu}} = 0$).
+Only very wide damping wings are visible, so we are in part III of the
+curve of growth.
 
+Line profiles have been observed with rocket Hights, satellites\footnote{
+    Copernicus, IUE, FUSE, and HST}
+and on the ground in quasar absorption line systems that are redshifted into
+the visible and IR. We use the line shape, rather than the equivalent width,
+to derive N(HI) by fitting a curve.
+\[
+    \frac{I_{\nu}}{I_{\nu}(0)}
+    = \exp \left[ -\frac{e^{2}\lambda^{4}f_{jk}N_{\ell} \Gamma_{k}}
+    {m_{e} c^{3} \left( \Delta\lambda  \right)^{2} 4\pi}
+        \right] \quad (\bigstar)
+    \]
+$N_{\ell} = N(^{2}S_{1/2}) = N(HI)$. This expression follows from
+\[
+    I_{\nu} = I_{0} e^{-\tau_{\nu}}
+    \]
+\[
+    \tau_{\nu} = \frac{\pi e^{2}}{mc} f N_{\ell} \phi(\nu)
+    \]
+\[
+    \phi(\nu) = \frac{ \frac{\Gamma}{4\pi^{2}} }
+    {\left( \frac{\Gamma}{4\pi} \right)^{2} + \left( \Delta\nu \right)^{2}}
+    \]
+(damping wings) and assuming that $\Delta\nu \gg \Gamma$ (which is the
+condition that $a \ll 1$, or Doppler width $\gg$ natural line width,
+which is the case in the ISM.)
 
+\mar{97}We obtain:
+\[
+    \phi(\nu) \simeq \frac{\Gamma}{4\pi^{2}}\; \mathrm{for}\;
+    \Delta\nu \gg \Gamma
+    \]
+\[
+    \Delta\nu = \nu_{0} - \nu = \frac{c}{\lambda_{0}} - \frac{c}{\lambda}
+    = c \left( \frac{\lambda - \lambda_{0}}{\lambda\lambda_{0}}  \right)
+    \approx c \left( \frac{\Delta\nu}{\lambda^{2}} \right)
+    \]
+so
+\[
+    \tau_{\nu} = \frac{{\pi}e^{2}}{mc} f N_{\ell} \frac{\Gamma}{4\pi^{2}}
+    \frac{1}{c^{2}} \frac{\lambda^{4}}{\left( \Delta\lambda \right)^{2}}
+    = \frac{e^{2}}{mc^{3}} f N_{\ell} \frac{\Gamma}{4\pi}
+    \frac{\lambda^{4}}{\left( \Delta\lambda \right)^{2}}
+    \]
+which gives $(\bigstar)$.
+
+H$_{2}$ line from lowest level; ortho \& para H$_{2}$, with rotational
+energy levels, with quantum number $J=1$ (ortho) and $J=2$ (para).
+\footnote{$J$ only for proton spin, see Draine Ch. 5}
+The actual transition is an electronic transition.
+
+The molecule produces a number of lines shortward of Ly$\alpha$;
+wavelengths:
+\begin{itemize}
+    \item 1092.19 \AA{}
+    \item 1092.73 \AA{}
+    \item 1094.05 \AA{}
+\end{itemize}
+``Lyman bands'' (B $\rightarrow$ X in figure).
+
+\newpage
 \section{Dust}
 \mar{104}Size range: ``standard large grains'' follow exponential size
 distribution, extending from (theoretically) $a_{min} \approx 0.01 \mu$m to
@@ -3042,6 +3129,14 @@ The result is that $T_{x} = T_{k}$ for $n_{H_{2}} \geq 300$ cm$^{-3}$
 (the levels are ``thermalized''). $T_{x}$ is the excitation temperature and
 $T_{k}$ is the kinetic temperature.
 
+\mar{129}Evidence that $J = 1 \rightarrow 0 ^{12}$CO is optically thick:
+$^{13}$CO much less abundant, yet lines are of order 0.5 - 1.0 as strong
+as $^{12}$CO.
+
+Since the 2.6 mm lines is optically thick, $T_{b} = T_{k}$, provided
+appropriate corrections for cosmic background radiation, radio telescope
+beam inefficiencies, and beam dilution are made.
+
 \subsection{CO luminosity}
 \mar{130}
 \[
@@ -3094,8 +3189,39 @@ Dissociation energy of H$_{2}$ and CO: 4.48 eV and 11.1 eV.
     (\mathrm{km\ s}^{-1})^{-1}
     \]
 
-\mynotes{Good info about molecular lines and transitions on pages
-135 - 141 (photocopy from book)}
+\mar{131}(plot)
+
+\mar{132}
+\[
+    M(H_{2}) = 4-6 \times 10^{6} L_{CO} (M_{\odot})
+    \]
+In M82: $\rho$ and $T_{CO}$ scale such that even in that extreme starburst
+environment may be the same within a factor of 2. We may have two cloud
+populations:
+\[
+    \left.
+    \begin{array}{l l}
+        \mathrm{warm,\; dense:} & T \sim 75 K \\
+                & n_{H_{2}} \sim 5 \times 10^{3}\; \mathrm{cm}^{-3}\\
+                &  \\
+        \mathrm{cool,\; diffuse:} & T \sim 10-20 K \\
+                & n_{H_{2}} < 10^{3}\; \mathrm{cm}^{-3}\\
+    \end{array}
+    \right\} \Delta \left( \frac{\sqrt{\rho}}{T} \right) \leq 2
+    \]
+This statement is still controversial (see paper by Maloney I later refer
+to), and more recent results.
+
+Chapter 32 in Draine gives a good discussion of the properties of molecular
+clouds in the Milky Way. It also discusses the various calibration methods
+to onvert CO integrated intensity to molecular hydrogen column density.
+Read it!
+
+\mar{133}\mar{134}(plots)
+
+\mar{135}\mar{136}\mar{137}\mar{138}\mar{139}\mar{140}
+\mynotes{Photocopy from book; good info about molecular lines and
+transitions here.}
 
 \newpage
 \section{Hot ionized gas}
@@ -3154,8 +3280,56 @@ Evidently the principal factors to consider are:
 Spitzer summarizes ionization by energetic particles as well. This includes
 thermal electrons and protons but also cosmic rays.
 
+\mar{144}At temepratures $T > 10^{4}$ K, ionization by thermal electrons
+(in the high speed tail of the Maxwell velocity distribution) play a role.
+Cosmic-ray protons at energies down to a few million eV can penetrate
+clouds and ionize H, as can X-ray photons with energies of 200 eV and above.
+
+Once gas is shock heated, the (re-)ionization by thermal electrons is
+important and needs to be considered in the calculation of recombination
+time scales.
+
+Spitzer considers the role of cosmic-ray particles in ionization of H
+in cool HI and H$_{2}$ clouds, and concludes that $\sim$ 1 to 4\% ionization
+levels inside clouds may be possible.
+
+The role of soft X-rays is likely not very important but is difficult to
+establish observationally due to the predominance of other ionization sources.
+It may play some role in inoizing warm HI (producing DIG) in galaxy halos
+and thick disks, but there also the extragalactic ionizing bckground plays
+a role.
+
+Another possible source of ionization of DIG in halo are ``transition
+surfaces'' between one gas phase and another. We talk of ``mixing layers''
+where shear (if there is a velocity difference) and/or hydro instabilities may
+mix cooler and hot gas.
+
+Lastly, the bulk of the DIG is probably inoized by field OB stars, Lyman
+continuum photons ``leaking'' from density-bounded HII regions. Hot evolved
+stars (e.g.\ blue HB stars) may play a role in certain environments.
+
 \subsection{Properties of hot ionized gas and spectrum}
-\mar{145}
+\mar{145}Not surprising, the key parameter is temperature. Just as in
+photoionization, each element is present up to its highest possible
+ionization stage,\footnote{As table 5.6 in Spitzer shows lower ionization
+stages are also still present in substantial fractional amounts at any
+given temeprature.}
+given the temperature, i.e.\ kinetic energy, of the
+colliding electrons.
+
+The presence of absense of a particular line of an ion, or a line ratio
+of two lines for different ions, then becomes an important diagnostic of
+electron temperature (e.g.\ table 5.6 in Spitzer).
+
+Note: transitions of these highly ionized elements are (mostly) permitted
+lines in the UV.
+
+Note: the highly ionized species are important coolants, yet they have
+barely been observed in emission, since the medium is of low density,
+contributes little mass, and hence its total luminosity is small. The
+dominant evidence for the presence of this gas is from UV absorption
+line studies. This medium likely makes up most of the ``missing baryons''
+in the Universe.
 
 \newpage
 \section{Heating and cooling}\mar{151}
