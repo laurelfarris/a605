@@ -82,35 +82,38 @@
 \contentsline {subsubsection}{\numberline {7.2.2}Turnover points in the curve of growth}{53}{subsubsection.7.2.2}
 \contentsline {subsubsection}{\numberline {7.2.3}Growth curves in practice}{53}{subsubsection.7.2.3}
 \contentsline {subsection}{\numberline {7.3}UV absorption lines from H and H$_{2}$}{54}{subsection.7.3}
-\contentsline {section}{\numberline {8}Dust}{55}{section.8}
-\contentsline {subsection}{\numberline {8.1}Absorption efficiency: the Q parameter}{56}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Calculating dust mass from FIR fluxes}{57}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Dust temperatures}{59}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Interstellar extinction}{59}{subsection.8.4}
-\contentsline {subsubsection}{\numberline {8.4.1}The extinction law}{61}{subsubsection.8.4.1}
-\contentsline {paragraph}{Dependence on Galactic latitude:}{61}{paragraph*.19}
-\contentsline {subsection}{\numberline {8.5}Interstellar reddening}{62}{subsection.8.5}
-\contentsline {section}{\numberline {9}Molecular hydrogen and CO}{64}{section.9}
-\contentsline {subsection}{\numberline {9.1}Molecular gas and CO as a tracer}{64}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}CO luminosity}{65}{subsection.9.2}
-\contentsline {section}{\numberline {10}Hot ionized gas}{67}{section.10}
-\contentsline {subsection}{\numberline {10.1}Collisional excitation and ionization}{67}{subsection.10.1}
-\contentsline {subsubsection}{\numberline {10.1.1}Calculation of collisional rate coefficients}{67}{subsubsection.10.1.1}
-\contentsline {subsection}{\numberline {10.2}Properties of hot ionized gas and spectrum}{68}{subsection.10.2}
-\contentsline {section}{\numberline {11}Heating and cooling}{70}{section.11}
-\contentsline {subsection}{\numberline {11.1}General sources}{70}{subsection.11.1}
-\contentsline {subsubsection}{\numberline {11.1.1}Primary heat source}{70}{subsubsection.11.1.1}
-\contentsline {paragraph}{Main point:}{71}{paragraph*.20}
-\contentsline {subsubsection}{\numberline {11.1.2}Primary cooling source}{71}{subsubsection.11.1.2}
-\contentsline {subsection}{\numberline {11.2}HII Regions}{72}{subsection.11.2}
-\contentsline {subsubsection}{\numberline {11.2.1}Heating of HII regions}{72}{subsubsection.11.2.1}
-\contentsline {subsubsection}{\numberline {11.2.2}Cooling of HII regions}{73}{subsubsection.11.2.2}
-\contentsline {subsubsection}{\numberline {11.2.3}Results}{74}{subsubsection.11.2.3}
-\contentsline {paragraph}{How fast does T change when $T \neq T_{E}$?}{75}{paragraph*.21}
-\contentsline {subsection}{\numberline {11.3}HI gas}{75}{subsection.11.3}
-\contentsline {paragraph}{Simple considerations}{75}{paragraph*.22}
-\contentsline {subsubsection}{\numberline {11.3.1}Cooling function}{76}{subsubsection.11.3.1}
-\contentsline {subsubsection}{\numberline {11.3.2}Heating function}{77}{subsubsection.11.3.2}
-\contentsline {paragraph}{Other potential players}{77}{paragraph*.23}
-\contentsline {subsection}{\numberline {11.4}Few comments/additions from Spitzer}{77}{subsection.11.4}
-\contentsline {subsection}{\numberline {11.5}Heating and cooling of hot gas}{78}{subsection.11.5}
+\contentsline {section}{\numberline {8}Dust}{56}{section.8}
+\contentsline {subsection}{\numberline {8.1}General properties of dust}{56}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Radiative processes}{56}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Absorption efficiency: the Q parameter}{57}{subsubsection.8.2.1}
+\contentsline {paragraph}{Typical numbers:}{57}{paragraph*.19}
+\contentsline {subsection}{\numberline {8.3}Calculating dust mass from FIR fluxes}{58}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Dust temperatures}{59}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Interstellar extinction}{61}{subsection.8.5}
+\contentsline {subsubsection}{\numberline {8.5.1}The extinction law}{62}{subsubsection.8.5.1}
+\contentsline {paragraph}{Dependence on Galactic latitude:}{62}{paragraph*.20}
+\contentsline {subsection}{\numberline {8.6}Interstellar reddening}{63}{subsection.8.6}
+\contentsline {section}{\numberline {9}Molecular hydrogen and CO}{65}{section.9}
+\contentsline {subsection}{\numberline {9.1}Molecular gas and CO as a tracer}{65}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}CO luminosity}{66}{subsection.9.2}
+\contentsline {section}{\numberline {10}Hot ionized gas}{68}{section.10}
+\contentsline {subsection}{\numberline {10.1}Collisional excitation and ionization}{68}{subsection.10.1}
+\contentsline {subsubsection}{\numberline {10.1.1}Calculation of collisional rate coefficients}{68}{subsubsection.10.1.1}
+\contentsline {subsection}{\numberline {10.2}Properties of hot ionized gas and spectrum}{69}{subsection.10.2}
+\contentsline {section}{\numberline {11}Heating and cooling}{71}{section.11}
+\contentsline {subsection}{\numberline {11.1}General sources}{71}{subsection.11.1}
+\contentsline {subsubsection}{\numberline {11.1.1}Primary heat source}{71}{subsubsection.11.1.1}
+\contentsline {paragraph}{Main point:}{72}{paragraph*.21}
+\contentsline {subsubsection}{\numberline {11.1.2}Primary cooling source}{72}{subsubsection.11.1.2}
+\contentsline {subsection}{\numberline {11.2}HII Regions}{73}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}Heating of HII regions}{73}{subsubsection.11.2.1}
+\contentsline {subsubsection}{\numberline {11.2.2}Cooling of HII regions}{74}{subsubsection.11.2.2}
+\contentsline {subsubsection}{\numberline {11.2.3}Results}{75}{subsubsection.11.2.3}
+\contentsline {paragraph}{How fast does T change when $T \neq T_{E}$?}{76}{paragraph*.22}
+\contentsline {subsection}{\numberline {11.3}HI gas}{76}{subsection.11.3}
+\contentsline {paragraph}{Simple considerations}{76}{paragraph*.23}
+\contentsline {subsubsection}{\numberline {11.3.1}Cooling function}{77}{subsubsection.11.3.1}
+\contentsline {subsubsection}{\numberline {11.3.2}Heating function}{78}{subsubsection.11.3.2}
+\contentsline {paragraph}{Other potential players}{78}{paragraph*.24}
+\contentsline {subsection}{\numberline {11.4}Few comments/additions from Spitzer}{78}{subsection.11.4}
+\contentsline {subsection}{\numberline {11.5}Heating and cooling of hot gas}{79}{subsection.11.5}

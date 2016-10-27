@@ -65,29 +65,31 @@
 \BOOKMARK [3][-]{subsubsection.7.2.3}{Growth curves in practice}{subsection.7.2}% 65
 \BOOKMARK [2][-]{subsection.7.3}{UV absorption lines from H and H2}{section.7}% 66
 \BOOKMARK [1][-]{section.8}{Dust}{}% 67
-\BOOKMARK [2][-]{subsection.8.1}{Absorption efficiency: the Q parameter}{section.8}% 68
-\BOOKMARK [2][-]{subsection.8.2}{Calculating dust mass from FIR fluxes}{section.8}% 69
-\BOOKMARK [2][-]{subsection.8.3}{Dust temperatures}{section.8}% 70
-\BOOKMARK [2][-]{subsection.8.4}{Interstellar extinction}{section.8}% 71
-\BOOKMARK [3][-]{subsubsection.8.4.1}{The extinction law}{subsection.8.4}% 72
-\BOOKMARK [2][-]{subsection.8.5}{Interstellar reddening}{section.8}% 73
-\BOOKMARK [1][-]{section.9}{Molecular hydrogen and CO}{}% 74
-\BOOKMARK [2][-]{subsection.9.1}{Molecular gas and CO as a tracer}{section.9}% 75
-\BOOKMARK [2][-]{subsection.9.2}{CO luminosity}{section.9}% 76
-\BOOKMARK [1][-]{section.10}{Hot ionized gas}{}% 77
-\BOOKMARK [2][-]{subsection.10.1}{Collisional excitation and ionization}{section.10}% 78
-\BOOKMARK [3][-]{subsubsection.10.1.1}{Calculation of collisional rate coefficients}{subsection.10.1}% 79
-\BOOKMARK [2][-]{subsection.10.2}{Properties of hot ionized gas and spectrum}{section.10}% 80
-\BOOKMARK [1][-]{section.11}{Heating and cooling}{}% 81
-\BOOKMARK [2][-]{subsection.11.1}{General sources}{section.11}% 82
-\BOOKMARK [3][-]{subsubsection.11.1.1}{Primary heat source}{subsection.11.1}% 83
-\BOOKMARK [3][-]{subsubsection.11.1.2}{Primary cooling source}{subsection.11.1}% 84
-\BOOKMARK [2][-]{subsection.11.2}{HII Regions}{section.11}% 85
-\BOOKMARK [3][-]{subsubsection.11.2.1}{Heating of HII regions}{subsection.11.2}% 86
-\BOOKMARK [3][-]{subsubsection.11.2.2}{Cooling of HII regions}{subsection.11.2}% 87
-\BOOKMARK [3][-]{subsubsection.11.2.3}{Results}{subsection.11.2}% 88
-\BOOKMARK [2][-]{subsection.11.3}{HI gas}{section.11}% 89
-\BOOKMARK [3][-]{subsubsection.11.3.1}{Cooling function}{subsection.11.3}% 90
-\BOOKMARK [3][-]{subsubsection.11.3.2}{Heating function}{subsection.11.3}% 91
-\BOOKMARK [2][-]{subsection.11.4}{Few comments/additions from Spitzer}{section.11}% 92
-\BOOKMARK [2][-]{subsection.11.5}{Heating and cooling of hot gas}{section.11}% 93
+\BOOKMARK [2][-]{subsection.8.1}{General properties of dust}{section.8}% 68
+\BOOKMARK [2][-]{subsection.8.2}{Radiative processes}{section.8}% 69
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Absorption efficiency: the Q parameter}{subsection.8.2}% 70
+\BOOKMARK [2][-]{subsection.8.3}{Calculating dust mass from FIR fluxes}{section.8}% 71
+\BOOKMARK [2][-]{subsection.8.4}{Dust temperatures}{section.8}% 72
+\BOOKMARK [2][-]{subsection.8.5}{Interstellar extinction}{section.8}% 73
+\BOOKMARK [3][-]{subsubsection.8.5.1}{The extinction law}{subsection.8.5}% 74
+\BOOKMARK [2][-]{subsection.8.6}{Interstellar reddening}{section.8}% 75
+\BOOKMARK [1][-]{section.9}{Molecular hydrogen and CO}{}% 76
+\BOOKMARK [2][-]{subsection.9.1}{Molecular gas and CO as a tracer}{section.9}% 77
+\BOOKMARK [2][-]{subsection.9.2}{CO luminosity}{section.9}% 78
+\BOOKMARK [1][-]{section.10}{Hot ionized gas}{}% 79
+\BOOKMARK [2][-]{subsection.10.1}{Collisional excitation and ionization}{section.10}% 80
+\BOOKMARK [3][-]{subsubsection.10.1.1}{Calculation of collisional rate coefficients}{subsection.10.1}% 81
+\BOOKMARK [2][-]{subsection.10.2}{Properties of hot ionized gas and spectrum}{section.10}% 82
+\BOOKMARK [1][-]{section.11}{Heating and cooling}{}% 83
+\BOOKMARK [2][-]{subsection.11.1}{General sources}{section.11}% 84
+\BOOKMARK [3][-]{subsubsection.11.1.1}{Primary heat source}{subsection.11.1}% 85
+\BOOKMARK [3][-]{subsubsection.11.1.2}{Primary cooling source}{subsection.11.1}% 86
+\BOOKMARK [2][-]{subsection.11.2}{HII Regions}{section.11}% 87
+\BOOKMARK [3][-]{subsubsection.11.2.1}{Heating of HII regions}{subsection.11.2}% 88
+\BOOKMARK [3][-]{subsubsection.11.2.2}{Cooling of HII regions}{subsection.11.2}% 89
+\BOOKMARK [3][-]{subsubsection.11.2.3}{Results}{subsection.11.2}% 90
+\BOOKMARK [2][-]{subsection.11.3}{HI gas}{section.11}% 91
+\BOOKMARK [3][-]{subsubsection.11.3.1}{Cooling function}{subsection.11.3}% 92
+\BOOKMARK [3][-]{subsubsection.11.3.2}{Heating function}{subsection.11.3}% 93
+\BOOKMARK [2][-]{subsection.11.4}{Few comments/additions from Spitzer}{section.11}% 94
+\BOOKMARK [2][-]{subsection.11.5}{Heating and cooling of hot gas}{section.11}% 95

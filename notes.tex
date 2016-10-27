@@ -2017,6 +2017,11 @@ up to the energy of a Ly$\alpha$ photon = 3/4 ionization energy of H. The
 two-photon continuum is symmetric about $\nu_{12}/2$ if expressed in photons
 per unit frequency instead.\footnote{See Osterbrock, pp 89-93 for more info.}
 
+\mynotes{2S to 1S transition is strictly forbidden at first order;
+energy and angular momentum can be conserved by emitting a pair of photons.
+Transfers ionization energy into photons with timescale of about 0.1 seconds
+(second-order process)}
+
 \paragraph{Free-free emission:}
 Thermal Bremsstrahlung\footnote{ \S{3.5}
 Spitzer, Drane ch. 10}= continuous emission and absoprtion by thermal
@@ -2674,12 +2679,14 @@ wavelengths:
 
 \newpage
 \section{Dust}
-\mar{104}Size range: ``standard large grains'' follow exponential size
-distribution, extending from (theoretically) $a_{min} \approx 0.01 \mu$m to
-$a_{max} \approx 0.25 \mu$m (huge!)\footnote{Mathis, Rumple, and Nordsieck
-(1977)} $n(a) \propto a^{-3.5}$. A grain with size 0.1 $\mu$m = 1000 \AA{}
-would contain $\sim 10^{10}$ atoms. Grains are really ``solids''!
-\mynotes{(behave like solids, even though tiny.)}
+\subsection{General properties of dust}
+\mar{104}``Standard large grains'' follow exponential size distribution,
+extending from (theoretically) $a_{min} \approx 0.01 \mu$m to $a_{max} \approx
+0.25 \mu$m (huge!)\footnote{Mathis, Rumple, and Nordsieck (1977)},
+\mynotes{where $a$ = radius of a single grain.} The number density of grains as
+a function of $a$ is given by $n(a) \propto a^{-3.5}$. (Note: A grain with size
+0.1 $\mu$m = 1000 \AA{} would contain $\sim 10^{10}$ atoms. Grains are really
+``solids''!)
 
 The size distribution was later extended downward to much smaller particles to
 account for the excess 12 $\mu$m and 25$\mu$m emission observed by IRAS; this
@@ -2690,26 +2697,27 @@ rather than grains. A favorite candidate is ``PAH'', or polycyclic aromatic
 hydrocarbons, which resemble car soot. The small grains may be as small as 5
 \AA{} (0.0005 $\mu$m).
 
+\subsection{Radiative processes}
 Grains can \emph{scatter} or \emph{absorb} incident UV and optical photons; at
 the FIR wavelengths at which they emit, the radiation is optically thin (so
-they do not \mar{105} \emph{absorb} FIR photons effectively).
+they do not \mar{105}\emph{absorb} FIR photons effectively).
 
 By absorbing a photon, a grain increases its energy and heats up from
 $T_{0}$ to $T_{1}$:
 \[
-    h\nu_{ph} = \frac{4}{3}{\pi}a^{3} \int_{T_{0}}^{T_{1}} {
-        C_{V} (T) \mathrm{d}T }
+    h\nu_{ph} = \frac{4}{3}{\pi}a^{3} \int_{T_{0}}^{T_{1}} {\!
+        C_{V} (T) \;\mathrm{d}T }
     \]
-For small grains, the jump from $T_{0}$ to $T_{1}$ can be very large
-(several hundred K), depending on $h\nu_{ph}$, $a$, and $C_{V}$ (the heat
-capacity per unit volume). These grains are said to be stochastically
-heated to high temperatures. As a result, the grains are found over a wide
-range in $T$.\footnote{handout, Fig. 2 from Draine (1990)}
-Standard large grains are not much affected by single photons. Instead, they
-reach a relatively constant equilibrium temperature when embedded in a
-specified radiation field.
 
-\subsection{Absorption efficiency: the Q parameter}
+For \emph{small} grains, the jump from $T_{0}$ to $T_{1}$ can be very large
+(several hundred K), depending on $h\nu_{ph}$, $a$, and $C_{V}$ (the heat
+capacity per unit volume). These grains are said to be stochastically heated to
+high temperatures. As a result, the grains are found over a wide range in
+$T$.\footnote{handout, Fig. 2 from Draine (1990)} Standard \emph{large} grains
+are not much affected by single photons. Instead, they reach a relatively
+constant equilibrium temperature when embedded in a specified radiation field.
+
+\subsubsection{Absorption efficiency: the Q parameter}
 The absorption efficiency of grains is described by the \textit{Q parameter},
 defined as:
 \[
@@ -2721,9 +2729,8 @@ defined as:
 \begin{itemize}[label={}]
     \item $\sigma_{\nu}$ = effective absorption cross-section at frequency
         $\nu$
-    \item ${\pi}a^{2}$ = geometrical area
+    \item ${\pi}a^{2}$ = geometrical (physical) area
 \end{itemize}
-\mynotes{$Q$ = 1 for a blackbody.}
 In practice, $\sigma_{\nu}^{abs} \sim {\pi}a^{2} $
 at UV wavelengths, and $\sigma_{\nu}^{scat} \sim \sigma_{\nu}^{abs}$.
 For $\lambda \gg a$ (in IR), $\sigma_{\nu}^{scat} \rightarrow 0$.
@@ -2731,11 +2738,12 @@ For $\lambda \gg a$ (in IR), $\sigma_{\nu}^{scat} \rightarrow 0$.
 \mar{106}The optical depth becomes:
 \[
     \tau_{\nu}
-    = \int_{R}{ \alpha{\nu} \mathrm{d}r}
-    = \int_{R}{ n_{d} \pi a^{2} Q_{\nu} \mathrm{d}r}
-    = \int_{R}{ \rho_{d}\kappa_{\nu} \mathrm{d}r}
+    = \int_{R}{ \alpha{\nu} \;\mathrm{d}r}
+    = \int_{R}{ n_{d} \pi a^{2} Q_{\nu} \;\mathrm{d}r}
+    = \int_{R}{ \rho_{d}\kappa_{\nu} \;\mathrm{d}r}
     \]
 \begin{itemize}
+    \item $\alpha{\nu}$ = volume absorption coefficient
     \item $\kappa_{\nu}$ = mass absorption coefficient
     \item $\rho_{d}$ = mass density of a grain
 \end{itemize}
@@ -2743,7 +2751,8 @@ We have:
 \[
     \kappa_{\nu} = \frac{n_{d}}{\rho_{d}} \pi a^{2} Q_{\nu}
     \]
-Typical numbers:
+
+\paragraph{Typical numbers:}
 \begin{itemize}[label={}, itemsep=1ex]
     \item $\cfrac{M_{d}}{M_{g}} \sim 0.005 - 0.01$
         (``dust-to-gas'' ratio is $\sim$ 1\%)
@@ -2765,40 +2774,38 @@ We can also define the absorption of dust per H-atom:
     \item $X_{H}$ = fractional mass abundance of hydrogen ($ \sim 0.7 $)
 \end{itemize}
 
-\subsection{Calculating dust mass from FIR fluxes}
-The volume emission coefficient of dust grains is:
+\subsubsection{Calculating dust mass from FIR fluxes}
+The volume \emph{emission} coefficient of dust grains is:
 \[
     j_{\nu}
     = n_{d} \pi a^{2} Q_{\nu} B_{\nu} (T_{d})
     = \rho_{d} \kappa_{\nu} B_{\nu} (T_{d})
     = \alpha_{nu} B_{\nu} (T_{d})
     \]
-(Kirchoff's law!)
 
-\mar{107}The emission is optically then, so
+\mar{107}The emission is optically thin, so
 \[
     I_{\nu}
     = \int_{R}{
-        j_{\nu} \mathrm{d}r}
+        j_{\nu} \;\mathrm{d}r}
     = \int{
-        \rho_{d} \kappa_{\nu} B_{\nu} (T_{d}) \mathrm{d}r}
+        \rho_{d} \kappa_{\nu} B_{\nu} (T_{d}) \;\mathrm{d}r}
     \]
-\mynotes{$T_{d}$ is measured from $Q_{\nu}B_{\nu}(T_{?})$\ldots ?}
 
 What we measure is flux,
-$F_{\nu} = \int I_{\nu} \cos \theta \mathrm{d}\Omega
-\approx \int I_{\nu} \mathrm{d}\Omega $ for small $\theta$.
+$F_{\nu} = \int I_{\nu} \cos \theta \;\mathrm{d}\Omega
+\approx \int I_{\nu} \;\mathrm{d}\Omega $ (for small $\theta$).
 
 For an optically thin, spherical cloud:
 \[
-    L_{\nu} = \int_{volume} \epsilon_{\nu} \mathrm{d}V; \quad
-    \epsilon_{\nu} = \int j_{\nu} \mathrm{d}\Omega
+    L_{\nu} = \int_{volume} \epsilon_{\nu} \;\mathrm{d}V; \quad
+    \epsilon_{\nu} = \int j_{\nu} \;\mathrm{d}\Omega
     \]
 \[
     F_{\nu}
     = \frac{1}{4{\pi}D^{2}} \int_{\Omega}{
-        \mathrm{d}\Omega \int_{V}{
-            \rho_{d} \kappa_{\nu} B_{\nu} (T_{d}) \mathrm{d}V } }
+        \;\mathrm{d}\Omega \int_{V}{
+            \rho_{d} \kappa_{\nu} B_{\nu} (T_{d}) \;\mathrm{d}V } }
     \]
 \[
     \boxed{
@@ -2814,7 +2821,7 @@ So in practice:
     \item Derive $M_{d}$ from $(\star)$
 \end{itemize}
 $\Rightarrow$ Temperature variations along the light of sight cause severe
-problems\footnote{See handout from Draine (1990).}
+problems.\footnote{See handout from Draine (1990).}
 \mar{108}But first some more comments on spectra emitted by dust grains.
 We saw
 \[
@@ -2845,8 +2852,8 @@ In terms of frequency and luminosity:
         \frac{\nu^{3+n}}{ e^{h\nu/kT} - 1 }\; \mathrm{d}\nu }
     \]
 \[
-x = \cfrac{h\nu}{kT} \rightarrow \mathrm{d}\nu =
-\cfrac{kT}{h} \mathrm{d}x
+    x = \cfrac{h\nu}{kT} \rightarrow \mathrm{d}\nu =
+    \cfrac{kT}{h} \mathrm{d}x
     \]
 \[
     L_{IR}
@@ -2871,7 +2878,6 @@ and emit at different wavelengths. But for the standard MRN grains
 it should work, if there are no problems of different temperatures
 along the line-of-sight.
 
-\newpage
 \subsection{Dust temperatures}
 If dust grains were bricks \mynotes{(blackbodies)}, they would not
 be warm enough to emit in IRAS 60 and 100 $\mu$m bands: the energy
@@ -2920,6 +2926,7 @@ However, $Q_{a}(\lambda)$ does depend on $\lambda$, going somewhere
 as $1/\lambda$ or $1/\lambda^{2}$. This allows $T_{s}$ to increase
 substantially, reaching 15 to 18 K.
 
+\newpage
 \subsection{Interstellar extinction}
 \mar{116}The presence of dust was demonstrated by Trumpler, who detected the
 dimming and reddening of distant stars. \mynotes{High-z proto-galaxies!}
